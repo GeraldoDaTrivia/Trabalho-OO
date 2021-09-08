@@ -2,13 +2,26 @@ package trabalho;
 
 public class Sobremesa extends Produto {
 
+//Atributos
 	private String tipoSobre;
-	private String ingredienets;
+	private String ingredientes;
 	
-	public Sobremesa() {
-		
+	
+//Construtores
+	public Sobremesa(String tipo, String ingredSobre, String nomeSobre, double valorSobre) {
+		tipoSobre = tipo;
+		ingredientes = ingredSobre;
+		nome = nomeSobre;
+		valor = valorSobre;
 	}
 	
+	@Override
+	public String toString() {
+		return "Sobremesa : " + nome + " - R$" + valor;
+	}
+	
+	
+//Gets e sets
 	public String getTipoSobre() {
 		return tipoSobre;
 	}
@@ -17,12 +30,12 @@ public class Sobremesa extends Produto {
 		this.tipoSobre = tipoSobre;
 	}
 
-	public String getIngredienets() {
-		return ingredienets;
+	public String getIngredientes() {
+		return ingredientes;
 	}
 
-	public void setIngredienets(String ingredienets) {
-		this.ingredienets = ingredienets;
+	public void setIngredientes(String ingredientes) {
+		this.ingredientes = ingredientes;
 	}
 
 	public String getNome() {

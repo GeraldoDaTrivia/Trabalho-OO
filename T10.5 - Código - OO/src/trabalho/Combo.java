@@ -2,16 +2,30 @@ package trabalho;
 
 public class Combo extends Produto {
 
+//Atributos
 	private int escolhaBebida;
 	private Burger burgCombo;
 	private Acompanhamento acompCombo;
 	private Bebida bebCombo;
 	
 
-	public Combo() {
-		
+//Construtores
+	public Combo(int escBeb, Burger burgCom, Acompanhamento acompCom, Bebida bebCom, String nomeCom, double valorCom) {
+		escolhaBebida = escBeb;
+		burgCombo = burgCom;
+		acompCombo = acompCom;
+		bebCombo = bebCom;
+		nome = nomeCom;
+		valor = valorCom;
 	}
 	
+	@Override
+	public String toString() {
+		return "Combo : " + nome + " - R$" + valor;
+	}
+	
+	
+//Gets e sets
 	public Burger getBurgCombo() {
 		return burgCombo;
 	}

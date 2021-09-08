@@ -2,22 +2,36 @@ package trabalho;
 
 public class Personalizavel extends Produto {
 
+//Atributos
 	private int quantCarne;
 	private String addIngred;
 	private int escolhaMolho;
-	private Burger burgPerson;
+	private Burger burgPers;
 	
 
-	public Personalizavel() {
-		
+//Construtores
+	public Personalizavel(int qtdCarne, String addIng, int escMolho, Burger burg, String nomePers, double valorPers) {
+		quantCarne = qtdCarne;
+		addIngred = addIng;
+		escolhaMolho = escMolho;
+		burgPers = burg;
+		nome = nomePers;
+		valor = valorPers;
 	}
 
-	public Burger getBurgPerson() {
-		return burgPerson;
+	@Override
+	public String toString() {
+		return "Personalizavel : " + nome + " - R$" + valor; 
+	}
+	
+	
+//Gets e sets
+	public Burger getBurgPers() {
+		return burgPers;
 	}
 
-	public void setBurgPerson(Burger burgPerson) {
-		this.burgPerson = burgPerson;
+	public void setBurgPers(Burger burgPers) {
+		this.burgPers = burgPers;
 	}
 	
 	public int getQuantCarne() {

@@ -2,6 +2,7 @@ package trabalho;
 
 public class Endereco {
 
+//Atributos
 	private int cep;
 	private String estado;
 	private String cidade;
@@ -9,10 +10,29 @@ public class Endereco {
 	private String rua;
 	private int numCasa;
 	
-	public Endereco() {
-		
+	
+//Construtores
+	public Endereco(int numCep, String est, String cid, String bai, String nomeRua, int numeroCasa) {
+		cep = numCep;
+		estado = est;
+		cidade = cid;
+		bairro = bai;
+		rua = nomeRua;
+		numCasa = numeroCasa;
 	}
 	
+	@Override
+	public String toString() {
+		return "CEP: " + cep + 
+				", Estado: " + estado + 
+				", Cidade: " + cidade + 
+				", Bairro: " + bairro + 
+				", Rua: " + rua + 
+				", Casa: " + numCasa + 
+				".";
+	}
+	
+//Gets e sets
 	public int getCep() {
 		return cep;
 	}

@@ -2,24 +2,38 @@ package trabalho;
 
 public class Cliente extends Pessoa {
 
-	public Cliente() {
-		
+//Construtores
+	public Cliente(String nomeCliente, int idCliente, int cpfCliente, Telefone telCliente) {
+		nome = nomeCliente;
+		numId = idCliente;
+		cpf = cpfCliente;
+		numTel = telCliente;
 	}
 
-	public int getNumId() {
-		return numId;
+	@Override
+	public String toString() {
+		return "Nome: " + nome + 
+				"\nID: " + numId + 
+				"\nCPF: " + cpf + 
+				"\nTelefone: " + numTel;
 	}
-
-	public void setNumId(int numId) {
-		this.numId = numId;
-	}
-
+	
+	
+//Gets e sets
 	public String getNome() {
 		return nome;
 	}
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public int getNumId() {
+		return numId;
+	}
+
+	public void setNumId(int numId) {
+		this.numId = numId;
 	}
 
 	public int getCpf() {

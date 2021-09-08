@@ -2,14 +2,24 @@ package trabalho;
 
 public class Telefone {
 
+//Atributos
 	private int ddd;
 	private int numero;
 	
-	public Telefone() {
-		
-	}
-
 	
+//Construtores
+	public Telefone(int numDdd, int num) {
+		ddd = numDdd;
+		numero = num;
+	}
+	
+	@Override
+	public String toString() {
+		return "(" + ddd + ")" + numero; 
+	}
+	
+	
+//Gets e sets
 	public int getDdd() {
 		return ddd;
 	}

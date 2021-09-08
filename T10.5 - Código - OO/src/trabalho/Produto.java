@@ -2,9 +2,12 @@ package trabalho;
 
 public abstract class Produto {
 
+//Atributos
 	protected String nome;
 	protected double valor;
 	
+	
+//Gets e sets
 	public String getNome() {
 		return nome;
 	}
