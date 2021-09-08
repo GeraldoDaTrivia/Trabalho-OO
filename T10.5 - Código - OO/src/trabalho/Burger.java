@@ -2,15 +2,28 @@ package trabalho;
 
 public class Burger extends Produto {
 
+//Atributos
 	private String tipoCarne;
 	private String ingredientes;
 	private String molho;
 	
-	public Burger() {
-		
-		
+	
+//Construtores
+	public Burger(String carne, String ingredBurg, String molhoBurg, String nomeBurg, double valorBurg) {
+		tipoCarne = carne;
+		ingredientes = ingredBurg;
+		molho = molhoBurg;
+		nome = nomeBurg;
+		valor = valorBurg;
 	}
 	
+	@Override
+	public String toString() {
+		return "Burger: " + nome + " - R$%" + valor; 
+	}
+	
+	
+//Gets e sets
 	public String getTipoCarne() {
 		return tipoCarne;
 	}

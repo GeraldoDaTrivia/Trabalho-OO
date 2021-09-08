@@ -2,11 +2,21 @@ package trabalho;
 
 public abstract class Pessoa {
 
-	protected int numId;
+//Atributos
 	protected String nome;
+	protected int numId;
 	protected int cpf;
 	protected Telefone numTel;
 
+	
+//Gets e sets
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 	
 	public int getNumId() {
 		return numId;
@@ -14,14 +24,6 @@ public abstract class Pessoa {
 
 	public void setNumId(int numId) {
 		this.numId = numId;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
 	}
 
 	public int getCpf() {

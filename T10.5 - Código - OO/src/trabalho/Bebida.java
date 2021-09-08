@@ -2,14 +2,28 @@ package trabalho;
 
 public class Bebida extends Produto {
 	
+//Atributos
 	private String tipoBebida;
 	private String sabor;
 	private String tamRecipiente;
 	
-	public Bebida() {
-		
+	
+//Construtores
+	public Bebida(String tipo, String sabBebida, String tamBebida, String nomeBebida, double valorBebida) {
+		tipoBebida = tipo;
+		sabor = sabBebida;
+		tamRecipiente = tamBebida;
+		nome = nomeBebida;
+		valor = valorBebida;
 	}
 	
+	@Override
+	public String toString() {
+		return "Bebida : " + nome + " - R$" + valor;
+	}
+	
+	
+//Gets e sets
 	public String getTipoBebida() {
 		return tipoBebida;
 	}

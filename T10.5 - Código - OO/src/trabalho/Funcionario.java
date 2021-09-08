@@ -2,26 +2,47 @@ package trabalho;
 
 public class Funcionario extends Pessoa {
 
+//Atributos
 	private int rg;
+	private Endereco endFunc;
 	
-	public Funcionario() {
-		
+
+//Construtores
+	public Funcionario(String nomeFunc, int idFunc, int cpfFunc, int numRg, Telefone telFunc, Endereco enderecoFunc) {
+		nome = nomeFunc;
+		numId = idFunc;
+		cpf = cpfFunc;
+		rg = numRg;
+		numTel = telFunc;
+		endFunc = enderecoFunc;
 	}
 
-	public int getNumId() {
-		return numId;
+	@Override
+	public String toString() {
+		return "Nome: " + nome + 
+				"\nID: " + numId + 
+				"\nCPF: " + cpf + 
+				"\nRG: " + rg + 
+				"\nTelefone: " + numTel + 
+				"\nEndereco: " + endFunc;
 	}
-
-	public void setNumId(int numId) {
-		this.numId = numId;
-	}
-
+	
+	
+//Gets e sets
 	public String getNome() {
 		return nome;
 	}
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public int getNumId() {
+		return numId;
+	}
+
+	public void setNumId(int numId) {
+		this.numId = numId;
 	}
 
 	public int getCpf() {
@@ -38,6 +59,14 @@ public class Funcionario extends Pessoa {
 
 	public void setNumTel(Telefone numTel) {
 		this.numTel = numTel;
+	}
+	
+	public Endereco getEndFunc() {
+		return endFunc;
+	}
+
+	public void setEndFunc(Endereco endFunc) {
+		this.endFunc = endFunc;
 	}
 	
 	public int getRg() {

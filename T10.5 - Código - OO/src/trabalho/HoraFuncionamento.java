@@ -2,14 +2,29 @@ package trabalho;
 
 public class HoraFuncionamento {
 
+//Atributos
 	private String horAbrir;
 	private String horFechar;
 	private String diasAbertos;
 	
-	public HoraFuncionamento() {
-		
+	
+//Construtores
+	public HoraFuncionamento(String abrir, String fechar, String dias) {
+		horAbrir = abrir;
+		horFechar = fechar;
+		diasAbertos = dias;
 	}
 	
+	@Override
+	public String toString() {
+		return "Hora de Abrir: " + horAbrir + 
+				", Hora de Fechar: " + horFechar + 
+				", Dias Abertos: " + diasAbertos + 
+				".";
+	}
+	
+	
+//Gets e sets
 	public String getHorAbrir() {
 		return horAbrir;
 	}

@@ -2,6 +2,7 @@ package trabalho;
 
 public class Infantil extends Produto {
 
+//Atributos
 	private String tipoCarne;
 	private String ingredientes;
 	private String molho;
@@ -9,10 +10,24 @@ public class Infantil extends Produto {
 	private Bebida bebInfantil;
 	
 
-	public Infantil() {
-		
+//Construtores
+	public Infantil(String carne, String ingredInf, String molhoInf, Acompanhamento acompInf, Bebida bebInf, String nomeInf, double valorInf) {
+		tipoCarne = carne;
+		ingredientes = ingredInf;
+		molho = molhoInf;
+		acompInfantil = acompInf;
+		bebInfantil = bebInf;
+		nome = nomeInf;
+		valor = valorInf;
 	}
 	
+	@Override
+	public String toString() {
+		return "Infantil : " + nome + " - R$" + valor; 
+	}
+	
+	
+//Gets e sets
 	public String getTipoCarne() {
 		return tipoCarne;
 	}

@@ -2,13 +2,26 @@ package trabalho;
 
 public class Acompanhamento extends Produto {
 
+//Atributos
 	private String tipoAcomp;
 	private String ingredientes;
 	
-	public Acompanhamento() {
-		
+
+//Construtores
+	public Acompanhamento(String tipo, String ingredAcomp, String nomeAcomp, double valorAcomp) {
+		tipoAcomp = tipo;
+		ingredientes = ingredAcomp;
+		nome = nomeAcomp;
+		valor = valorAcomp;
 	}
 	
+	@Override
+	public String toString() {
+		return "Acompanhamento : " + nome + " - R$" + valor;
+	}
+	
+	
+//Gets e sets
 	public String getTipoAcomp() {
 		return tipoAcomp;
 	}
