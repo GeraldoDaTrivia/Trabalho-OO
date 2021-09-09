@@ -19,7 +19,7 @@ public class Promocao extends Produto {
 	
 	@Override
 	public String toString() {
-		return "Promocao : " + nome + " - R$" + valor;
+		return nome + " - R$" + valor;
 	}
 	
 	

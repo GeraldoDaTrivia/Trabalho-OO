@@ -9,16 +9,19 @@ public class SobreALoja {
 	
 	
 //Construtores
-	public SobreALoja(HoraFuncionamento hora, Endereco end, Telefone tel) {
+	public SobreALoja(Telefone tel, HoraFuncionamento hora, Endereco end) {
+		telLoja = tel;
 		horFunc = hora;
 		endLoja = end;
-		telLoja = tel;
 	}
 	
 	@Override
 	public String toString() {
-		return "----==== Informacoes Sobre a Loja ====----\n"
-				+ telLoja + "\n" + horFunc + "\n" + endLoja + "\n";
+		return "\n----==== Informacoes Sobre a Loja ====----\n" + 
+				"\n# Telefone #\n"+ telLoja + 
+				"\n# Horario de Funcionamento #\n" + horFunc + 
+				"\n# Endereco #\n" + endLoja + 
+				"\n\n---------=========######=========---------\n";
 	}
 	
 	

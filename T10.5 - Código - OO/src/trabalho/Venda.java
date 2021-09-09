@@ -14,34 +14,24 @@ public class Venda {
 	private Sobremesa sobreVenda[];
 	private Promocao promoVenda[];
 	private double valorTotal;
-	private int contador;
+	private String prodVendidos;
 	
-	
+
 //Construtores
-	public Venda(Cliente cliVenda, Funcionario funcioVenda, Burger burgV[]
-			, Acompanhamento acompV[], Bebida bebV[], Infantil infV[], Combo comV[]
-			, Personalizavel persV[], Sobremesa sobreV[], Promocao promoV[], double valorVenda, int contador) {
-		
-		clienteVenda = cliVenda;
-		funcVenda = funcioVenda;
-		burgVenda[contador] = burgV[contador];
-		acompVenda[contador] = acompV[contador];
-		bebVenda[contador] = bebV[contador];
-		infVenda[contador] = infV[contador];
-		comboVenda[contador] = comV[contador];
-		persVenda[contador] = persV[contador];
-		sobreVenda[contador] = sobreV[contador];
-		promoVenda[contador] = promoV[contador];
-		valorTotal = valorVenda;
+	public Venda(Cliente cliVenda, Funcionario funcioVenda, String prodVenda, double valorVenda) {
+			clienteVenda = cliVenda;
+			funcVenda = funcioVenda;
+			prodVendidos = prodVenda;
+			valorTotal = valorVenda;
 	}
 	
 	@Override
 	public String toString() {
-		return "Cliente: " + clienteVenda.getNome() + 
-				"\nFuncionario: " + funcVenda.getNome() + 
-				"\nValor Total: " + valorTotal;
+		return "# Cliente\n" + clienteVenda.getNumId() + " - " + clienteVenda.getNome() + 
+				"\n# Funcionario\n" + funcVenda.getNumId() + " - " + funcVenda.getNome() + 
+				"\n# Produtos Vendidos\n" + prodVendidos +
+				"\n# Valor Total\nR$" + valorTotal;
 	}
-	
 	
 	
 //Gets e sets
@@ -132,13 +122,13 @@ public class Venda {
 	public void setValorTotal(double valorTotal) {
 		this.valorTotal = valorTotal;
 	}
-	
-	public int getContador() {
-		return contador;
+
+	public String getQtdProdVendidos() {
+		return prodVendidos;
 	}
 
-	public void setContador(int contador) {
-		this.contador = contador;
+	public void setQtdProdVendidos(String qtdProdVendidos) {
+		this.prodVendidos = qtdProdVendidos;
 	}
 
 }

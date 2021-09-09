@@ -23,7 +23,7 @@ public class Infantil extends Produto {
 	
 	@Override
 	public String toString() {
-		return "Infantil : " + nome + " - R$" + valor; 
+		return nome + " - R$" + valor;
 	}
 	
 	

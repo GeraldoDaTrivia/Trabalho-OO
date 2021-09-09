@@ -17,10 +17,9 @@ public class HoraFuncionamento {
 	
 	@Override
 	public String toString() {
-		return "Hora de Abrir: " + horAbrir + 
-				", Hora de Fechar: " + horFechar + 
-				", Dias Abertos: " + diasAbertos + 
-				".";
+		return "Horario de Abertura: " + horAbrir + 
+				"\nHorario de Fechamento: " + horFechar + 
+				"\nDias Abertos: " + diasAbertos;
 	}
 	
 	

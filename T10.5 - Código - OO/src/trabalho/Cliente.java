@@ -3,7 +3,7 @@ package trabalho;
 public class Cliente extends Pessoa {
 
 //Construtores
-	public Cliente(String nomeCliente, int idCliente, int cpfCliente, Telefone telCliente) {
+	public Cliente(String nomeCliente, int idCliente, String cpfCliente, Telefone telCliente) {
 		nome = nomeCliente;
 		numId = idCliente;
 		cpf = cpfCliente;
@@ -36,11 +36,11 @@ public class Cliente extends Pessoa {
 		this.numId = numId;
 	}
 
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 
