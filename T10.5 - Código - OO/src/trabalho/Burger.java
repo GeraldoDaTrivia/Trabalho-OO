@@ -19,7 +19,7 @@ public class Burger extends Produto {
 	
 	@Override
 	public String toString() {
-		return "Burger: " + nome + " - R$%" + valor; 
+		return nome + " - R$" + valor; 
 	}
 	
 	

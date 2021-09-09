@@ -5,7 +5,7 @@ public abstract class Pessoa {
 //Atributos
 	protected String nome;
 	protected int numId;
-	protected int cpf;
+	protected String cpf;
 	protected Telefone numTel;
 
 	
@@ -26,11 +26,11 @@ public abstract class Pessoa {
 		this.numId = numId;
 	}
 
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 

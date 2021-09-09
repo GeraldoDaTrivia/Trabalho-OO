@@ -17,7 +17,7 @@ public class Acompanhamento extends Produto {
 	
 	@Override
 	public String toString() {
-		return "Acompanhamento : " + nome + " - R$" + valor;
+		return nome + " - R$" + valor;
 	}
 	
 	

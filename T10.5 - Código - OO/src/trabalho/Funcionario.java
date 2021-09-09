@@ -8,7 +8,7 @@ public class Funcionario extends Pessoa {
 	
 
 //Construtores
-	public Funcionario(String nomeFunc, int idFunc, int cpfFunc, int numRg, Telefone telFunc, Endereco enderecoFunc) {
+	public Funcionario(String nomeFunc, int idFunc, String cpfFunc, int numRg, Telefone telFunc, Endereco enderecoFunc) {
 		nome = nomeFunc;
 		numId = idFunc;
 		cpf = cpfFunc;
@@ -45,11 +45,11 @@ public class Funcionario extends Pessoa {
 		this.numId = numId;
 	}
 
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 

@@ -17,7 +17,7 @@ public class Sobremesa extends Produto {
 	
 	@Override
 	public String toString() {
-		return "Sobremesa : " + nome + " - R$" + valor;
+		return nome + " - R$" + valor;
 	}
 	
 	

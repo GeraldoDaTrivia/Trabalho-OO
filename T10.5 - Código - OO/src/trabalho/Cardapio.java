@@ -3,41 +3,76 @@ package trabalho;
 public class Cardapio {
 
 //Atributos
-	private Burger burgCardapio[];
-	private Acompanhamento acompCardapio[];
-	private Bebida bebCardapio[];
-	private Infantil infCardapio[];
-	private Combo comboCardapio[];
-	private Personalizavel persCardapio[];
-	private Sobremesa sobreCardapio[];
-	private Promocao promoCardapio[];
-	private int contador;
+	private Burger[] burgCardapio = new Burger[8];
+	private Acompanhamento[] acompCardapio = new Acompanhamento[5];
+	private Bebida[] bebCardapio = new Bebida[18];
+	private Infantil[] infCardapio = new Infantil[3];
+	private Combo[] comboCardapio = new Combo[4];
+	private Personalizavel[] persCardapio = new Personalizavel[24];
+	private Sobremesa[] sobreCardapio = new Sobremesa[8];
+	private Promocao[] promoCardapio = new Promocao[3];
+	private int qtdBurger = 0;
+	private int qtdAcomp = 0;
+	private int qtdBebida = 0;
+	private int qtdInfantil = 0;
+	private int qtdCombo = 0;
+	private int qtdPers = 0;
+	private int qtdSobre = 0;
+	private int qtdPromo = 0;
+	private int qtdCadastro;
 	
 	
+//Construtores
 	public Cardapio(Burger burgC[], Acompanhamento acompC[], Bebida bebC[]
 			, Infantil infC[], Combo comC[], Personalizavel persC[]
-			, Sobremesa sobreC[], Promocao promoC[], int contador) {
+			, Sobremesa sobreC[], Promocao promoC[]) {
 		
-		burgCardapio[contador] = burgC[contador];
-		acompCardapio[contador] = acompC[contador];
-		bebCardapio[contador] = bebC[contador];
-		infCardapio[contador] = infC[contador];
-		comboCardapio[contador] = comC[contador];
-		persCardapio[contador] = persC[contador];
-		sobreCardapio[contador] = sobreC[contador];
-		promoCardapio[contador] = promoC[contador];
+		
+		for(int contador=qtdBurger; contador < 8||contador < qtdCadastro; contador++) {
+			burgCardapio[contador] = burgC[contador];
+			qtdBurger++;
+		}
+		for(int contador=qtdAcomp; contador < 5||contador < qtdCadastro; contador++) {
+			acompCardapio[contador] = acompC[contador];
+			qtdAcomp++;
+		}
+		for(int contador=qtdBebida; contador < 18||contador < qtdCadastro; contador++) {
+			bebCardapio[contador] = bebC[contador];
+			qtdBebida++;
+		}
+		for(int contador=qtdInfantil; contador < 3||contador < qtdCadastro; contador++) {
+			infCardapio[contador] = infC[contador];
+			qtdInfantil++;
+		}
+		for(int contador=qtdCombo; contador < 4||contador < qtdCadastro; contador++) {
+			comboCardapio[contador] = comC[contador];
+			qtdCombo++;
+		}
+		for(int contador=qtdPers; contador < 24||contador < qtdCadastro; contador++) {
+			persCardapio[contador] = persC[contador];
+			qtdPers++;
+		}
+		for(int contador=qtdSobre; contador < 8||contador < qtdCadastro; contador++) {
+			sobreCardapio[contador] = sobreC[contador];
+			qtdSobre++;
+		}
+		for(int contador=qtdPromo; contador < 3||contador < qtdCadastro; contador++) {
+			promoCardapio[contador] = promoC[contador];
+			qtdPromo++;
+		}
 	}
 	
 	@Override
 	public String toString() {
-		return "-------======= Cardapio =======-------\n" + burgCardapio[contador] + 
-				"\n" + acompCardapio[contador] + 
-				"\n" + bebCardapio[contador] + 
-				"\n" + infCardapio[contador] + 
-				"\n" + comboCardapio[contador] + 
-				"\n" + persCardapio[contador] + 
-				"\n" + sobreCardapio[contador] + 
-				"\n" + promoCardapio[contador] + 
+		return "-------======= Cardapio =======-------" +
+				"\n" + burgCardapio + 
+				"\n" + acompCardapio + 
+				"\n" + bebCardapio + 
+				"\n" + infCardapio + 
+				"\n" + comboCardapio + 
+				"\n" + persCardapio + 
+				"\n" + sobreCardapio + 
+				"\n" + promoCardapio + 
 				"\n-------=======##########=======-------";
 	}
 
@@ -107,12 +142,12 @@ public class Cardapio {
 		this.promoCardapio = promoCardapio;
 	}
 
-	public int getContador() {
-		return contador;
+	public int getQtdCadastro() {
+		return qtdCadastro;
 	}
 
-	public void setContador(int contador) {
-		this.contador = contador;
+	public void setQtdCadastro(int qtdCadastro) {
+		this.qtdCadastro = qtdCadastro;
 	}
 	
 	

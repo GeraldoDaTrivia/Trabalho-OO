@@ -21,7 +21,7 @@ public class Personalizavel extends Produto {
 
 	@Override
 	public String toString() {
-		return "Personalizavel : " + nome + " - R$" + valor; 
+		return nome + " - R$" + valor;
 	}
 	
 	

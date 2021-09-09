@@ -10,8 +10,7 @@ public class Combo extends Produto {
 	
 
 //Construtores
-	public Combo(int escBeb, Burger burgCom, Acompanhamento acompCom, Bebida bebCom, String nomeCom, double valorCom) {
-		escolhaBebida = escBeb;
+	public Combo(Burger burgCom, Acompanhamento acompCom, Bebida bebCom, String nomeCom, double valorCom) {
 		burgCombo = burgCom;
 		acompCombo = acompCom;
 		bebCombo = bebCom;
@@ -21,7 +20,7 @@ public class Combo extends Produto {
 	
 	@Override
 	public String toString() {
-		return "Combo : " + nome + " - R$" + valor;
+		return nome + " - R$" + valor;
 	}
 	
 	
