@@ -123,12 +123,12 @@ public class Venda {
 		this.valorTotal = valorTotal;
 	}
 
-	public String getQtdProdVendidos() {
+	public String getProdVendidos() {
 		return prodVendidos;
 	}
 
-	public void setQtdProdVendidos(String qtdProdVendidos) {
-		this.prodVendidos = qtdProdVendidos;
+	public void setProdVendidos(String ProdVendidos) {
+		this.prodVendidos = ProdVendidos;
 	}
 
 }
