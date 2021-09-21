@@ -1,5 +1,7 @@
 package trabalho;
 
+import java.util.*;
+
 public class Teste {
 	
 //Atributos
@@ -18,6 +20,15 @@ public class Teste {
 	static Telefone telLoja1;
 	static HoraFuncionamento horLoja1;
 	static Endereco endLoja1;
+	static Cardapio cardapioLoja;
+	static ArrayList<Burger> burgCardapio = new ArrayList<>();
+	static ArrayList<Acompanhamento> acompCardapio = new ArrayList<>();
+	static ArrayList<Bebida> bebCardapio = new ArrayList<>();
+	static ArrayList<Infantil> infCardapio = new ArrayList<>();
+	static ArrayList<Combo> comboCardapio = new ArrayList<>();
+	static ArrayList<Personalizavel> persCardapio = new ArrayList<>();
+	static ArrayList<Sobremesa> sobreCardapio = new ArrayList<>();
+	static ArrayList<Promocao> promoCardapio = new ArrayList<>();
 	
 	public static void main(String[] args) {
 		
@@ -48,21 +59,18 @@ public class Teste {
 		horLoja1 = new HoraFuncionamento("10:00", "18:00", "Segunda a Sabado");
 		endLoja1 = new Endereco(75000000, "Goias", "Cidade Azul", "Bairro Vermelho", "Rua Verde", 22);
 		loja1 = new SobreALoja(telLoja1, horLoja1, endLoja1);
+	//Cardapio
+		cardapioLoja = new Cardapio(2, 1, 1, 0, 1, 0, 0, 0);
+		burgCardapio.add(0, burger1);;
+		burgCardapio.add(1, burger2);
+		acompCardapio.add(0, acomp1);
+		bebCardapio.add(0, bebida1);
+		comboCardapio.add(0, combo1);
 		
 //Saida de dados
 		
 	//Cardapio
-		System.out.println("-------======= Cardapio =======-------\n");
-		System.out.println("# Burgers #\n");
-		System.out.println(burger1.toString());
-		System.out.println(burger2.toString());
-		System.out.println("\n# Acompanhamentos #\n");
-		System.out.println(acomp1.toString());
-		System.out.println("\n# Bebidas #\n");
-		System.out.println(bebida1.toString());
-		System.out.println("\n# Combos #\n");
-		System.out.println(combo1.toString());
-		System.out.println("\n-------=======##########=======-------\n\n");
+		System.out.println(cardapioLoja.toString());
 	//Venda
 		System.out.println("*** Venda ***\n");
 		System.out.println(venda1.toString());
