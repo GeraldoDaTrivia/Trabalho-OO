@@ -1,4 +1,4 @@
-package trabalho;
+package modeloDados;
 
 public class Telefone {
 

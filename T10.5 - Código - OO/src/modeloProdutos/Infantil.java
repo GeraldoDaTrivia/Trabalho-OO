@@ -1,25 +1,31 @@
-package trabalho;
+package modeloProdutos;
 
-public class Burger extends Produto {
+import modeloAbstratas.Produto;
+
+public class Infantil extends Produto {
 
 //Atributos
 	private String tipoCarne;
 	private String ingredientes;
 	private String molho;
+	private Acompanhamento acompInfantil;
+	private Bebida bebInfantil;
 	
-	
+
 //Construtores
-	public Burger(String carne, String ingredBurg, String molhoBurg, String nomeBurg, double valorBurg) {
+	public Infantil(String nomeInf, String carne, String ingredInf, String molhoInf, Acompanhamento acompInf, Bebida bebInf, double valorInf) {
+		nome = nomeInf;
 		tipoCarne = carne;
-		ingredientes = ingredBurg;
-		molho = molhoBurg;
-		nome = nomeBurg;
-		valor = valorBurg;
+		ingredientes = ingredInf;
+		molho = molhoInf;
+		acompInfantil = acompInf;
+		bebInfantil = bebInf;
+		valor = valorInf;
 	}
 	
 	@Override
 	public String toString() {
-		return nome + " - R$" + valor; 
+		return nome + " - R$" + valor;
 	}
 	
 	
@@ -47,7 +53,23 @@ public class Burger extends Produto {
 	public void setMolho(String molho) {
 		this.molho = molho;
 	}
+	
+	public Acompanhamento getAcompInfantil() {
+		return acompInfantil;
+	}
 
+	public void setAcompInfantil(Acompanhamento acompInfantil) {
+		this.acompInfantil = acompInfantil;
+	}
+
+	public Bebida getBebInfantil() {
+		return bebInfantil;
+	}
+
+	public void setBebInfantil(Bebida bebInfantil) {
+		this.bebInfantil = bebInfantil;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -63,5 +85,5 @@ public class Burger extends Produto {
 	public void setValor(double valor) {
 		this.valor = valor;
 	}
-	
+
 }

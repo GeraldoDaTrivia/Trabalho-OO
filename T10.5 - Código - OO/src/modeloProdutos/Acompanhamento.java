@@ -1,4 +1,6 @@
-package trabalho;
+package modeloProdutos;
+
+import modeloAbstratas.Produto;
 
 public class Acompanhamento extends Produto {
 
@@ -8,10 +10,10 @@ public class Acompanhamento extends Produto {
 	
 
 //Construtores
-	public Acompanhamento(String tipo, String ingredAcomp, String nomeAcomp, double valorAcomp) {
+	public Acompanhamento(String nomeAcomp, String tipo, String ingredAcomp, double valorAcomp) {
+		nome = nomeAcomp;
 		tipoAcomp = tipo;
 		ingredientes = ingredAcomp;
-		nome = nomeAcomp;
 		valor = valorAcomp;
 	}
 	

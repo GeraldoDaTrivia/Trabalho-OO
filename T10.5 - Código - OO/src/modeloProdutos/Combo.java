@@ -1,4 +1,6 @@
-package trabalho;
+package modeloProdutos;
+
+import modeloAbstratas.Produto;
 
 public class Combo extends Produto {
 
@@ -10,11 +12,11 @@ public class Combo extends Produto {
 	
 
 //Construtores
-	public Combo(Burger burgCom, Acompanhamento acompCom, Bebida bebCom, String nomeCom, double valorCom) {
+	public Combo(String nomeCom, Burger burgCom, Acompanhamento acompCom, Bebida bebCom, double valorCom) {
+		nome = nomeCom;
 		burgCombo = burgCom;
 		acompCombo = acompCom;
 		bebCombo = bebCom;
-		nome = nomeCom;
 		valor = valorCom;
 	}
 	

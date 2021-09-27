@@ -1,4 +1,8 @@
-package trabalho;
+package modeloConjuntos;
+
+import modeloDados.Endereco;
+import modeloDados.HoraFuncionamento;
+import modeloDados.Telefone;
 
 public class SobreALoja {
 	

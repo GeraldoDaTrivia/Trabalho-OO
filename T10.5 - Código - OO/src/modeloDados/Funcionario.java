@@ -1,4 +1,6 @@
-package trabalho;
+package modeloDados;
+
+import modeloAbstratas.Pessoa;
 
 public class Funcionario extends Pessoa {
 

@@ -1,4 +1,6 @@
-package trabalho;
+package modeloProdutos;
+
+import modeloAbstratas.Produto;
 
 public class Sobremesa extends Produto {
 
@@ -8,10 +10,10 @@ public class Sobremesa extends Produto {
 	
 	
 //Construtores
-	public Sobremesa(String tipo, String ingredSobre, String nomeSobre, double valorSobre) {
+	public Sobremesa(String tipo, String nomeSobre, String ingredSobre, double valorSobre) {
 		tipoSobre = tipo;
-		ingredientes = ingredSobre;
 		nome = nomeSobre;
+		ingredientes = ingredSobre;
 		valor = valorSobre;
 	}
 	
