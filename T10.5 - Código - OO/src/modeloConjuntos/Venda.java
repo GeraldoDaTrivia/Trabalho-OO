@@ -1,4 +1,8 @@
-package trabalho;
+package modeloConjuntos;
+
+import modeloDados.Cliente;
+import modeloDados.Funcionario;
+import modeloProdutos.*;
 
 public class Venda {
 

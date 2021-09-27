@@ -1,4 +1,4 @@
-package trabalho;
+package modeloAbstratas;
 
 public abstract class Produto {
 

@@ -1,4 +1,6 @@
-package trabalho;
+package modeloProdutos;
+
+import modeloAbstratas.Produto;
 
 public class Promocao extends Produto {
 
@@ -9,11 +11,11 @@ public class Promocao extends Produto {
 
 
 //Construtores
-	public Promocao(String dias, Burger burg, Sobremesa sobre, String nomePromo, double valorPromo) {
+	public Promocao(String nomePromo, String dias, Burger burg, Sobremesa sobre, double valorPromo) {
+		nome = nomePromo;
 		diasValidos = dias;
 		burgPromo = burg;
 		sobrePromo = sobre;
-		nome = nomePromo;
 		valor = valorPromo;
 	}
 	

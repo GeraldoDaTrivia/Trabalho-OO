@@ -1,4 +1,6 @@
-package trabalho;
+package modeloDados;
+
+import modeloAbstratas.Pessoa;
 
 public class Cliente extends Pessoa {
 

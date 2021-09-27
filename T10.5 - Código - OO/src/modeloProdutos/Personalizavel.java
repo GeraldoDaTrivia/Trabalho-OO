@@ -1,4 +1,6 @@
-package trabalho;
+package modeloProdutos;
+
+import modeloAbstratas.Produto;
 
 public class Personalizavel extends Produto {
 
@@ -10,12 +12,12 @@ public class Personalizavel extends Produto {
 	
 
 //Construtores
-	public Personalizavel(int qtdCarne, String addIng, int escMolho, Burger burg, String nomePers, double valorPers) {
+	public Personalizavel(String nomePers, Burger burg, int qtdCarne, String addIng, int escMolho, double valorPers) {
+		nome = nomePers;
+		burgPers = burg;
 		quantCarne = qtdCarne;
 		addIngred = addIng;
 		escolhaMolho = escMolho;
-		burgPers = burg;
-		nome = nomePers;
 		valor = valorPers;
 	}
 

@@ -1,4 +1,6 @@
-package trabalho;
+package modeloAbstratas;
+
+import modeloDados.Telefone;
 
 public abstract class Pessoa {
 
