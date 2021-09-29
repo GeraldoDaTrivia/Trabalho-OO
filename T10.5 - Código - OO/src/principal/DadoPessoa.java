@@ -17,11 +17,12 @@ public class DadoPessoa {
 //Entrada de Dados Aleatorios
 	public void fillWithSomeData() {
 		for(int i = 0; i < 5; i++) {
-			telCliente[i] = new Telefone(06+i, 99800770+i);
-			clientes[i] = new Cliente("Cliente"+i, 1001*(i+1), "045000111-9"+i, telCliente[i]);
-			telFuncionario[i] = new Telefone(01+i, 98300990+i);
-			endFuncionario[i] = new Endereco(51000005*(i+1), "Estado"+i, "Cidade"+i, "Bairro"+i, "Rua"+i, 12*(i+1));
-			funcionarios[i] = new Funcionario("Funcioanrio"+i, 1107*(i+1), "086000333-5"+i, 1000505*(i+1), telFuncionario[i], endFuncionario[i]);
+			telCliente[i] = new Telefone(60+i, 9800770+i);
+			clientes[i] = new Cliente("Cliente"+i, 1001*(i+1), "045000111-"+i, telCliente[i]);
+			telFuncionario[i] = new Telefone(10+i, 9900990+i);
+			endFuncionario[i] = new Endereco(510005*(i+1), "Estado"+i, "Cidade"+i, "Bairro"+i, "Rua"+i, 12*(i+1));
+			funcionarios[i] = new Funcionario("Funcionario"+i, 1107*(i+1), "086000333-"+i, 
+					100505*(i+1), telFuncionario[i], endFuncionario[i]);
 			
 		}
 		
@@ -39,8 +40,16 @@ public class DadoPessoa {
 		this.clientes = clientes;
 	}
 	
-	public void inserirEditarCliente(Cliente clientes, int pos) {
-		this.clientes[pos] = clientes;
+	public Telefone[] getTelCliente() {
+		return telCliente;
+	}
+
+	public void setTelCliente(Telefone[] telCliente) {
+		this.telCliente = telCliente;
+	}
+
+	public void inserirEditarCliente(Cliente[] clientes, int pos) {
+		this.clientes[pos] = clientes[pos];
 		if(pos == qtdClientes) qtdClientes++;
 	}
 
@@ -62,8 +71,24 @@ public class DadoPessoa {
 		this.funcionarios = funcionarios;
 	}
 	
-	public void inserirEditarFuncionario(Funcionario funcionarios, int pos) {
-		this.funcionarios[pos] = funcionarios;
+	public Telefone[] getTelFuncionario() {
+		return telFuncionario;
+	}
+
+	public void setTelFuncionario(Telefone[] telFuncionario) {
+		this.telFuncionario = telFuncionario;
+	}
+
+	public Endereco[] getEndFuncionario() {
+		return endFuncionario;
+	}
+
+	public void setEndFuncionario(Endereco[] endFuncionario) {
+		this.endFuncionario = endFuncionario;
+	}
+
+	public void inserirEditarFuncionario(Funcionario[] funcionarios, int pos) {
+		this.funcionarios[pos] = funcionarios[pos];
 		if(pos == qtdFuncionarios) qtdFuncionarios++;
 	}
 

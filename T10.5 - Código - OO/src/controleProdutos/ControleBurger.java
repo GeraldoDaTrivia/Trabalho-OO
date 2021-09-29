@@ -8,14 +8,44 @@ public class ControleBurger {
 //Atributos
 	private Burger[] burgers;
 	private int qtdBurger;
+	private int numCadastros;
 	
 	
 //Construtor
 	public ControleBurger(DadoProduto dados) {
+		dados.fillWithSomeData();
 		burgers = dados.getBurgers();
 		qtdBurger = dados.getQtdBurger();
 	}
+
 	
+//Criar Produto
+	public void criarBurger(DadoProduto dados) {
+		//String nome;
+		//String tipoCarne;
+		//String ingred;
+		//String molho;
+		//double valor;
+		
+		for(int i = qtdBurger; i < 50||i < (qtdBurger + numCadastros); i++){
+			burgers[i] = new Burger("Burger"+i, "Carne"+i, "Ingredientes"+i, "Molho"+i, 10*(i+1));
+			
+			//burgers[i] = new Burger(nome, tipoCarne, ingred, molho, valor);
+			
+			dados.inserirEditarBurger(burgers, i);
+		}
+	}
+	
+	
+//Editar Produto
+	public void editarBurger(DadoProduto dados) {
+		//int escolhaBurger;
+		
+		//println("Qual hamburger deseja editar?");
+		//println(getBurgers());
+		
+	}
+		
 	
 //Get-Set Quantidade
 	public int getQtdBurger() {
@@ -26,7 +56,15 @@ public class ControleBurger {
 		this.qtdBurger = qtd;
 	}
 	
-	
+	public int getNumCadastros() {
+		return numCadastros;
+	}
+
+	public void setNumCadastros(int numCadastros) {
+		this.numCadastros = numCadastros;
+	}
+
+
 //Filtros e Buscas
 	public String[] getNomeBurger() {
 		String[] nomeBurger = new String[qtdBurger];
@@ -46,6 +84,12 @@ public class ControleBurger {
 		}
 		
 		return carneBurger;
+	}
+	
+
+//Get Burgers
+	public Burger[] getBurgers() {
+		return burgers;
 	}
 	
 	
