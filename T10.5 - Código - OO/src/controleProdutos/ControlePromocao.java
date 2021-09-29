@@ -1,5 +1,6 @@
 package controleProdutos;
 
+import java.util.Random;
 import modeloProdutos.Burger;
 import modeloProdutos.Promocao;
 import modeloProdutos.Sobremesa;
@@ -10,15 +11,35 @@ public class ControlePromocao {
 //Atributos
 	private Promocao[] promocoes;
 	private int qtdPromocoes;
+	private int numCadastros;
 	
 	
 //Contrutor
 	public ControlePromocao(DadoProduto dados) {
+		dados.fillWithSomeData();
 		promocoes = dados.getPromocoes();
 		qtdPromocoes = dados.getQtdPromo();
 	}
 
 
+//Criar Produto
+	public void criarPromocao(DadoProduto dados) {
+		int escolhaBurger;
+		int escolhaSobre;
+		Random burg = new Random();
+		Random sobre = new Random();
+		
+		for(int i = qtdPromocoes; i < 50|| i < (qtdPromocoes + numCadastros); i++){
+			escolhaBurger = burg.nextInt(dados.getQtdBurger());
+			escolhaSobre = sobre.nextInt(dados.getQtdSobremesa());
+			
+			promocoes[i] = new Promocao("Promocao"+i, "Dias"+i, dados.getOneBurger(escolhaBurger),
+					dados.getOneSobre(escolhaSobre), 9*(i+1));
+			dados.inserirEditarPromo(promocoes, i);
+		}
+	}
+
+	
 //Get-Set Quantidade
 	public int getQtdPromocoes() {
 		return qtdPromocoes;
@@ -28,7 +49,15 @@ public class ControlePromocao {
 		this.qtdPromocoes = qtdPromocoes;
 	}
 
-	
+	public int getNumCadastros() {
+		return numCadastros;
+	}
+
+	public void setNumCadastros(int numCadastros) {
+		this.numCadastros = numCadastros;
+	}
+
+
 //Filtros e Buscas
 	public String[] getNomePromo() {
 		String[] nomePromo = new String[qtdPromocoes];
@@ -38,6 +67,12 @@ public class ControlePromocao {
 		}
 		
 		return nomePromo;
+	}
+	
+
+//Get Promocoes
+	public Promocao[] getPromocoes() {
+		return promocoes;
 	}
 	
 	

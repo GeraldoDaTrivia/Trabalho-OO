@@ -1,5 +1,6 @@
 package principal;
 
+import modeloConjuntos.Cardapio;
 import modeloProdutos.*;
 
 public class DadoProduto {
@@ -22,6 +23,8 @@ public class DadoProduto {
 	private Sobremesa[] sobremesas = new Sobremesa[50];
 	private int qtdSobremesa = 0;
 	
+	private Cardapio cardapio;
+	
 	
 //Entrada de Dados Aleatorios
 	public void fillWithSomeData() {
@@ -37,6 +40,7 @@ public class DadoProduto {
 			
 		}
 		
+	//Set Quantidade
 		qtdAcomps = 5;
 		qtdBebida = 5;
 		qtdBurger = 5;
@@ -45,6 +49,26 @@ public class DadoProduto {
 		qtdPers = 5;
 		qtdPromocoes = 5;
 		qtdSobremesa = 5;
+		
+	//Set Cardapio.atributos
+		cardapio.setAcompCardapio(acompanhamentos);
+		cardapio.setBebCardapio(bebidas);
+		cardapio.setBurgCardapio(burgers);
+		cardapio.setComboCardapio(combos);
+		cardapio.setInfCardapio(infantis);
+		cardapio.setPersCardapio(personalizaveis);
+		cardapio.setPromoCardapio(promocoes);
+		cardapio.setSobreCardapio(sobremesas);
+	}
+
+	
+//Cardapio
+	public Cardapio getCardapio() {
+		return cardapio;
+	}
+	
+	public void setCardapio(Cardapio cardapio) {
+		this.cardapio = cardapio;
 	}
 
 	
@@ -53,13 +77,18 @@ public class DadoProduto {
 		return acompanhamentos;
 	}
 	
+	public Acompanhamento getOneAcompanhamento(int i) {
+		return acompanhamentos[i];
+	}
+	
 	public void setAcompanhamentos(Acompanhamento[] acompanhamentos) {
 		this.acompanhamentos = acompanhamentos;
 	}
 	
-	public void inserirEditarAcomp(Acompanhamento acompanhamentos, int pos) {
-		this.acompanhamentos[pos] = acompanhamentos;
+	public void inserirEditarAcomp(Acompanhamento[] acompanhamentos, int pos) {
+		this.acompanhamentos[pos] = acompanhamentos[pos];
 		if(pos == qtdAcomps) qtdAcomps++;
+		this.cardapio.setAcompCardapio(this.acompanhamentos);
 	}
 	
 	public int getQtdAcomps() {
@@ -76,13 +105,18 @@ public class DadoProduto {
 		return bebidas;
 	}
 	
+	public Bebida getOneBebida(int i) {
+		return bebidas[i];
+	}
+	
 	public void setBebidas(Bebida[] bebidas) {
 		this.bebidas = bebidas;
 	}
 	
-	public void inserirEditarBebida(Bebida bebida, int pos) {
-		this.bebidas[pos] = bebida;
+	public void inserirEditarBebida(Bebida[] bebida, int pos) {
+		this.bebidas[pos] = bebida[pos];
 		if(pos == qtdBebida) qtdBebida++;
+		this.cardapio.setBebCardapio(this.bebidas);
 	}
 	
 	public int getQtdBebida() {
@@ -98,14 +132,19 @@ public class DadoProduto {
 	public Burger[] getBurgers() {
 		return burgers;
 	}
-
+	
+	public Burger getOneBurger(int i) {
+		return burgers[i];
+	}
+	
 	public void setBurgers(Burger[] burgers) {
 		this.burgers = burgers;
 	}
 
-	public void inserirEditarBurger(Burger burger, int pos) {
-		this.burgers[pos] = burger;
+	public void inserirEditarBurger(Burger[] burger, int pos) {
+		this.burgers[pos] = burger[pos];
 		if(pos == qtdBurger) qtdBurger++;
+		this.cardapio.setBurgCardapio(this.burgers);
 	}
 	
 	public int getQtdBurger() {
@@ -122,13 +161,18 @@ public class DadoProduto {
 		return combos;
 	}
 	
+	public Combo getOneCombo(int i) {
+		return combos[i];
+	}
+	
 	public void setCombos(Combo[] combos) {
 		this.combos = combos;
 	}
 	
-	public void inserirEditarCombo(Combo combo, int pos) {
-		this.combos[pos] = combo;
+	public void inserirEditarCombo(Combo[] combo, int pos) {
+		this.combos[pos] = combo[pos];
 		if(pos == qtdCombos) qtdCombos++;
+		this.cardapio.setComboCardapio(this.combos);
 	}
 	
 	public int getQtdCombos() {
@@ -145,13 +189,18 @@ public class DadoProduto {
 		return infantis;
 	}
 	
+	public Infantil getOneInfantil(int i) {
+		return infantis[i];
+	}
+	
 	public void setInfantis(Infantil[] infantis) {
 		this.infantis = infantis;
 	}
 	
-	public void inserirEditarInfantil(Infantil infantil, int pos) {
-		this.infantis[pos] = infantil;
+	public void inserirEditarInfantil(Infantil[] infantil, int pos) {
+		this.infantis[pos] = infantil[pos];
 		if(pos == qtdInfantis) qtdInfantis++;
+		this.cardapio.setInfCardapio(this.infantis);
 	}
 	
 	public int getQtdInfantis() {
@@ -168,13 +217,18 @@ public class DadoProduto {
 		return personalizaveis;
 	}
 	
+	public Personalizavel getOnePers(int i) {
+		return personalizaveis[i];
+	}
+	
 	public void setPersonalizaveis(Personalizavel[] personalizavel) {
 		this.personalizaveis = personalizavel;
 	}
 	
-	public void inserirEditarPers(Personalizavel personalizavel, int pos) {
-		this.personalizaveis[pos] = personalizavel;
+	public void inserirEditarPers(Personalizavel[] personalizavel, int pos) {
+		this.personalizaveis[pos] = personalizavel[pos];
 		if(pos == qtdPers) qtdPers++;
+		this.cardapio.setPersCardapio(this.personalizaveis);
 	}
 	
 	public int getQtdPers() {
@@ -191,13 +245,18 @@ public class DadoProduto {
 		return promocoes;
 	}
 	
+	public Promocao getOnePromo(int i) {
+		return promocoes[i];
+	}
+	
 	public void setPromocoes(Promocao[] promocoes) {
 		this.promocoes = promocoes;
 	}
 	
-	public void inserirEditarPromo(Promocao promo, int pos) {
-		this.promocoes[pos] = promo;
+	public void inserirEditarPromo(Promocao[] promo, int pos) {
+		this.promocoes[pos] = promo[pos];
 		if(pos == qtdPromocoes) qtdPromocoes++;
+		this.cardapio.setPromoCardapio(this.promocoes);
 	}
 	
 	public int getQtdPromo() {
@@ -214,13 +273,18 @@ public class DadoProduto {
 		return sobremesas;
 	}
 	
+	public Sobremesa getOneSobre(int i) {
+		return sobremesas[i];
+	}
+	
 	public void setSobremesas(Sobremesa[] sobremesas) {
 		this.sobremesas = sobremesas;
 	}
 	
-	public void inserirEditarSobremesa(Sobremesa sobre, int pos) {
-		this.sobremesas[pos] = sobre;
+	public void inserirEditarSobremesa(Sobremesa[] sobre, int pos) {
+		this.sobremesas[pos] = sobre[pos];
 		if(pos == qtdSobremesa) qtdSobremesa++;
+		this.cardapio.setSobreCardapio(this.sobremesas);
 	}
 	
 	public int getQtdSobremesa() {

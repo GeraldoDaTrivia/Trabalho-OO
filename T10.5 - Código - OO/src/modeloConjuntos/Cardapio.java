@@ -1,22 +1,21 @@
 package modeloConjuntos;
 
-import java.util.*;
 import modeloProdutos.*;
-import principal.Teste;
+import principal.DadoProduto;
 
 public class Cardapio {
 
 //Atributos
 	
-	//ArrayLists de produtos
-	private ArrayList<Burger> burgCardapio = new ArrayList<>();
-	private ArrayList<Acompanhamento> acompCardapio = new ArrayList<>();
-	private ArrayList<Bebida> bebCardapio = new ArrayList<>();
-	private ArrayList<Infantil> infCardapio = new ArrayList<>();
-	private ArrayList<Combo> comboCardapio = new ArrayList<>();
-	private ArrayList<Personalizavel> persCardapio = new ArrayList<>();
-	private ArrayList<Sobremesa> sobreCardapio = new ArrayList<>();
-	private ArrayList<Promocao> promoCardapio = new ArrayList<>();
+	//Arrays de produtos
+	private Acompanhamento[] acompCardapio = new Acompanhamento[50];
+	private Bebida[] bebCardapio = new Bebida[50];
+	private Burger[] burgCardapio = new Burger[50];
+	private Combo[] comboCardapio = new Combo[50];
+	private Infantil[] infCardapio = new Infantil[50];
+	private Personalizavel[] persCardapio = new Personalizavel[50];
+	private Promocao[] promoCardapio = new Promocao[50];
+	private Sobremesa[] sobreCardapio = new Sobremesa[50];
 	
 	//Strings para melhor formatacao
 	private String burgerLista = "";
@@ -29,42 +28,43 @@ public class Cardapio {
 	private String promoLista = "";
 	
 	//Quantidade de produtos
-	private int qtdBurger;
 	private int qtdAcomp;
 	private int qtdBebida;
-	private int qtdInfantil;
+	private int qtdBurger;
 	private int qtdCombo;
+	private int qtdInfantil;
 	private int qtdPers;
-	private int qtdSobre;
 	private int qtdPromo;
+	private int qtdSobre;
 	
 	
 //Construtores
-	public Cardapio(int qtdBurg, int qtdAcom, int qtdBeb, int qtdInf, int qtdCom, int qtdPer, int qtdSob, int qtdPro) {
-		qtdBurger = qtdBurg;
-		qtdAcomp = qtdAcom;
-		qtdBebida = qtdBeb;
-		qtdInfantil = qtdInf;
-		qtdCombo = qtdCom;
-		qtdPers = qtdPer;
-		qtdSobre = qtdSob;
-		qtdPromo = qtdPro;
+	public Cardapio(DadoProduto dados) {
+		
+		acompCardapio = dados.getAcompanhamentos();
+		bebCardapio = dados.getBebidas();
+		burgCardapio = dados.getBurgers();
+		comboCardapio = dados.getCombos();
+		infCardapio = dados.getInfantil();
+		persCardapio = dados.getPersonalizaveis();
+		promoCardapio = dados.getPromocoes();
+		sobreCardapio = dados.getSobremesas();
+		
+		qtdAcomp = dados.getQtdAcomps();
+		qtdBebida = dados.getQtdBebida();
+		qtdBurger = dados.getQtdBurger();
+		qtdCombo = dados.getQtdCombos();
+		qtdInfantil = dados.getQtdInfantis();
+		qtdPers = dados.getQtdPers();
+		qtdPromo = dados.getQtdPromo();
+		qtdSobre = dados.getQtdSobremesa();
+		
 	}
 	
 	
 //toString Principal
 	@Override
 	public String toString() {
-		
-		burgCardapio = Teste.burgCardapio;
-		acompCardapio = Teste.acompCardapio;
-		bebCardapio = Teste.bebCardapio;
-		infCardapio = Teste.infCardapio;
-		comboCardapio = Teste.comboCardapio;
-		persCardapio = Teste.persCardapio;
-		sobreCardapio = Teste.sobreCardapio;
-		promoCardapio = Teste.promoCardapio;
-		
 		return "-------======= Cardapio =======-------\n" + 
 				"\n# Burgers #\n" +
 				toStringBurger() +
@@ -86,31 +86,13 @@ public class Cardapio {
 	}
 	
 //toString Secundarias
-	//toString Burger
-	public String toStringBurger() {
-		
-		for(int i = 0; i < qtdBurger; i++) {
-			burgerLista = burgerLista.concat("[");
-			burgerLista = burgerLista.concat(burgCardapio.get(i).toString());
-			burgerLista = burgerLista.concat("]");
-			burgerLista = burgerLista.concat("\n");
-		}
-		
-		if(qtdBurger==0) {
-			burgerLista = burgerLista.concat("[");
-			burgerLista = burgerLista.concat("]");
-			burgerLista = burgerLista.concat("\n");
-		}
-		
-		return burgerLista;
-	}
 	
 	//toString Acompanhamento
 	public String toStringAcomp() {
 		
 		for(int i = 0; i < qtdAcomp; i++) {
 			acompLista = acompLista.concat("[");
-			acompLista = acompLista.concat(acompCardapio.get(i).toString());
+			acompLista = acompLista.concat(acompCardapio[i].toString());
 			acompLista = acompLista.concat("]");
 			acompLista = acompLista.concat("\n");
 		}
@@ -130,7 +112,7 @@ public class Cardapio {
 		
 		for(int i = 0; i < qtdBebida; i++) {
 			bebidaLista = bebidaLista.concat("[");
-			bebidaLista = bebidaLista.concat(bebCardapio.get(i).toString());
+			bebidaLista = bebidaLista.concat(bebCardapio[i].toString());
 			bebidaLista = bebidaLista.concat("]");
 			bebidaLista = bebidaLista.concat("\n");
 		}
@@ -144,33 +126,31 @@ public class Cardapio {
 		return bebidaLista;
 	}
 	
-	
-	//toString Infantil
-	public String toStringInfantil() {
+	//toString Burger
+	public String toStringBurger() {
 		
-		for(int i = 0; i < qtdInfantil; i++) {
-			infantilLista = infantilLista.concat("[");
-			infantilLista = infantilLista.concat(infCardapio.get(i).toString());
-			infantilLista = infantilLista.concat("]");
-			infantilLista = infantilLista.concat("\n");
+		for(int i = 0; i < qtdBurger; i++) {
+			burgerLista = burgerLista.concat("[");
+			burgerLista = burgerLista.concat(burgCardapio[i].toString());
+			burgerLista = burgerLista.concat("]");
+			burgerLista = burgerLista.concat("\n");
 		}
 		
-		if(qtdInfantil==0) {
-			infantilLista = infantilLista.concat("[");
-			infantilLista = infantilLista.concat("]");
-			infantilLista = infantilLista.concat("\n");
+		if(qtdBurger==0) {
+			burgerLista = burgerLista.concat("[");
+			burgerLista = burgerLista.concat("]");
+			burgerLista = burgerLista.concat("\n");
 		}
 		
-		return infantilLista;
+		return burgerLista;
 	}
-	
 	
 	//toString Combo
 	public String toStringCombo() {
 		
 		for(int i = 0; i < qtdCombo; i++) {
 			comboLista = comboLista.concat("[");
-			comboLista = comboLista.concat(comboCardapio.get(i).toString());
+			comboLista = comboLista.concat(comboCardapio[i].toString());
 			comboLista = comboLista.concat("]");
 			comboLista = comboLista.concat("\n");
 		}
@@ -184,13 +164,31 @@ public class Cardapio {
 		return comboLista;
 	}
 	
+	//toString Infantil
+	public String toStringInfantil() {
+		
+		for(int i = 0; i < qtdInfantil; i++) {
+			infantilLista = infantilLista.concat("[");
+			infantilLista = infantilLista.concat(infCardapio[i].toString());
+			infantilLista = infantilLista.concat("]");
+			infantilLista = infantilLista.concat("\n");
+		}
+		
+		if(qtdInfantil==0) {
+			infantilLista = infantilLista.concat("[");
+			infantilLista = infantilLista.concat("]");
+			infantilLista = infantilLista.concat("\n");
+		}
+		
+		return infantilLista;
+	}
 	
 	//toString Personalizavel
 	public String toStringPers() {
 		
 		for(int i = 0; i < qtdPers; i++) {
 			persLista = persLista.concat("[");
-			persLista = persLista.concat(persCardapio.get(i).toString());
+			persLista = persLista.concat(persCardapio[i].toString());
 			persLista = persLista.concat("]");
 			persLista = persLista.concat("\n");
 		}
@@ -204,13 +202,31 @@ public class Cardapio {
 		return persLista;
 	}
 	
+	//toString Promocao
+	public String toStringPromo() {
+		
+		for(int i = 0; i < qtdPromo; i++) {
+			promoLista = promoLista.concat("[");
+			promoLista = promoLista.concat(promoCardapio[i].toString());
+			promoLista = promoLista.concat("]");
+			promoLista = promoLista.concat("\n");
+		}
+		
+		if(qtdPromo==0) {
+			promoLista = promoLista.concat("[");
+			promoLista = promoLista.concat("]");
+			promoLista = promoLista.concat("\n");
+		}
+		
+		return promoLista;
+	}
 	
 	//toString Sobremesa
 	public String toStringSobre() {
 		
 		for(int i = 0; i < qtdSobre; i++) {
 			sobreLista = sobreLista.concat("[");
-			sobreLista = sobreLista.concat(sobreCardapio.get(i).toString());
+			sobreLista = sobreLista.concat(sobreCardapio[i].toString());
 			sobreLista = sobreLista.concat("]");
 			sobreLista = sobreLista.concat("\n");
 		}
@@ -225,99 +241,73 @@ public class Cardapio {
 	}
 	
 	
-	//toString Promocao
-	public String toStringPromo() {
-		
-		for(int i = 0; i < qtdPromo; i++) {
-			promoLista = promoLista.concat("[");
-			promoLista = promoLista.concat(promoCardapio.get(i).toString());
-			promoLista = promoLista.concat("]");
-			promoLista = promoLista.concat("\n");
-		}
-		
-		if(qtdPromo==0) {
-			promoLista = promoLista.concat("[");
-			promoLista = promoLista.concat("]");
-			promoLista = promoLista.concat("\n");
-		}
-		
-		return promoLista;
-	}
-	
-	
-//Gets e sets
-	public ArrayList<Burger> getBurgCardapio() {
-		return burgCardapio;
-	}
-
-	public void setBurgCardapio(ArrayList<Burger> burgCardapio) {
-		this.burgCardapio = burgCardapio;
-	}
-
-	public ArrayList<Acompanhamento> getAcompCardapio() {
+//Get-set Produtos
+	public Acompanhamento[] getAcompCardapio() {
 		return acompCardapio;
 	}
 
-	public void setAcompCardapio(ArrayList<Acompanhamento> acompCardapio) {
+	public void setAcompCardapio(Acompanhamento[] acompCardapio) {
 		this.acompCardapio = acompCardapio;
 	}
 
-	public ArrayList<Bebida> getBebCardapio() {
+	public Bebida[] getBebCardapio() {
 		return bebCardapio;
 	}
 
-	public void setBebCardapio(ArrayList<Bebida> bebCardapio) {
+	public void setBebCardapio(Bebida[] bebCardapio) {
 		this.bebCardapio = bebCardapio;
 	}
-
-	public ArrayList<Infantil> getInfCardapio() {
-		return infCardapio;
+	
+	public Burger[] getBurgCardapio() {
+		return burgCardapio;
 	}
 
-	public void setInfCardapio(ArrayList<Infantil> infCardapio) {
-		this.infCardapio = infCardapio;
+	public void setBurgCardapio(Burger[] burgCardapio) {
+		this.burgCardapio = burgCardapio;
 	}
-
-	public ArrayList<Combo> getComboCardapio() {
+	
+	public Combo[] getComboCardapio() {
 		return comboCardapio;
 	}
 
-	public void setComboCardapio(ArrayList<Combo> comboCardapio) {
+	public void setComboCardapio(Combo[] comboCardapio) {
 		this.comboCardapio = comboCardapio;
 	}
+	
+	public Infantil[] getInfCardapio() {
+		return infCardapio;
+	}
 
-	public ArrayList<Personalizavel> getPersCardapio() {
+	public void setInfCardapio(Infantil[] infCardapio) {
+		this.infCardapio = infCardapio;
+	}
+
+	public Personalizavel[] getPersCardapio() {
 		return persCardapio;
 	}
 
-	public void setPersCardapio(ArrayList<Personalizavel> persCardapio) {
+	public void setPersCardapio(Personalizavel[] persCardapio) {
 		this.persCardapio = persCardapio;
 	}
-
-	public ArrayList<Sobremesa> getSobreCardapio() {
-		return sobreCardapio;
-	}
-
-	public void setSobreCardapio(ArrayList<Sobremesa> sobreCardapio) {
-		this.sobreCardapio = sobreCardapio;
-	}
-
-	public ArrayList<Promocao> getPromoCardapio() {
+	
+	public Promocao[] getPromoCardapio() {
 		return promoCardapio;
 	}
 
-	public void setPromoCardapio(ArrayList<Promocao> promoCardapio) {
+	public void setPromoCardapio(Promocao[] promoCardapio) {
 		this.promoCardapio = promoCardapio;
 	}
 	
-	public int getQtdBurger() {
-		return qtdBurger;
+	public Sobremesa[] getSobreCardapio() {
+		return sobreCardapio;
 	}
 
-	public void setQtdBurger(int qtdBurger) {
-		this.qtdBurger = qtdBurger;
+	public void setSobreCardapio(Sobremesa[] sobreCardapio) {
+		this.sobreCardapio = sobreCardapio;
 	}
 
+	
+//Get-Set Quantidade
 	public int getQtdAcomp() {
 		return qtdAcomp;
 	}
@@ -333,21 +323,29 @@ public class Cardapio {
 	public void setQtdBebida(int qtdBebida) {
 		this.qtdBebida = qtdBebida;
 	}
-
-	public int getQtdInfantil() {
-		return qtdInfantil;
+	
+	public int getQtdBurger() {
+		return qtdBurger;
 	}
 
-	public void setQtdInfantil(int qtdInfantil) {
-		this.qtdInfantil = qtdInfantil;
+	public void setQtdBurger(int qtdBurger) {
+		this.qtdBurger = qtdBurger;
 	}
-
+	
 	public int getQtdCombo() {
 		return qtdCombo;
 	}
 
 	public void setQtdCombo(int qtdCombo) {
 		this.qtdCombo = qtdCombo;
+	}
+	
+	public int getQtdInfantil() {
+		return qtdInfantil;
+	}
+
+	public void setQtdInfantil(int qtdInfantil) {
+		this.qtdInfantil = qtdInfantil;
 	}
 
 	public int getQtdPers() {
@@ -357,21 +355,21 @@ public class Cardapio {
 	public void setQtdPers(int qtdPers) {
 		this.qtdPers = qtdPers;
 	}
-
-	public int getQtdSobre() {
-		return qtdSobre;
-	}
-
-	public void setQtdSobre(int qtdSobre) {
-		this.qtdSobre = qtdSobre;
-	}
-
+	
 	public int getQtdPromo() {
 		return qtdPromo;
 	}
 
 	public void setQtdPromo(int qtdPromo) {
 		this.qtdPromo = qtdPromo;
+	}
+	
+	public int getQtdSobre() {
+		return qtdSobre;
+	}
+
+	public void setQtdSobre(int qtdSobre) {
+		this.qtdSobre = qtdSobre;
 	}
 	
 }

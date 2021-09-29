@@ -8,25 +8,43 @@ public class ControleAcompanhamento {
 //Atributos
 	private Acompanhamento[] acompanhamentos;
 	private int qtdAcomps;
+	private int numCadastros;
 	
 	
 //Construtor
 	public ControleAcompanhamento(DadoProduto dados) {
+		dados.fillWithSomeData();
 		acompanhamentos = dados.getAcompanhamentos();
 		qtdAcomps = dados.getQtdAcomps();
 	}
 
 
+//Criar Produto
+	public void criarAcompanhamento(DadoProduto dados) {
+		for(int i = qtdAcomps; i < 50||i < (qtdAcomps + numCadastros); i++) {
+			acompanhamentos[i] = new Acompanhamento("Acompanhamento"+i, "Tipo"+i, "Ingredientes"+i, 5*(i+1));
+			dados.inserirEditarAcomp(acompanhamentos, i);
+		}
+	}
+	
+	
 //Get-Set Quantidade
 	public int getQtdAcomps() {
 		return qtdAcomps;
 	}
 
-
 	public void setQtdAcomps(int qtdAcomps) {
 		this.qtdAcomps = qtdAcomps;
 	}
 	
+	public int getNumCadastros() {
+		return numCadastros;
+	}
+
+	public void setNumCadastros(int numCadastros) {
+		this.numCadastros = numCadastros;
+	}
+
 
 //Filtros e Buscas
 	public String[] getNomeAcomp() {
@@ -37,6 +55,12 @@ public class ControleAcompanhamento {
 		}
 		
 		return nomeAcomp;
+	}
+	
+
+//Get Acompanhamentos
+	public Acompanhamento[] getAcompanhamentos() {
+		return acompanhamentos;
 	}
 	
 	

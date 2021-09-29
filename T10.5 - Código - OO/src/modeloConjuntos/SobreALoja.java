@@ -19,6 +19,12 @@ public class SobreALoja {
 		endLoja = end;
 	}
 	
+	public void fillWithSomeData() {
+		telLoja = new Telefone(061, 998765432);
+		endLoja = new Endereco(73005000, "Estado Branco", "Cidade Azul", "Bairro Cinza", "Rua Verde", 18);
+		horFunc = new HoraFuncionamento("08:00", "20:00", "Segunda a Sabado");
+	}
+	
 	@Override
 	public String toString() {
 		return "\n----==== Informacoes Sobre a Loja ====----\n" + 

@@ -1,7 +1,6 @@
 package principal;
 
 import java.util.*;
-
 import modeloConjuntos.*;
 import modeloDados.*;
 import modeloProdutos.*;
@@ -63,13 +62,6 @@ public class Teste {
 		horLoja1 = new HoraFuncionamento("10:00", "18:00", "Segunda a Sabado");
 		endLoja1 = new Endereco(75000000, "Goias", "Cidade Azul", "Bairro Vermelho", "Rua Verde", 22);
 		loja1 = new SobreALoja(telLoja1, horLoja1, endLoja1);
-	//Cardapio
-		cardapioLoja = new Cardapio(2, 1, 1, 0, 1, 0, 0, 0);
-		burgCardapio.add(0, burger1);;
-		burgCardapio.add(1, burger2);
-		acompCardapio.add(0, acomp1);
-		bebCardapio.add(0, bebida1);
-		comboCardapio.add(0, combo1);
 		
 //Saida de dados
 		
