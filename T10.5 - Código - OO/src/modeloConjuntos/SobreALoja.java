@@ -1,8 +1,8 @@
 package modeloConjuntos;
 
-import modeloDados.Endereco;
-import modeloDados.HoraFuncionamento;
-import modeloDados.Telefone;
+import modeloPessoaELoja.Endereco;
+import modeloPessoaELoja.HoraFuncionamento;
+import modeloPessoaELoja.Telefone;
 
 public class SobreALoja {
 	
@@ -17,12 +17,6 @@ public class SobreALoja {
 		telLoja = tel;
 		horFunc = hora;
 		endLoja = end;
-	}
-	
-	public void fillWithSomeData() {
-		telLoja = new Telefone(061, 998765432);
-		endLoja = new Endereco(73005000, "Estado Branco", "Cidade Azul", "Bairro Cinza", "Rua Verde", 18);
-		horFunc = new HoraFuncionamento("08:00", "20:00", "Segunda a Sabado");
 	}
 	
 	@Override

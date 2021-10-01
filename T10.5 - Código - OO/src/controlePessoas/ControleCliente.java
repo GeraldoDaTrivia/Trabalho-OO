@@ -1,8 +1,9 @@
 package controlePessoas;
 
-import modeloDados.Cliente;
-import modeloDados.Telefone;
-import principal.DadoPessoa;
+import controleConjuntos.ControleDado;
+import modeloDados.DadoPessoa;
+import modeloPessoaELoja.Cliente;
+import modeloPessoaELoja.Telefone;
 
 public class ControleCliente {
 
@@ -13,10 +14,9 @@ public class ControleCliente {
 
 	
 //Construtor
-	public ControleCliente(DadoPessoa dados) {
-		dados.fillWithSomeData();
-		clientes = dados.getClientes();
-		qtdClientes = dados.getQtdClientes();
+	public ControleCliente(ControleDado dados) {
+		clientes = dados.getDadoPessoa().getClientes();
+		qtdClientes = dados.getDadoPessoa().getQtdClientes();
 	}
 
 

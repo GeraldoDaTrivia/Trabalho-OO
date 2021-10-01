@@ -1,6 +1,6 @@
 package modeloAbstratas;
 
-import modeloDados.Telefone;
+import modeloPessoaELoja.Telefone;
 
 public abstract class Pessoa {
 

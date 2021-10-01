@@ -1,4 +1,4 @@
-package principal;
+package modeloDados;
 
 import modeloConjuntos.Cardapio;
 import modeloProdutos.*;
@@ -33,7 +33,7 @@ public class DadoProduto {
 			bebidas[i] = new Bebida("Tipo"+i, "Bebida"+i, "Sabor"+i, "Tamanho"+(i*100), 2*(i+1));
 			burgers[i] = new Burger("Burger"+i, "Carne"+i, "Ingredientes"+i, "Molho"+i, 10*(i+1));
 			combos[i] = new Combo("Combo"+i, burgers[i], acompanhamentos[i], bebidas[i], 14*(i+1));
-			infantis[i] = new Infantil("Nome"+i, "Carne"+i, "Ingredientes"+i, "Molho"+i, acompanhamentos[i], bebidas[i], 11*(i+1));
+			infantis[i] = new Infantil("Infantil"+i, "Carne"+i, "Ingredientes"+i, "Molho"+i, acompanhamentos[i], bebidas[i], 11*(i+1));
 			personalizaveis[i] = new Personalizavel("Personalizavel"+i, burgers[i], (i+1), "Ingredientes Adicionais"+i, i, 12*(i+1));
 			sobremesas[i] = new Sobremesa("Tipo"+i, "Sobremesa"+i, "Ingredientes"+i, 3*(i+1));
 			promocoes[i] = new Promocao("Promocao"+i, "Dias"+i, burgers[i], sobremesas[i], 9*(i+1));
@@ -50,15 +50,10 @@ public class DadoProduto {
 		qtdPromocoes = 5;
 		qtdSobremesa = 5;
 		
-	//Set Cardapio.atributos
-		cardapio.setAcompCardapio(acompanhamentos);
-		cardapio.setBebCardapio(bebidas);
-		cardapio.setBurgCardapio(burgers);
-		cardapio.setComboCardapio(combos);
-		cardapio.setInfCardapio(infantis);
-		cardapio.setPersCardapio(personalizaveis);
-		cardapio.setPromoCardapio(promocoes);
-		cardapio.setSobreCardapio(sobremesas);
+	}
+	
+	public void fillCardapioWithData() {
+		cardapio = new Cardapio();
 	}
 
 	
@@ -69,6 +64,10 @@ public class DadoProduto {
 	
 	public void setCardapio(Cardapio cardapio) {
 		this.cardapio = cardapio;
+	}
+	
+	public void resetarCardapio() {
+		cardapio = new Cardapio();
 	}
 
 	

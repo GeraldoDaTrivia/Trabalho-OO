@@ -1,6 +1,6 @@
-package principal;
+package modeloDados;
 
-import modeloDados.*;
+import modeloPessoaELoja.*;
 
 public class DadoPessoa {
 

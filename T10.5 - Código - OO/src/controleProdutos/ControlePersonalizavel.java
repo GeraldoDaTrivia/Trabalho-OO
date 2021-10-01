@@ -1,9 +1,10 @@
 package controleProdutos;
 
 import java.util.Random;
+import controleConjuntos.ControleDado;
+import modeloDados.DadoProduto;
 import modeloProdutos.Burger;
 import modeloProdutos.Personalizavel;
-import principal.DadoProduto;
 
 public class ControlePersonalizavel {
 
@@ -14,10 +15,9 @@ public class ControlePersonalizavel {
 	
 	
 //Construtor
-	public ControlePersonalizavel(DadoProduto dados) {
-		dados.fillWithSomeData();
-		personalizaveis = dados.getPersonalizaveis();
-		qtdPers = dados.getQtdPers();
+	public ControlePersonalizavel(ControleDado dados) {
+		personalizaveis = dados.getDadoProduto().getPersonalizaveis();
+		qtdPers = dados.getDadoProduto().getQtdPers();
 	}
 
 	

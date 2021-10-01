@@ -1,4 +1,4 @@
-package modeloDados;
+package modeloPessoaELoja;
 
 import modeloAbstratas.Pessoa;
 

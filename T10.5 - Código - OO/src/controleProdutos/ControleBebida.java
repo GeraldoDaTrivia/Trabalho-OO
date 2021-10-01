@@ -1,7 +1,8 @@
 package controleProdutos;
 
+import controleConjuntos.ControleDado;
+import modeloDados.DadoProduto;
 import modeloProdutos.Bebida;
-import principal.DadoProduto;
 
 public class ControleBebida {
 
@@ -12,10 +13,9 @@ public class ControleBebida {
 
 	
 //Construtor
-	public ControleBebida(DadoProduto dados) {
-		dados.fillWithSomeData();
-		bebidas = dados.getBebidas();
-		qtdBebida = dados.getQtdBebida();
+	public ControleBebida(ControleDado dados) {
+		bebidas = dados.getDadoProduto().getBebidas();
+		qtdBebida = dados.getDadoProduto().getQtdBebida();
 	}
 		
 	

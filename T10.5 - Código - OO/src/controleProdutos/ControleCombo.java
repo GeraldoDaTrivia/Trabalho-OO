@@ -1,11 +1,12 @@
 package controleProdutos;
 
 import java.util.Random;
+import controleConjuntos.ControleDado;
+import modeloDados.DadoProduto;
 import modeloProdutos.Acompanhamento;
 import modeloProdutos.Bebida;
 import modeloProdutos.Burger;
 import modeloProdutos.Combo;
-import principal.DadoProduto;
 
 public class ControleCombo {
 
@@ -16,10 +17,9 @@ public class ControleCombo {
 	
 	
 //Construtor
-	public ControleCombo(DadoProduto dados) {
-		dados.fillWithSomeData();
-		combos = dados.getCombos();
-		qtdCombos = dados.getQtdCombos();
+	public ControleCombo(ControleDado dados) {
+		combos = dados.getDadoProduto().getCombos();
+		qtdCombos = dados.getDadoProduto().getQtdCombos();
 	}
 
 

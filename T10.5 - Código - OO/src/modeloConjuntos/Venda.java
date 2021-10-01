@@ -1,7 +1,7 @@
 package modeloConjuntos;
 
-import modeloDados.Cliente;
-import modeloDados.Funcionario;
+import modeloPessoaELoja.Cliente;
+import modeloPessoaELoja.Funcionario;
 import modeloProdutos.*;
 
 public class Venda {
