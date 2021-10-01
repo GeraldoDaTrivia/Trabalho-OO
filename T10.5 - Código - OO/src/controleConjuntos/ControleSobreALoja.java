@@ -1,9 +1,9 @@
 package controleConjuntos;
 
 import modeloConjuntos.SobreALoja;
-import modeloDados.Endereco;
-import modeloDados.HoraFuncionamento;
-import modeloDados.Telefone;
+import modeloPessoaELoja.Endereco;
+import modeloPessoaELoja.HoraFuncionamento;
+import modeloPessoaELoja.Telefone;
 
 public class ControleSobreALoja {
 
@@ -12,11 +12,10 @@ public class ControleSobreALoja {
 	
 	
 //Construtor
-	public ControleSobreALoja(SobreALoja dados) {
-		dados.fillWithSomeData();
-		sobreLoja.setTelLoja(dados.getTelLoja());
-		sobreLoja.setHorFunc(dados.getHorFunc());
-		sobreLoja.setEndLoja(dados.getEndLoja());
+	public ControleSobreALoja(ControleDado dados) {
+		sobreLoja.setTelLoja(dados.getDadoLoja().getTelLoja());
+		sobreLoja.setHorFunc(dados.getDadoLoja().getHorFunc());
+		sobreLoja.setEndLoja(dados.getDadoLoja().getEndLoja());
 	}
 	
 	

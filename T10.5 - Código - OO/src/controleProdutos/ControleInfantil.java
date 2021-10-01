@@ -1,10 +1,12 @@
 package controleProdutos;
 
 import java.util.Random;
+
+import controleConjuntos.ControleDado;
+import modeloDados.DadoProduto;
 import modeloProdutos.Acompanhamento;
 import modeloProdutos.Bebida;
 import modeloProdutos.Infantil;
-import principal.DadoProduto;
 
 public class ControleInfantil {
 
@@ -15,10 +17,9 @@ public class ControleInfantil {
 	
 	
 //Construtor
-	public ControleInfantil(DadoProduto dados) {
-		dados.fillWithSomeData();
-		infantis = dados.getInfantil();
-		qtdInfantis = dados.getQtdInfantis();
+	public ControleInfantil(ControleDado dados) {
+		infantis = dados.getDadoProduto().getInfantil();
+		qtdInfantis = dados.getDadoProduto().getQtdInfantis();
 	}
 
 

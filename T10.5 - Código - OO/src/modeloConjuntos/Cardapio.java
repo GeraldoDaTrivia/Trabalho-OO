@@ -1,7 +1,7 @@
 package modeloConjuntos;
 
+import modeloDados.DadoProduto;
 import modeloProdutos.*;
-import principal.DadoProduto;
 
 public class Cardapio {
 
@@ -37,9 +37,11 @@ public class Cardapio {
 	private int qtdPromo;
 	private int qtdSobre;
 	
+	private DadoProduto dados = new DadoProduto();
+	
 	
 //Construtores
-	public Cardapio(DadoProduto dados) {
+	public Cardapio() {
 		
 		acompCardapio = dados.getAcompanhamentos();
 		bebCardapio = dados.getBebidas();

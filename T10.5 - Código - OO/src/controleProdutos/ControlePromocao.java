@@ -1,10 +1,11 @@
 package controleProdutos;
 
 import java.util.Random;
+import controleConjuntos.ControleDado;
+import modeloDados.DadoProduto;
 import modeloProdutos.Burger;
 import modeloProdutos.Promocao;
 import modeloProdutos.Sobremesa;
-import principal.DadoProduto;
 
 public class ControlePromocao {
 
@@ -15,10 +16,9 @@ public class ControlePromocao {
 	
 	
 //Contrutor
-	public ControlePromocao(DadoProduto dados) {
-		dados.fillWithSomeData();
-		promocoes = dados.getPromocoes();
-		qtdPromocoes = dados.getQtdPromo();
+	public ControlePromocao(ControleDado dados) {
+		promocoes = dados.getDadoProduto().getPromocoes();
+		qtdPromocoes = dados.getDadoProduto().getQtdPromo();
 	}
 
 

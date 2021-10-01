@@ -1,7 +1,8 @@
 package controleProdutos;
 
+import controleConjuntos.ControleDado;
+import modeloDados.DadoProduto;
 import modeloProdutos.Sobremesa;
-import principal.DadoProduto;
 
 public class ControleSobremesa {
 
@@ -12,10 +13,9 @@ public class ControleSobremesa {
 	
 	
 //Construtor
-	public ControleSobremesa(DadoProduto dados) {
-		dados.fillWithSomeData();
-		sobremesas = dados.getSobremesas();
-		qtdSobremesa = dados.getQtdSobremesa();
+	public ControleSobremesa(ControleDado dados) {
+		sobremesas = dados.getDadoProduto().getSobremesas();
+		qtdSobremesa = dados.getDadoProduto().getQtdSobremesa();
 	}
 
 

@@ -1,4 +1,4 @@
-package modeloDados;
+package modeloPessoaELoja;
 
 public class Telefone {
 

@@ -1,7 +1,8 @@
 package controleProdutos;
 
+import controleConjuntos.ControleDado;
+import modeloDados.DadoProduto;
 import modeloProdutos.Acompanhamento;
-import principal.DadoProduto;
 
 public class ControleAcompanhamento {
 
@@ -12,10 +13,9 @@ public class ControleAcompanhamento {
 	
 	
 //Construtor
-	public ControleAcompanhamento(DadoProduto dados) {
-		dados.fillWithSomeData();
-		acompanhamentos = dados.getAcompanhamentos();
-		qtdAcomps = dados.getQtdAcomps();
+	public ControleAcompanhamento(ControleDado dados) {
+		acompanhamentos = dados.getDadoProduto().getAcompanhamentos();
+		qtdAcomps = dados.getDadoProduto().getQtdAcomps();
 	}
 
 

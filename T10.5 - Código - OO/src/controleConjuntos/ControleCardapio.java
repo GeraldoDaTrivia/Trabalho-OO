@@ -1,8 +1,8 @@
 package controleConjuntos;
 
 import modeloConjuntos.Cardapio;
+import modeloDados.DadoProduto;
 import modeloProdutos.*;
-import principal.DadoProduto;
 
 public class ControleCardapio {
 

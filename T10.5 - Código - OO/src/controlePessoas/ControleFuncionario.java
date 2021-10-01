@@ -1,9 +1,10 @@
 package controlePessoas;
 
-import modeloDados.Endereco;
-import modeloDados.Funcionario;
-import modeloDados.Telefone;
-import principal.DadoPessoa;
+import controleConjuntos.ControleDado;
+import modeloDados.DadoPessoa;
+import modeloPessoaELoja.Endereco;
+import modeloPessoaELoja.Funcionario;
+import modeloPessoaELoja.Telefone;
 
 public class ControleFuncionario {
 
@@ -14,10 +15,9 @@ public class ControleFuncionario {
 	
 	
 //Construtor
-	public ControleFuncionario(DadoPessoa dados) {
-		dados.fillWithSomeData();
-		funcionarios = dados.getFuncionarios();
-		qtdFuncionarios = dados.getQtdFuncionarios();
+	public ControleFuncionario(ControleDado dados) {
+		funcionarios = dados.getDadoPessoa().getFuncionarios();
+		qtdFuncionarios = dados.getDadoPessoa().getQtdFuncionarios();
 	}
 
 

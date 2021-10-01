@@ -1,7 +1,8 @@
 package controleProdutos;
 
+import controleConjuntos.ControleDado;
+import modeloDados.DadoProduto;
 import modeloProdutos.Burger;
-import principal.DadoProduto;
 
 public class ControleBurger {
 
@@ -12,10 +13,9 @@ public class ControleBurger {
 	
 	
 //Construtor
-	public ControleBurger(DadoProduto dados) {
-		dados.fillWithSomeData();
-		burgers = dados.getBurgers();
-		qtdBurger = dados.getQtdBurger();
+	public ControleBurger(ControleDado dados) {
+		burgers = dados.getDadoProduto().getBurgers();
+		qtdBurger = dados.getDadoProduto().getQtdBurger();
 	}
 
 	
