@@ -20,11 +20,6 @@ public class Combo extends Produto {
 		valor = valorCom;
 	}
 	
-	@Override
-	public String toString() {
-		return nome + " - R$" + valor;
-	}
-	
 	
 //Gets e sets
 	public Burger getBurgCombo() {

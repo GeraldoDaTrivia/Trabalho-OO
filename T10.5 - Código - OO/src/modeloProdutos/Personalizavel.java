@@ -20,11 +20,6 @@ public class Personalizavel extends Produto {
 		escolhaMolho = escMolho;
 		valor = valorPers;
 	}
-
-	@Override
-	public String toString() {
-		return nome + " - R$" + valor;
-	}
 	
 	
 //Gets e sets

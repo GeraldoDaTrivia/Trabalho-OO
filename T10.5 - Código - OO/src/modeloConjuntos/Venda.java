@@ -9,14 +9,14 @@ public class Venda {
 //Atributos
 	private Cliente clienteVenda;
 	private Funcionario funcVenda;
-	private Burger burgVenda[];
-	private Acompanhamento acompVenda[];
-	private Bebida bebVenda[];
-	private Infantil infVenda[];
-	private Combo comboVenda[];
-	private Personalizavel persVenda[];
-	private Sobremesa sobreVenda[];
-	private Promocao promoVenda[];
+	private Acompanhamento[] acompVenda;
+	private Bebida[] bebVenda;
+	private Burger[] burgVenda;
+	private Combo[] comboVenda;
+	private Infantil[] infVenda;
+	private Personalizavel[] persVenda;
+	private Promocao[] promoVenda;
+	private Sobremesa[] sobreVenda;
 	private double valorTotal;
 	private String prodVendidos;
 	
@@ -27,14 +27,6 @@ public class Venda {
 			funcVenda = funcioVenda;
 			prodVendidos = prodVenda;
 			valorTotal = valorVenda;
-	}
-	
-	@Override
-	public String toString() {
-		return "# Cliente\n" + clienteVenda.getNumId() + " - " + clienteVenda.getNome() + 
-				"\n# Funcionario\n" + funcVenda.getNumId() + " - " + funcVenda.getNome() + 
-				"\n# Produtos Vendidos\n" + prodVendidos +
-				"\n# Valor Total\nR$" + valorTotal;
 	}
 	
 	
@@ -54,14 +46,6 @@ public class Venda {
 	public void setFuncVenda(Funcionario funcVenda) {
 		this.funcVenda = funcVenda;
 	}
-	
-	public Burger[] getBurgVenda() {
-		return burgVenda;
-	}
-
-	public void setBurgVenda(Burger[] burgVenda) {
-		this.burgVenda = burgVenda;
-	}
 
 	public Acompanhamento[] getAcompVenda() {
 		return acompVenda;
@@ -78,13 +62,13 @@ public class Venda {
 	public void setBebVenda(Bebida[] bebVenda) {
 		this.bebVenda = bebVenda;
 	}
-
-	public Infantil[] getInfVenda() {
-		return infVenda;
+	
+	public Burger[] getBurgVenda() {
+		return burgVenda;
 	}
 
-	public void setInfVenda(Infantil[] infVenda) {
-		this.infVenda = infVenda;
+	public void setBurgVenda(Burger[] burgVenda) {
+		this.burgVenda = burgVenda;
 	}
 
 	public Combo[] getComboVenda() {
@@ -93,6 +77,14 @@ public class Venda {
 
 	public void setComboVenda(Combo[] comboVenda) {
 		this.comboVenda = comboVenda;
+	}
+	
+	public Infantil[] getInfVenda() {
+		return infVenda;
+	}
+
+	public void setInfVenda(Infantil[] infVenda) {
+		this.infVenda = infVenda;
 	}
 
 	public Personalizavel[] getPersVenda() {
@@ -103,6 +95,14 @@ public class Venda {
 		this.persVenda = persVenda;
 	}
 
+	public Promocao[] getPromoVenda() {
+		return promoVenda;
+	}
+
+	public void setPromoVenda(Promocao[] promoVenda) {
+		this.promoVenda = promoVenda;
+	}
+	
 	public Sobremesa[] getSobreVenda() {
 		return sobreVenda;
 	}
@@ -111,28 +111,20 @@ public class Venda {
 		this.sobreVenda = sobreVenda;
 	}
 
-	public Promocao[] getPromoVenda() {
-		return promoVenda;
-	}
-
-	public void setPromoVenda(Promocao[] promoVenda) {
-		this.promoVenda = promoVenda;
-	}
-
-	public double getValorTotal() {
-		return valorTotal;
-	}
-	
-	public void setValorTotal(double valorTotal) {
-		this.valorTotal = valorTotal;
-	}
-
 	public String getProdVendidos() {
 		return prodVendidos;
 	}
 
 	public void setProdVendidos(String ProdVendidos) {
 		this.prodVendidos = ProdVendidos;
+	}
+	
+	public double getValorTotal() {
+		return valorTotal;
+	}
+	
+	public void setValorTotal(double valorTotal) {
+		this.valorTotal = valorTotal;
 	}
 
 }

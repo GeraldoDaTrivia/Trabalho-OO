@@ -20,21 +20,6 @@ public class ControleFuncionario {
 		qtdFuncionarios = dados.getDadoPessoa().getQtdFuncionarios();
 	}
 
-
-//Add Funcionario
-	public void addFuncionario(DadoPessoa dados) {
-		Telefone telFunc;
-		Endereco endFunc;
-		
-		for(int i = qtdFuncionarios; i < (qtdFuncionarios + numCadastros); i++) {
-			telFunc = new Telefone(10+i, 9900990+i);
-			endFunc = new Endereco(510005*(i+1), "Estado"+i, "Cidade"+i, "Bairro"+i, "Rua"+i, 12*(i+1));
-			funcionarios[i] = new Funcionario("Funcionario"+i, 1107*(i+1), "086000333-"+i, 100505*(i+1), telFunc, endFunc);
-			
-			dados.inserirEditarFuncionario(funcionarios, i);
-		}
-	}
-
 	
 //Editar Cliente
 	public void editarCliente(DadoPessoa dados) {

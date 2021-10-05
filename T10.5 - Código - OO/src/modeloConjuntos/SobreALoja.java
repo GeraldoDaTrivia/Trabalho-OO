@@ -19,15 +19,6 @@ public class SobreALoja {
 		endLoja = end;
 	}
 	
-	@Override
-	public String toString() {
-		return "\n----==== Informacoes Sobre a Loja ====----\n" + 
-				"\n# Telefone #\n"+ telLoja + 
-				"\n# Horario de Funcionamento #\n" + horFunc + 
-				"\n# Endereco #\n" + endLoja + 
-				"\n\n---------=========######=========---------\n";
-	}
-	
 	
 //Gets e sets
 	public HoraFuncionamento getHorFunc() {

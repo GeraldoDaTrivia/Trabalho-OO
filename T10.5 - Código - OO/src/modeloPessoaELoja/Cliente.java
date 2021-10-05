@@ -11,14 +11,6 @@ public class Cliente extends Pessoa {
 		cpf = cpfCliente;
 		numTel = telCliente;
 	}
-
-	@Override
-	public String toString() {
-		return "Nome: " + nome + 
-				"\nID: " + numId + 
-				"\nCPF: " + cpf + 
-				"\nTelefone: " + numTel;
-	}
 	
 	
 //Gets e sets

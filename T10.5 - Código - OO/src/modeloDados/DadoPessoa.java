@@ -18,10 +18,10 @@ public class DadoPessoa {
 	public void fillWithSomeData() {
 		for(int i = 0; i < 5; i++) {
 			telCliente[i] = new Telefone(60+i, 9800770+i);
-			clientes[i] = new Cliente("Cliente"+i, 1001*(i+1), "045000111-"+i, telCliente[i]);
+			clientes[i] = new Cliente("Cliente"+i, 1001+i, "045000111-"+i, telCliente[i]);
 			telFuncionario[i] = new Telefone(10+i, 9900990+i);
 			endFuncionario[i] = new Endereco(510005*(i+1), "Estado"+i, "Cidade"+i, "Bairro"+i, "Rua"+i, 12*(i+1));
-			funcionarios[i] = new Funcionario("Funcionario"+i, 1107*(i+1), "086000333-"+i, 
+			funcionarios[i] = new Funcionario("Funcionario"+i, 5001+i, "086000333-"+i, 
 					100505*(i+1), telFuncionario[i], endFuncionario[i]);
 			
 		}
@@ -36,6 +36,10 @@ public class DadoPessoa {
 		return clientes;
 	}
 	
+	public Cliente getOneCliente(int pos) {
+		return clientes[pos];
+	}
+	
 	public void setClientes(Cliente[] clientes) {
 		this.clientes = clientes;
 	}
@@ -48,8 +52,8 @@ public class DadoPessoa {
 		this.telCliente = telCliente;
 	}
 
-	public void inserirEditarCliente(Cliente[] clientes, int pos) {
-		this.clientes[pos] = clientes[pos];
+	public void inserirEditarCliente(Cliente cliente, int pos) {
+		this.clientes[pos] = cliente;
 		if(pos == qtdClientes) qtdClientes++;
 	}
 
@@ -65,6 +69,10 @@ public class DadoPessoa {
 //Funcionarios
 	public Funcionario[] getFuncionarios() {
 		return funcionarios;
+	}
+	
+	public Funcionario getOneFunc(int pos) {
+		return funcionarios[pos];
 	}
 	
 	public void setFuncionarios(Funcionario[] funcionarios) {
@@ -87,8 +95,8 @@ public class DadoPessoa {
 		this.endFuncionario = endFuncionario;
 	}
 
-	public void inserirEditarFuncionario(Funcionario[] funcionarios, int pos) {
-		this.funcionarios[pos] = funcionarios[pos];
+	public void inserirEditarFuncionario(Funcionario funcionario, int pos) {
+		this.funcionarios[pos] = funcionario;
 		if(pos == qtdFuncionarios) qtdFuncionarios++;
 	}
 

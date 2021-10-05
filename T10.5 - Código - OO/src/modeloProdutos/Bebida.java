@@ -19,11 +19,6 @@ public class Bebida extends Produto {
 		valor = valorBebida;
 	}
 	
-	@Override
-	public String toString() {
-		return nome + " " + tamRecipiente + " - R$" + valor;
-	}
-	
 	
 //Gets e sets
 	public String getTipoBebida() {

@@ -17,11 +17,6 @@ public class Acompanhamento extends Produto {
 		valor = valorAcomp;
 	}
 	
-	@Override
-	public String toString() {
-		return nome + " - R$" + valor;
-	}
-	
 	
 //Gets e sets
 	public String getTipoAcomp() {
