@@ -23,11 +23,6 @@ public class Infantil extends Produto {
 		valor = valorInf;
 	}
 	
-	@Override
-	public String toString() {
-		return nome + " - R$" + valor;
-	}
-	
 	
 //Gets e sets
 	public String getTipoCarne() {

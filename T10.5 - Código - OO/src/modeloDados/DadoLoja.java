@@ -21,8 +21,8 @@ public class DadoLoja {
 		horFunc = new HoraFuncionamento("08:00", "20:00", "Segunda a Sabado");
 		loja = new SobreALoja(telLoja, horFunc, endLoja);
 	}
-
-
+	
+	
 //Gets e sets
 	public SobreALoja getLoja() {
 		return loja;

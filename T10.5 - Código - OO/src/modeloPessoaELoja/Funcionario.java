@@ -18,16 +18,6 @@ public class Funcionario extends Pessoa {
 		numTel = telFunc;
 		endFunc = enderecoFunc;
 	}
-
-	@Override
-	public String toString() {
-		return "Nome: " + nome + 
-				"\nID: " + numId + 
-				"\nCPF: " + cpf + 
-				"\nRG: " + rg + 
-				"\nTelefone: " + numTel + 
-				"\nEndereco: " + endFunc;
-	}
 	
 	
 //Gets e sets

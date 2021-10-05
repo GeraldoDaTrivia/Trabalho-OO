@@ -19,11 +19,6 @@ public class Burger extends Produto {
 		valor = valorBurg;
 	}
 	
-	@Override
-	public String toString() {
-		return nome + " - R$" + valor; 
-	}
-	
 	
 //Gets e sets
 	public String getTipoCarne() {

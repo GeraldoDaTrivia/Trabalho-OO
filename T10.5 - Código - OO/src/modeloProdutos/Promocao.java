@@ -19,11 +19,6 @@ public class Promocao extends Produto {
 		valor = valorPromo;
 	}
 	
-	@Override
-	public String toString() {
-		return nome + " - R$" + valor;
-	}
-	
 	
 //Gets e sets
 	public Burger getBurgPromo() {

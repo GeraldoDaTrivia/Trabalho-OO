@@ -13,9 +13,35 @@ public class ControleSobreALoja {
 	
 //Construtor
 	public ControleSobreALoja(ControleDado dados) {
+		sobreLoja = dados.getDadoLoja().getLoja();
+		
 		sobreLoja.setTelLoja(dados.getDadoLoja().getTelLoja());
 		sobreLoja.setHorFunc(dados.getDadoLoja().getHorFunc());
 		sobreLoja.setEndLoja(dados.getDadoLoja().getEndLoja());
+	}
+	
+	
+//Editar dados
+	public void editarLoja(int pos) {
+		switch(pos) {
+		case 1:
+			
+			
+			break;
+		
+		case 2:
+			
+			
+			break;
+			
+		case 3:
+			
+			
+			break;
+			
+		default:
+			
+		}
 	}
 	
 	

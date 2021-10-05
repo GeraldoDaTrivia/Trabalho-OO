@@ -1,7 +1,6 @@
 package controlePessoas;
 
 import controleConjuntos.ControleDado;
-import modeloDados.DadoPessoa;
 import modeloPessoaELoja.Cliente;
 import modeloPessoaELoja.Telefone;
 
@@ -17,25 +16,6 @@ public class ControleCliente {
 	public ControleCliente(ControleDado dados) {
 		clientes = dados.getDadoPessoa().getClientes();
 		qtdClientes = dados.getDadoPessoa().getQtdClientes();
-	}
-
-
-//Add Cliente
-	public void addCliente(DadoPessoa dados) {
-		Telefone telCliente;
-		
-		for(int i = qtdClientes; i < (qtdClientes + numCadastros); i++) {
-			telCliente = new Telefone(60+i, 9800770+i);
-			clientes[i] = new Cliente("Cliente"+i, 1001*(i+1), "045000111-"+i, telCliente);
-			
-			dados.inserirEditarCliente(clientes, i);
-		}
-	}
-	
-	
-//Editar Cliente
-	public void editarCliente(DadoPessoa dados) {
-		
 	}
 	
 

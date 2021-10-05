@@ -21,17 +21,23 @@ public class Endereco {
 		numCasa = numeroCasa;
 	}
 	
+//toString
 	@Override
 	public String toString() {
-		return "CEP: " + cep + 
-				", Estado: " + estado + 
-				", Cidade: " + cidade + 
-				"\nBairro: " + bairro + 
-				", Rua: " + rua + 
-				", Casa: " + numCasa + 
-				".";
+		return cep+" - "+estado+" - "+cidade+" - "+bairro+" - "+rua+" - "+numCasa;
 	}
 	
+	public String toStringCep() {
+		Integer cep = this.cep;
+		return cep.toString();
+	}
+	
+	public String toStringNumCasa() {
+		Integer numCasa = this.numCasa;
+		return numCasa.toString();
+	}
+	
+
 //Gets e sets
 	public int getCep() {
 		return cep;

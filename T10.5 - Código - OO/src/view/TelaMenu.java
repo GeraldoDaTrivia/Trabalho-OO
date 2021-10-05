@@ -61,8 +61,7 @@ public class TelaMenu implements ActionListener {
 			new TelaCardapio();
 			
 		} else if(src==vendas) {
-			JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades\n"
-					+ "relacionadas as vendas.", null, JOptionPane.INFORMATION_MESSAGE);
+			new TelaVenda();
 			
 		} else if(src==clientes) {
 			new TelaPessoa().mostrarDados(dados, 1);
@@ -71,9 +70,7 @@ public class TelaMenu implements ActionListener {
 			new TelaPessoa().mostrarDados(dados, 2);
 			
 		} else if(src==loja) {
-			//new TelaSobreALoja();
-			JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades\n"
-					+ "relacionadas a informações sobre a loja.", null, JOptionPane.INFORMATION_MESSAGE);
+			new TelaSobreALoja();
 			
 		}
 	}

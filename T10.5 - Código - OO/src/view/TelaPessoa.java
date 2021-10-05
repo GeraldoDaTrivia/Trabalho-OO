@@ -117,25 +117,21 @@ public class TelaPessoa implements ActionListener, ListSelectionListener{
 		
 	//Cadastro de novo cliente
 		if(src==cadastroCliente) {
-			//new TelaDetalhePessoa.inserirEditar(1, dados, this, 0);
-			JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades\n"
-					+ "relacionadas ao cadastro.", null, JOptionPane.INFORMATION_MESSAGE);
+			new TelaDetalhePessoa().inserirEditar(1, dados, this, 0);
 			
 	//Cadastro de novo funcionario
 		} else if(src==cadastroFunc) {
-			//new TelaDetalhePessoa.inserirEditar(2, dados, this, 0);
-			JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades\n"
-					+ "relacionadas ao cadastro.", null, JOptionPane.INFORMATION_MESSAGE);
+			new TelaDetalhePessoa().inserirEditar(2, dados, this, 0);
 			
 	//Atualizar a lista de nomes de clientes
 		} else if(src==refreshCliente) {
-			listaClientesCadastrados.setListData(new ControleCliente(dados).getNomeCliente());
-			listaClientesCadastrados.updateUI();
+			janela.dispose();
+			new TelaPessoa().mostrarDados(dados, 1);
 			
 	//Atualizar a lista de nomes de funcionarios
 		} else if(src==refreshFunc) {
-			listaFuncCadastrados.setListData(new ControleFuncionario(dados).getNomeFuncionario());
-			listaFuncCadastrados.updateUI();
+			janela.dispose();
+			new TelaPessoa().mostrarDados(dados, 2);
 		}
 		
 	}
@@ -145,17 +141,13 @@ public class TelaPessoa implements ActionListener, ListSelectionListener{
 		
 	//Editar ou excluir cliente
 		if(e.getValueIsAdjusting() && src == listaClientesCadastrados) {
-			//new TelaDetalhePessoa().inserirEditar(3, dados, this, listaClientesCadastrados.getSelectedIndex());
-			JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades\n"
-					+ "relacionadas à edição e exclusão.", null, JOptionPane.INFORMATION_MESSAGE);
+			new TelaDetalhePessoa().inserirEditar(3, dados, this, listaClientesCadastrados.getSelectedIndex());
 			
 		}
 		
 	//Editar ou excluir funcionario
 		if(e.getValueIsAdjusting() && src == listaFuncCadastrados) {
-			//new TelaDetalhePessoa().inserirEditar(4, dados, this, listaFuncCadastrados.getSelectedIndex());
-			JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades\n"
-					+ "relacionadas à edição e exclusão.", null, JOptionPane.INFORMATION_MESSAGE);
+			new TelaDetalhePessoa().inserirEditar(4, dados, this, listaFuncCadastrados.getSelectedIndex());
 			
 		}
 		

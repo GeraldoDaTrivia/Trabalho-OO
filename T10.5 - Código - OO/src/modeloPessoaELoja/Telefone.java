@@ -13,11 +13,22 @@ public class Telefone {
 		numero = num;
 	}
 	
+	
+//toString
 	@Override
 	public String toString() {
-		return "(" + ddd + ")" + numero; 
+		return "("+ddd+")"+numero;
 	}
 	
+	public String toStringDdd() {
+		Integer ddd = this.ddd;
+		return ddd.toString();
+	}
+	
+	public String toStringNum() {
+		Integer num = numero;
+		return num.toString();
+	}
 	
 //Gets e sets
 	public int getDdd() {

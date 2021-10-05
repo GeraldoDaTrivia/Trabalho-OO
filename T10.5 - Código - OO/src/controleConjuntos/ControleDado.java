@@ -8,6 +8,7 @@ public class ControleDado {
 	private DadoPessoa pessoa = new DadoPessoa();
 	private DadoProduto produto = new DadoProduto();
 	private DadoLoja loja = new DadoLoja();
+	private DadoVenda venda = new DadoVenda();
 	
 	
 //Construtor
@@ -16,6 +17,7 @@ public class ControleDado {
 		produto.fillWithSomeData();
 		produto.fillCardapioWithData();
 		loja.fillWithSomeData();
+		venda.fillWithSomeData();
 	}
 
 
@@ -30,6 +32,10 @@ public class ControleDado {
 
 	public DadoLoja getDadoLoja() {
 		return loja;
+	}
+	
+	public DadoVenda getDadoVenda() {
+		return venda;
 	}
 
 }

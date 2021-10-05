@@ -17,11 +17,6 @@ public class Sobremesa extends Produto {
 		valor = valorSobre;
 	}
 	
-	@Override
-	public String toString() {
-		return nome + " - R$" + valor;
-	}
-	
 	
 //Gets e sets
 	public String getTipoSobre() {
