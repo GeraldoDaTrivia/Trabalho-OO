@@ -1,9 +1,6 @@
 package controleProdutos;
 
-import java.util.Random;
-
 import controleConjuntos.ControleDado;
-import modeloDados.DadoProduto;
 import modeloProdutos.Acompanhamento;
 import modeloProdutos.Bebida;
 import modeloProdutos.Infantil;
@@ -13,31 +10,12 @@ public class ControleInfantil {
 //Atributos
 	private Infantil[] infantis;
 	private int qtdInfantis;
-	private int numCadastros;
 	
 	
 //Construtor
 	public ControleInfantil(ControleDado dados) {
 		infantis = dados.getDadoProduto().getInfantil();
 		qtdInfantis = dados.getDadoProduto().getQtdInfantis();
-	}
-
-
-//Criar Produto
-	public void criarInfantil(DadoProduto dados) {
-		int escolhaAcomp;
-		int escolhaBebida;
-		Random acomp = new Random();
-		Random beb = new Random();
-		
-		for(int i = qtdInfantis; i < 50||i < (qtdInfantis + numCadastros); i++){
-			escolhaAcomp = acomp.nextInt(dados.getQtdAcomps());
-			escolhaBebida = beb.nextInt(dados.getQtdBebida());
-			
-			infantis[i] = new Infantil("Nome"+i, "Carne"+i, "Ingredientes"+i, "Molho"+i,
-					dados.getOneAcompanhamento(escolhaAcomp), dados.getOneBebida(escolhaBebida), 11*(i+1));
-			dados.inserirEditarInfantil(infantis, i);
-		}
 	}
 	
 	
@@ -50,14 +28,6 @@ public class ControleInfantil {
 		this.qtdInfantis = qtdInfantis;
 	}
 	
-	public int getNumCadastros() {
-		return numCadastros;
-	}
-
-	public void setNumCadastros(int numCadastros) {
-		this.numCadastros = numCadastros;
-	}
-
 
 //Filtros e Buscas
 	public String[] getNomeInfantil() {
@@ -68,6 +38,12 @@ public class ControleInfantil {
 		}
 		
 		return nomeInfantil;
+	}
+	
+//toString
+	public String toStringValor(int i) {
+		Double valor = infantis[i].getValor();
+		return valor.toString();
 	}
 	
 	

@@ -10,7 +10,9 @@ import controlePessoas.*;
 public class TelaPessoa implements ActionListener, ListSelectionListener{
 
 	private JFrame janela;
-	private JPanel panel;
+	private JPanel painelCima;
+	private JPanel painelLista;
+	private JPanel painelBaixo;
 	private JLabel titulo;
 	private JButton cadastroCliente;
 	private JButton refreshCliente;
@@ -20,12 +22,13 @@ public class TelaPessoa implements ActionListener, ListSelectionListener{
 	private JList<String> listaClientesCadastrados;
 	private JList<String> listaFuncCadastrados;
 	private String[] listaNomes = new String[50];
+	private JScrollPane scroll;
 	
 	public void mostrarDados(ControleDado dado, int opcao) {
 		dados = dado;
 		
 		switch(opcao) {
-	//Mostrar dados de clientes cadastrados
+	//Mostrar lista de clientes cadastrados
 		case 1:
 			listaNomes = new ControleCliente(dados).getNomeCliente();
 			listaClientesCadastrados = new JList<String>(listaNomes);
@@ -35,26 +38,41 @@ public class TelaPessoa implements ActionListener, ListSelectionListener{
 			refreshCliente = new JButton("Refresh");
 			
 			titulo.setFont(new Font("Arial", Font.BOLD, 20));
-			titulo.setBounds(80, 10, 250, 30);
+			titulo.setBounds(85, 10, 250, 30);
 			titulo.setHorizontalTextPosition(JLabel.CENTER);
 			
 			listaClientesCadastrados.setBounds(13, 50, 350, 200);
-			listaClientesCadastrados.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+			listaClientesCadastrados.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			listaClientesCadastrados.setLayoutOrientation(JList.VERTICAL);
-			listaClientesCadastrados.setVisibleRowCount(10);
+			listaClientesCadastrados.setVisibleRowCount(5);
+			
+			scroll = new JScrollPane(listaClientesCadastrados);
+			scroll.setPreferredSize(new Dimension(200, 80));
 			
 			cadastroCliente.setBounds(80, 265, 100, 30);
-			refreshCliente.setBounds(210, 265, 100, 30);
+			refreshCliente.setBounds(205, 265, 100, 30);
 			
-			panel = new JPanel();
-			janela.add(panel);
+			painelCima = new JPanel();
+			painelLista = new JPanel();
+			painelBaixo = new JPanel();
+			painelCima.setSize(390, 50);
+			painelLista.setSize(365, 200);
+			painelBaixo.setSize(390, 100);
+			janela.add(painelCima);
+			janela.add(painelLista);
+			janela.add(painelBaixo);
+			painelCima.setLocation(0, 0);
+			painelLista.setLocation(5, 50);
+			painelBaixo.setLocation(0, 250);
 			
-			panel.setLayout(null);
+			painelCima.setLayout(null);
+			painelLista.setLayout(new GridLayout(1, 1));
+			painelBaixo.setLayout(null);
 			
-			panel.add(titulo);
-			panel.add(listaClientesCadastrados);
-			panel.add(cadastroCliente);
-			panel.add(refreshCliente);
+			painelCima.add(titulo);
+			painelLista.add(scroll);
+			painelBaixo.add(cadastroCliente);
+			painelBaixo.add(refreshCliente);
 			
 			janela.setSize(390, 350);
 			janela.setLocation(765, 400);
@@ -67,7 +85,7 @@ public class TelaPessoa implements ActionListener, ListSelectionListener{
 			
 			break;
 			
-	//Mostrar dados de funcionarios cadastrados
+	//Mostrar lista de funcionarios cadastrados
 		case 2:
 			listaNomes = new ControleFuncionario(dados).getNomeFuncionario();
 			listaFuncCadastrados = new JList<String>(listaNomes);
@@ -81,19 +99,37 @@ public class TelaPessoa implements ActionListener, ListSelectionListener{
 			titulo.setHorizontalTextPosition(JLabel.CENTER);
 			
 			listaFuncCadastrados.setBounds(13, 50, 350, 200);
-			listaFuncCadastrados.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+			listaFuncCadastrados.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			listaFuncCadastrados.setLayoutOrientation(JList.VERTICAL);
-			listaFuncCadastrados.setVisibleRowCount(10);
+			listaFuncCadastrados.setVisibleRowCount(5);
+			
+			scroll = new JScrollPane(listaFuncCadastrados);
+			scroll.setPreferredSize(new Dimension(200, 80));
 			
 			cadastroFunc.setBounds(80, 265, 100, 30);
-			refreshFunc.setBounds(210, 265, 100, 30);
+			refreshFunc.setBounds(205, 265, 100, 30);
 			
-			janela.setLayout(null);
+			painelCima = new JPanel();
+			painelLista = new JPanel();
+			painelBaixo = new JPanel();
+			painelCima.setSize(390, 50);
+			painelLista.setSize(365, 200);
+			painelBaixo.setSize(390, 100);
+			janela.add(painelCima);
+			janela.add(painelLista);
+			janela.add(painelBaixo);
+			painelCima.setLocation(0, 0);
+			painelLista.setLocation(5, 50);
+			painelBaixo.setLocation(0, 250);
 			
-			janela.add(titulo);
-			janela.add(listaFuncCadastrados);
-			janela.add(cadastroFunc);
-			janela.add(refreshFunc);
+			painelCima.setLayout(null);
+			painelLista.setLayout(new GridLayout(1, 1));
+			painelBaixo.setLayout(null);
+			
+			painelCima.add(titulo);
+			painelLista.add(scroll);
+			painelBaixo.add(cadastroFunc);
+			painelBaixo.add(refreshFunc);
 			
 			janela.setSize(390, 350);
 			janela.setLocation(765, 400);
@@ -117,11 +153,11 @@ public class TelaPessoa implements ActionListener, ListSelectionListener{
 		
 	//Cadastro de novo cliente
 		if(src==cadastroCliente) {
-			new TelaDetalhePessoa().inserirEditar(1, dados, this, 0);
+			new TelaAddPessoa().inserirEditar(1, dados, this);
 			
 	//Cadastro de novo funcionario
 		} else if(src==cadastroFunc) {
-			new TelaDetalhePessoa().inserirEditar(2, dados, this, 0);
+			new TelaAddPessoa().inserirEditar(2, dados, this);
 			
 	//Atualizar a lista de nomes de clientes
 		} else if(src==refreshCliente) {
@@ -141,13 +177,13 @@ public class TelaPessoa implements ActionListener, ListSelectionListener{
 		
 	//Editar ou excluir cliente
 		if(e.getValueIsAdjusting() && src == listaClientesCadastrados) {
-			new TelaDetalhePessoa().inserirEditar(3, dados, this, listaClientesCadastrados.getSelectedIndex());
+			new TelaDetalhePessoa().mostrarDados(1, dados, this, listaClientesCadastrados.getSelectedIndex());
 			
 		}
 		
 	//Editar ou excluir funcionario
 		if(e.getValueIsAdjusting() && src == listaFuncCadastrados) {
-			new TelaDetalhePessoa().inserirEditar(4, dados, this, listaFuncCadastrados.getSelectedIndex());
+			new TelaDetalhePessoa().mostrarDados(2, dados, this, listaFuncCadastrados.getSelectedIndex());
 			
 		}
 		

@@ -25,6 +25,23 @@ public class DadoProduto {
 	
 	private Cardapio cardapio;
 	
+	private Acompanhamento acompExcluido;
+	private Acompanhamento[] novoAcomp = new Acompanhamento[50];
+	private Bebida bebExcluido;
+	private Bebida[] novoBebida = new Bebida[50];
+	private Burger burgerExcluido;
+	private Burger[] novoBurger = new Burger[50];
+	private Combo comboExcluido;
+	private Combo[] novoCombo = new Combo[50];
+	private Infantil infExcluido;
+	private Infantil[] novoInf = new Infantil[50];
+	private Personalizavel persExcluido;
+	private Personalizavel[] novoPers = new Personalizavel[50];
+	private Promocao promoExcluido;
+	private Promocao[] novoPromo = new Promocao[50];
+	private Sobremesa sobreExcluido;
+	private Sobremesa[] novoSobre = new Sobremesa[50];
+	
 	
 //Entrada de Dados Aleatorios
 	public void fillWithSomeData() {
@@ -34,7 +51,7 @@ public class DadoProduto {
 			burgers[i] = new Burger("Burger"+i, "Carne"+i, "Ingredientes"+i, "Molho"+i, 10*(i+1));
 			combos[i] = new Combo("Combo"+i, burgers[i], acompanhamentos[i], bebidas[i], 14*(i+1));
 			infantis[i] = new Infantil("Infantil"+i, "Carne"+i, "Ingredientes"+i, "Molho"+i, acompanhamentos[i], bebidas[i], 11*(i+1));
-			personalizaveis[i] = new Personalizavel("Personalizavel"+i, burgers[i], (i+1), "Ingredientes Adicionais"+i, i, 12*(i+1));
+			personalizaveis[i] = new Personalizavel("Personalizavel"+i, burgers[i], (i+1), "Ingredientes Adicionais"+i, "Molho"+i, 12*(i+1));
 			sobremesas[i] = new Sobremesa("Tipo"+i, "Sobremesa"+i, "Ingredientes"+i, 3*(i+1));
 			promocoes[i] = new Promocao("Promocao"+i, "Dias"+i, burgers[i], sobremesas[i], 9*(i+1));
 			
@@ -56,6 +73,175 @@ public class DadoProduto {
 		cardapio = new Cardapio();
 	}
 
+
+//Modificar acompanhamentos
+	public void inserirEditarAcomp(Acompanhamento acompanhamentos, int pos) {
+		this.acompanhamentos[pos] = acompanhamentos;
+		if(pos == qtdAcomps) qtdAcomps++;
+		this.cardapio.setAcompCardapio(this.acompanhamentos);
+	}
+	
+	public void excluirAcomp(Acompanhamento acompanhamentos, int pos) {
+		acompExcluido = acompanhamentos;
+		if(this.acompanhamentos[pos]==acompExcluido) {
+			for(int i = 0; i < pos; i++) {
+				novoAcomp[i] = this.acompanhamentos[i];
+			}
+			for(int j = pos; j < (qtdAcomps-1); j++) {
+				novoAcomp[j] = this.acompanhamentos[j+1];
+			}
+		}
+		qtdAcomps--;
+		this.acompanhamentos = novoAcomp;
+	}
+	
+//Modificar bebida
+	public void inserirEditarBebida(Bebida bebida, int pos) {
+		this.bebidas[pos] = bebida;
+		if(pos == qtdBebida) qtdBebida++;
+		this.cardapio.setBebCardapio(this.bebidas);
+	}
+	
+	public void excluirBebida(Bebida bebida, int pos) {
+		bebExcluido = bebida;
+		if(this.bebidas[pos]==bebExcluido) {
+			for(int i = 0; i < pos; i++) {
+				novoBebida[i] = this.bebidas[i];
+			}
+			for(int j = pos; j < (qtdBebida-1); j++) {
+				novoBebida[j] = this.bebidas[j+1];
+			}
+		}
+		qtdBebida--;
+		this.bebidas = novoBebida;
+	}
+	
+//Modificar Burger
+	public void inserirEditarBurger(Burger burger, int pos) {
+		this.burgers[pos] = burger;
+		if(pos == qtdBurger) qtdBurger++;
+		this.cardapio.setBurgCardapio(this.burgers);
+	}
+	
+	public void excluirBurger(Burger burger, int pos) {
+		burgerExcluido = burger;
+		if(this.burgers[pos]==burgerExcluido) {
+			for(int i = 0; i < pos; i++) {
+				novoBurger[i] = this.burgers[i];
+			}
+			for(int j = pos; j < (qtdBurger-1); j++) {
+				novoBurger[j] = this.burgers[j+1];
+			}
+		}
+		qtdBurger--;
+		this.burgers = novoBurger;
+	}
+	
+//Modificar Combo
+	public void inserirEditarCombo(Combo combo, int pos) {
+		this.combos[pos] = combo;
+		if(pos == qtdCombos) qtdCombos++;
+		this.cardapio.setComboCardapio(this.combos);
+	}
+	
+	public void excluirCombo(Combo combo, int pos) {
+		comboExcluido = combo;
+		if(this.combos[pos]==comboExcluido) {
+			for(int i = 0; i < pos; i++) {
+				novoCombo[i] = this.combos[i];
+			}
+			for(int j = pos; j < (qtdCombos-1); j++) {
+				novoCombo[j] = this.combos[j+1];
+			}
+		}
+		qtdCombos--;
+		this.combos = novoCombo;
+	}
+	
+//Modificar Infantil
+	public void inserirEditarInfantil(Infantil infantil, int pos) {
+		this.infantis[pos] = infantil;
+		if(pos == qtdInfantis) qtdInfantis++;
+		this.cardapio.setInfCardapio(this.infantis);
+	}
+	
+	public void excluirInfantil(Infantil infantil, int pos) {
+		infExcluido = infantil;
+		if(this.infantis[pos]==infExcluido) {
+			for(int i = 0; i < pos; i++) {
+				novoInf[i] = this.infantis[i];
+			}
+			for(int j = pos; j < (qtdInfantis-1); j++) {
+				novoInf[j] = this.infantis[j+1];
+			}
+		}
+		qtdInfantis--;
+		this.infantis = novoInf;
+	}
+	
+//Modificar Personalizavel
+	public void inserirEditarPers(Personalizavel personalizavel, int pos) {
+		this.personalizaveis[pos] = personalizavel;
+		if(pos == qtdPers) qtdPers++;
+		this.cardapio.setPersCardapio(this.personalizaveis);
+	}
+	
+	public void excluirPers(Personalizavel person, int pos) {
+		persExcluido = person;
+		if(this.personalizaveis[pos]==persExcluido) {
+			for(int i = 0; i < pos; i++) {
+				novoPers[i] = this.personalizaveis[i];
+			}
+			for(int j = pos; j < (qtdPers-1); j++) {
+				novoPers[j] = this.personalizaveis[j+1];
+			}
+		}
+		qtdPers--;
+		this.personalizaveis = novoPers;
+	}
+	
+//Modificar Promocao
+	public void inserirEditarPromo(Promocao promo, int pos) {
+		this.promocoes[pos] = promo;
+		if(pos == qtdPromocoes) qtdPromocoes++;
+		this.cardapio.setPromoCardapio(this.promocoes);
+	}
+	
+	public void excluirPromo(Promocao promo, int pos) {
+		promoExcluido = promo;
+		if(this.promocoes[pos]==promoExcluido) {
+			for(int i = 0; i < pos; i++) {
+				novoPromo[i] = this.promocoes[i];
+			}
+			for(int j = pos; j < (qtdPromocoes-1); j++) {
+				novoPromo[j] = this.promocoes[j+1];
+			}
+		}
+		qtdPromocoes--;
+		this.promocoes = novoPromo;
+	}
+	
+//Modificar Sobremesa
+	public void inserirEditarSobremesa(Sobremesa sobre, int pos) {
+		this.sobremesas[pos] = sobre;
+		if(pos == qtdSobremesa) qtdSobremesa++;
+		this.cardapio.setSobreCardapio(this.sobremesas);
+	}
+	
+	public void excluirSobre(Sobremesa sobre, int pos) {
+		sobreExcluido = sobre;
+		if(this.sobremesas[pos]==sobreExcluido) {
+			for(int i = 0; i < pos; i++) {
+				novoSobre[i] = this.sobremesas[i];
+			}
+			for(int j = pos; j < (qtdSobremesa-1); j++) {
+				novoSobre[j] = this.sobremesas[j+1];
+			}
+		}
+		qtdSobremesa--;
+		this.sobremesas = novoSobre;
+	}
+	
 	
 //Cardapio
 	public Cardapio getCardapio() {
@@ -84,12 +270,6 @@ public class DadoProduto {
 		this.acompanhamentos = acompanhamentos;
 	}
 	
-	public void inserirEditarAcomp(Acompanhamento[] acompanhamentos, int pos) {
-		this.acompanhamentos[pos] = acompanhamentos[pos];
-		if(pos == qtdAcomps) qtdAcomps++;
-		this.cardapio.setAcompCardapio(this.acompanhamentos);
-	}
-	
 	public int getQtdAcomps() {
 		return qtdAcomps;
 	}
@@ -112,12 +292,6 @@ public class DadoProduto {
 		this.bebidas = bebidas;
 	}
 	
-	public void inserirEditarBebida(Bebida[] bebida, int pos) {
-		this.bebidas[pos] = bebida[pos];
-		if(pos == qtdBebida) qtdBebida++;
-		this.cardapio.setBebCardapio(this.bebidas);
-	}
-	
 	public int getQtdBebida() {
 		return qtdBebida;
 	}
@@ -138,12 +312,6 @@ public class DadoProduto {
 	
 	public void setBurgers(Burger[] burgers) {
 		this.burgers = burgers;
-	}
-
-	public void inserirEditarBurger(Burger[] burger, int pos) {
-		this.burgers[pos] = burger[pos];
-		if(pos == qtdBurger) qtdBurger++;
-		this.cardapio.setBurgCardapio(this.burgers);
 	}
 	
 	public int getQtdBurger() {
@@ -168,12 +336,6 @@ public class DadoProduto {
 		this.combos = combos;
 	}
 	
-	public void inserirEditarCombo(Combo[] combo, int pos) {
-		this.combos[pos] = combo[pos];
-		if(pos == qtdCombos) qtdCombos++;
-		this.cardapio.setComboCardapio(this.combos);
-	}
-	
 	public int getQtdCombos() {
 		return qtdCombos;
 	}
@@ -194,12 +356,6 @@ public class DadoProduto {
 	
 	public void setInfantis(Infantil[] infantis) {
 		this.infantis = infantis;
-	}
-	
-	public void inserirEditarInfantil(Infantil[] infantil, int pos) {
-		this.infantis[pos] = infantil[pos];
-		if(pos == qtdInfantis) qtdInfantis++;
-		this.cardapio.setInfCardapio(this.infantis);
 	}
 	
 	public int getQtdInfantis() {
@@ -224,12 +380,6 @@ public class DadoProduto {
 		this.personalizaveis = personalizavel;
 	}
 	
-	public void inserirEditarPers(Personalizavel[] personalizavel, int pos) {
-		this.personalizaveis[pos] = personalizavel[pos];
-		if(pos == qtdPers) qtdPers++;
-		this.cardapio.setPersCardapio(this.personalizaveis);
-	}
-	
 	public int getQtdPers() {
 		return qtdPers;
 	}
@@ -252,12 +402,6 @@ public class DadoProduto {
 		this.promocoes = promocoes;
 	}
 	
-	public void inserirEditarPromo(Promocao[] promo, int pos) {
-		this.promocoes[pos] = promo[pos];
-		if(pos == qtdPromocoes) qtdPromocoes++;
-		this.cardapio.setPromoCardapio(this.promocoes);
-	}
-	
 	public int getQtdPromo() {
 		return qtdPromocoes;
 	}
@@ -278,12 +422,6 @@ public class DadoProduto {
 	
 	public void setSobremesas(Sobremesa[] sobremesas) {
 		this.sobremesas = sobremesas;
-	}
-	
-	public void inserirEditarSobremesa(Sobremesa[] sobre, int pos) {
-		this.sobremesas[pos] = sobre[pos];
-		if(pos == qtdSobremesa) qtdSobremesa++;
-		this.cardapio.setSobreCardapio(this.sobremesas);
 	}
 	
 	public int getQtdSobremesa() {

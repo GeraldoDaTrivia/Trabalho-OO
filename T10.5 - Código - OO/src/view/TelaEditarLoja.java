@@ -303,13 +303,22 @@ public class TelaEditarLoja implements ActionListener {
 				novoNum = TelaMenu.dados.getDadoLoja().getTelLoja().toStringNum();
 			}
 			
-			ddd = Integer.parseInt(novoDdd);
-			num = Integer.parseInt(novoNum);
-			
-			telLoja = new Telefone(ddd, num);
-			TelaMenu.dados.getDadoLoja().setTelLoja(telLoja);
-			
-			janela.dispose();
+			if(novoDdd.matches("[0-9]+") && novoNum.matches("[0-9]+")) {
+				
+				ddd = Integer.parseInt(novoDdd);
+				num = Integer.parseInt(novoNum);
+				
+				telLoja = new Telefone(ddd, num);
+				TelaMenu.dados.getDadoLoja().setTelLoja(telLoja);
+				
+				janela.dispose();
+				
+			} else {
+				
+				JOptionPane.showMessageDialog(null, "O telefone só pode ser composto por números.\n"
+						+ "Por favor, tente novamente.", null, JOptionPane.INFORMATION_MESSAGE);
+				
+			}
 			
 	//Criar novo horario
 		} else if(src==concluirHorario) {
@@ -366,13 +375,22 @@ public class TelaEditarLoja implements ActionListener {
 				casaString = TelaMenu.dados.getDadoLoja().getEndLoja().toStringNumCasa();
 			}
 			
-			cep = Integer.parseInt(cepString);
-			casa = Integer.parseInt(casaString);
-			
-			endLoja = new Endereco(cep, estado, cidade, bairro, rua, casa);
-			TelaMenu.dados.getDadoLoja().setEndLoja(endLoja);
-			
-			janela.dispose();
+			if(cepString.matches("[0-9]+") && casaString.matches("[0-9]+")) {
+				
+				cep = Integer.parseInt(cepString);
+				casa = Integer.parseInt(casaString);
+				
+				endLoja = new Endereco(cep, estado, cidade, bairro, rua, casa);
+				TelaMenu.dados.getDadoLoja().setEndLoja(endLoja);
+				
+				janela.dispose();
+				
+			} else {
+				
+				JOptionPane.showMessageDialog(null, "O CEP e a Casa só podem ser compostos por números.\n"
+						+ "Por favor, tente novamente.", null, JOptionPane.INFORMATION_MESSAGE);
+				
+			}
 			
 		}
 		

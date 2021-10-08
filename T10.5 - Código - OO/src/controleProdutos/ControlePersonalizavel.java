@@ -1,8 +1,6 @@
 package controleProdutos;
 
-import java.util.Random;
 import controleConjuntos.ControleDado;
-import modeloDados.DadoProduto;
 import modeloProdutos.Burger;
 import modeloProdutos.Personalizavel;
 
@@ -11,28 +9,12 @@ public class ControlePersonalizavel {
 //Atributos
 	private Personalizavel[] personalizaveis;
 	private int qtdPers;
-	private int numCadastros;
 	
 	
 //Construtor
 	public ControlePersonalizavel(ControleDado dados) {
 		personalizaveis = dados.getDadoProduto().getPersonalizaveis();
 		qtdPers = dados.getDadoProduto().getQtdPers();
-	}
-
-	
-//Criar Produto
-	public void criarPersonalizavel(DadoProduto dados) {
-		int escolhaBurger;
-		Random burg = new Random();
-		
-		for(int i = qtdPers; i < 50; i++){
-			escolhaBurger = burg.nextInt(dados.getQtdBurger());
-			
-			personalizaveis[i] = new Personalizavel("Personalizavel"+i, dados.getOneBurger(escolhaBurger),
-					(i+1), "Ingredientes Adicionais"+i, i, 12*(i+1));
-			dados.inserirEditarPers(personalizaveis, i);
-		}
 	}
 	
 
@@ -43,14 +25,6 @@ public class ControlePersonalizavel {
 
 	public void setQtdPers(int qtdPers) {
 		this.qtdPers = qtdPers;
-	}
-	
-	public int getNumCadastros() {
-		return numCadastros;
-	}
-
-	public void setNumCadastros(int numCadastros) {
-		this.numCadastros = numCadastros;
 	}
 
 
@@ -65,6 +39,17 @@ public class ControlePersonalizavel {
 		return nomePers;
 	}
 
+//toString
+	public String toStringValor(int i) {
+		Double valor = personalizaveis[i].getValor();
+		return valor.toString();
+	}
+	
+	public String toStringQtdCarne(int i) {
+		Integer qtd = personalizaveis[i].getQuantCarne();
+		return qtd.toString();
+	}
+	
 
 //Get Personalizaveis
 	public Personalizavel[] getPersonalizaveis() {
@@ -89,7 +74,7 @@ public class ControlePersonalizavel {
 		return personalizaveis[i].getAddIngred();
 	}
 	
-	public int getEscolhaMolho(int i) {
+	public String getEscolhaMolho(int i) {
 		return personalizaveis[i].getEscolhaMolho();
 	}
 	

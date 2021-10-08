@@ -13,6 +13,12 @@ public class Cliente extends Pessoa {
 	}
 	
 	
+//toStrings
+	public String toStringId() {
+		Integer id = numId;
+		return id.toString();
+	}
+	
 //Gets e sets
 	public String getNome() {
 		return nome;

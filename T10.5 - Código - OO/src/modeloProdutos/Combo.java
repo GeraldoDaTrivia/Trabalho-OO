@@ -5,7 +5,6 @@ import modeloAbstratas.Produto;
 public class Combo extends Produto {
 
 //Atributos
-	private int escolhaBebida;
 	private Burger burgCombo;
 	private Acompanhamento acompCombo;
 	private Bebida bebCombo;
@@ -44,14 +43,6 @@ public class Combo extends Produto {
 
 	public void setBebCombo(Bebida bebCombo) {
 		this.bebCombo = bebCombo;
-	}
-	
-	public int getEscolhaBebida() {
-		return escolhaBebida;
-	}
-
-	public void setEscolhaBebida(int escolhaBebida) {
-		this.escolhaBebida = escolhaBebida;
 	}
 	
 	public String getNome() {
