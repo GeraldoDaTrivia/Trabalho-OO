@@ -251,10 +251,6 @@ public class DadoProduto {
 	public void setCardapio(Cardapio cardapio) {
 		this.cardapio = cardapio;
 	}
-	
-	public void resetarCardapio() {
-		cardapio = new Cardapio();
-	}
 
 	
 //Acompanhamentos

@@ -2,7 +2,6 @@ package modeloDados;
 
 import modeloConjuntos.Venda;
 import modeloPessoaELoja.*;
-import modeloProdutos.*;
 
 public class DadoVenda {
 
@@ -12,15 +11,6 @@ public class DadoVenda {
 	
 	private DadoPessoa dadosPessoa = new DadoPessoa();
 	private DadoProduto dadosProduto = new DadoProduto();
-	
-	private Acompanhamento[] acompVenda;
-	private Bebida[] bebVenda;
-	private Burger[] burgVenda;
-	private Combo[] comboVenda;
-	private Infantil[] infVenda;
-	private Personalizavel[] persVenda;
-	private Promocao[] promoVenda;
-	private Sobremesa[] sobreVenda;
 	
 	private Cliente[] clienteVenda = new Cliente[50];
 	private Funcionario[] funcVenda = new Funcionario[50];
@@ -97,11 +87,6 @@ public class DadoVenda {
 		this.vendas = vendas;
 	}
 	
-	public void inserirEditarVenda(Venda[] vendas, int pos) {
-		this.vendas[pos] = vendas[pos];
-		if(pos == qtdVendas) qtdVendas++;
-	}
-	
 	public void addOneVenda(Venda venda, int pos) {
 		this.vendas[pos] = venda;
 		if(pos == qtdVendas) qtdVendas++;
@@ -153,72 +138,6 @@ public class DadoVenda {
 
 	public void setValorVenda(double[] valorVenda) {
 		this.valorVenda = valorVenda;
-	}
-
-
-//Gets e sets Produtos
-	public Acompanhamento[] getAcompVenda() {
-		return acompVenda;
-	}
-
-	public void setAcompVenda(Acompanhamento[] acompVenda) {
-		this.acompVenda = acompVenda;
-	}
-
-	public Bebida[] getBebVenda() {
-		return bebVenda;
-	}
-
-	public void setBebVenda(Bebida[] bebVenda) {
-		this.bebVenda = bebVenda;
-	}
-
-	public Burger[] getBurgVenda() {
-		return burgVenda;
-	}
-
-	public void setBurgVenda(Burger[] burgVenda) {
-		this.burgVenda = burgVenda;
-	}
-
-	public Combo[] getComboVenda() {
-		return comboVenda;
-	}
-
-	public void setComboVenda(Combo[] comboVenda) {
-		this.comboVenda = comboVenda;
-	}
-
-	public Infantil[] getInfVenda() {
-		return infVenda;
-	}
-
-	public void setInfVenda(Infantil[] infVenda) {
-		this.infVenda = infVenda;
-	}
-
-	public Personalizavel[] getPersVenda() {
-		return persVenda;
-	}
-
-	public void setPersVenda(Personalizavel[] persVenda) {
-		this.persVenda = persVenda;
-	}
-
-	public Promocao[] getPromoVenda() {
-		return promoVenda;
-	}
-
-	public void setPromoVenda(Promocao[] promoVenda) {
-		this.promoVenda = promoVenda;
-	}
-
-	public Sobremesa[] getSobreVenda() {
-		return sobreVenda;
-	}
-
-	public void setSobreVenda(Sobremesa[] sobreVenda) {
-		this.sobreVenda = sobreVenda;
 	}
 
 }

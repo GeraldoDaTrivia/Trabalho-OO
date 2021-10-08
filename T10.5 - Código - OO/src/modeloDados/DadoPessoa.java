@@ -90,14 +90,6 @@ public class DadoPessoa {
 	public void setClientes(Cliente[] clientes) {
 		this.clientes = clientes;
 	}
-	
-	public Telefone[] getTelCliente() {
-		return telCliente;
-	}
-
-	public void setTelCliente(Telefone[] telCliente) {
-		this.telCliente = telCliente;
-	}
 
 	public int getQtdClientes() {
 		return qtdClientes;
@@ -119,22 +111,6 @@ public class DadoPessoa {
 	
 	public void setFuncionarios(Funcionario[] funcionarios) {
 		this.funcionarios = funcionarios;
-	}
-	
-	public Telefone[] getTelFuncionario() {
-		return telFuncionario;
-	}
-
-	public void setTelFuncionario(Telefone[] telFuncionario) {
-		this.telFuncionario = telFuncionario;
-	}
-
-	public Endereco[] getEndFuncionario() {
-		return endFuncionario;
-	}
-
-	public void setEndFuncionario(Endereco[] endFuncionario) {
-		this.endFuncionario = endFuncionario;
 	}
 
 	public int getQtdFuncionarios() {

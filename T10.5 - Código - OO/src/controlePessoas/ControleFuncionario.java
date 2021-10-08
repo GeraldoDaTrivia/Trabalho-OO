@@ -52,8 +52,8 @@ public class ControleFuncionario {
 		return funcionarios[i].toStringId();
 	}
 	
-	public int getRg(int i) {
-		return funcionarios[i].getRg();
+	public String getOneStringRg(int i) {
+		return funcionarios[i].toStringRg();
 	}
 	
 	
@@ -70,8 +70,8 @@ public class ControleFuncionario {
 		return funcionarios[i].getCpf();
 	}
 	
-	public String getOneStringRg(int i) {
-		return funcionarios[i].toStringRg();
+	public int getRg(int i) {
+		return funcionarios[i].getRg();
 	}
 	
 	public Telefone getNumTel(int i) {
