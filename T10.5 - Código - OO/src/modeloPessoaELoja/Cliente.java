@@ -2,6 +2,14 @@ package modeloPessoaELoja;
 
 import modeloAbstratas.Pessoa;
 
+/**Classe para objetos do tipo Cliente, onde serão armazenados os valores e métodos dos mesmos.
+ * @see Pessoa
+ * @see Funcionario
+ * @see Telefone
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Set 2021
+ */
 public class Cliente extends Pessoa {
 
 //Construtores
@@ -13,7 +21,10 @@ public class Cliente extends Pessoa {
 	}
 	
 	
-//toStrings
+	/**Transforma o número de ID em uma String
+	 * 
+	 * @return String - Número de ID
+	 */
 	public String toStringId() {
 		Integer id = numId;
 		return id.toString();

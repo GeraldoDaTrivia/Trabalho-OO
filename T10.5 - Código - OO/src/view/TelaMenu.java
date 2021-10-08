@@ -5,6 +5,26 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+/**Classe principal. Inicializa a interface gráfica do programa.
+ * 
+ * @see TelaAddPessoa
+ * @see TelaAddProduto
+ * @see TelaAddVenda
+ * @see TelaCardapio
+ * @see TelaDetalhePessoa
+ * @see TelaDetalheProduto
+ * @see TelaEditarLoja
+ * @see TelaEditarPessoa
+ * @see TelaEditarValor
+ * @see TelaPessoa
+ * @see TelaProduto
+ * @see TelaSobreALoja
+ * @see TelaVenda
+ * 
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Out 2021
+ */
 public class TelaMenu implements ActionListener {
 	
 	private static JFrame janela = new JFrame("Controle de Restaurante");
@@ -14,9 +34,16 @@ public class TelaMenu implements ActionListener {
 	private static JButton clientes = new JButton("Clientes");
 	private static JButton funcionarios = new JButton("Funcionarios");
 	private static JButton loja = new JButton("Sobre a Loja");
+	
+	/**Variável principal que guarda todos os dados do programa.
+	 * 
+	 */
 	public static ControleDado dados = new ControleDado();
 	
 	
+	/**
+	 * Construtor da interface de menu
+	 */
 	public TelaMenu() {
 		titulo.setFont(new Font("Arial", Font.BOLD, 25));
 		titulo.setBounds(95, 15, 190, 30);
@@ -42,10 +69,12 @@ public class TelaMenu implements ActionListener {
 		janela.setVisible(true);
 	}
 	
+	/**Inicializa a interface gráfica principal do programa.
+	 * 
+	 * @param args - argumentos
+	 */
 	public static void main(String[] args) {
 		TelaMenu menu = new TelaMenu();
-		
-		
 		
 		cardapio.addActionListener(menu);
 		vendas.addActionListener(menu);
@@ -54,6 +83,9 @@ public class TelaMenu implements ActionListener {
 		loja.addActionListener(menu);
 	}
 	
+	/**Método para capturar eventos e gerar as interfaces gráficas de acordo.
+	 * 
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		

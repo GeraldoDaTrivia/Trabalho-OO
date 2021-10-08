@@ -4,6 +4,14 @@ import modeloPessoaELoja.Cliente;
 import modeloPessoaELoja.Funcionario;
 import modeloProdutos.*;
 
+/**Classe que define o formato das vendas, onde estão contidos os valores e métodos dos mesmos.
+ * @see Cliente
+ * @see Funcionario
+ * @see modeloProdutos
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Out 2021
+ */
 public class Venda {
 
 //Atributos

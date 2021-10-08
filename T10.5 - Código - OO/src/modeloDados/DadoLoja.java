@@ -5,6 +5,15 @@ import modeloPessoaELoja.Endereco;
 import modeloPessoaELoja.HoraFuncionamento;
 import modeloPessoaELoja.Telefone;
 
+/**Classe que cria um objeto tipo {@link SobreALoja}, realiza a entrada de dados aleatórios
+ * e contém os gets e sets das informações da loja.
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Set 2021
+ * @see DadoPessoa
+ * @see DadoProduto
+ * @see DadoVenda
+ */
 public class DadoLoja {
 
 //Atributos
@@ -14,9 +23,14 @@ public class DadoLoja {
 	private HoraFuncionamento horFunc;
 	
 	
-//Entrada de Dados Aleatorios
+	/**Método para criação de dados aleatórios sobre a loja.
+	 * (1) criar novo {@link Telefone}.
+	 * (2) criar novo {@link Endereco}.
+	 * (3) cirar novo {@link HoraFuncionamento}.
+	 * (4) criar novo objeto do tipo {@link SobreALoja}.
+	 */
 	public void fillWithSomeData() {
-		telLoja = new Telefone(061, 998765432);
+		telLoja = new Telefone(061, 99876543);
 		endLoja = new Endereco(73005000, "Estado Branco", "Cidade Azul", "Bairro Cinza", "Rua Verde", 18);
 		horFunc = new HoraFuncionamento("08:00", "20:00", "Segunda a Sabado");
 		loja = new SobreALoja(telLoja, horFunc, endLoja);

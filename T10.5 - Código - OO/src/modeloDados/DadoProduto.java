@@ -1,8 +1,20 @@
 package modeloDados;
 
+import modeloAbstratas.Produto;
 import modeloConjuntos.Cardapio;
 import modeloProdutos.*;
 
+/**Classe que cria objetos do tipo {@link Produto}, realiza a entrada de dados aleatórios, 
+ * contém os gets e sets das informações dos objetos criados,
+ * cria ou edita novos objetos - {@link #inserirEditarBurger(Burger, int) Inserir/Editar Burger}
+ * e exclue objetos - {@link #excluirBurger(Burger, int) Excluir Burger}.
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Set 2021
+ * @see DadoLoja
+ * @see DadoProduto
+ * @see DadoVenda
+ */
 public class DadoProduto {
 
 //Atributos
@@ -43,7 +55,16 @@ public class DadoProduto {
 	private Sobremesa[] novoSobre = new Sobremesa[50];
 	
 	
-//Entrada de Dados Aleatorios
+	/**Método para criação de dados aleatórios sobre classes do tipo {@link modeloAbstratas.Pessoa}.
+	 * (1) criar novo objeto do tipo {@link Acompanhamento}.
+	 * (2) criar novo objeto do tipo {@link Bebida}.
+	 * (3) criar novo objeto do tipo {@link Burger}.
+	 * (4) criar novo objeto do tipo {@link Combo}.
+	 * (5) criar novo objeto do tipo {@link Infantil}.
+	 * (6) criar novo objeto do tipo {@link Personalizavel}.
+	 * (7) criar novo objeto do tipo {@link Promocao}.
+	 * (8) criar novo objeto do tipo {@link Sobremesa}.
+	 */
 	public void fillWithSomeData() {
 		for(int i = 0; i < 5; i++) {
 			acompanhamentos[i] = new Acompanhamento("Acompanhamento"+i, "Tipo"+i, "Ingredientes"+i, 5*(i+1));
@@ -74,13 +95,22 @@ public class DadoProduto {
 	}
 
 
-//Modificar acompanhamentos
+	/**Cria ou edita um objeto do tipo {@link Acompanhamento}
+	 * 
+	 * @param acompanhamentos - Novo objeto
+	 * @param pos - Posição do objeto no array
+	 */
 	public void inserirEditarAcomp(Acompanhamento acompanhamentos, int pos) {
 		this.acompanhamentos[pos] = acompanhamentos;
 		if(pos == qtdAcomps) qtdAcomps++;
 		this.cardapio.setAcompCardapio(this.acompanhamentos);
 	}
 	
+	/**Exclui um objeto do tipo {@link Acompanhamento}
+	 * 
+	 * @param acompanhamentos - Objeto a ser excluído
+	 * @param pos - Posição do objeto no array
+	 */
 	public void excluirAcomp(Acompanhamento acompanhamentos, int pos) {
 		acompExcluido = acompanhamentos;
 		if(this.acompanhamentos[pos]==acompExcluido) {
@@ -95,13 +125,22 @@ public class DadoProduto {
 		this.acompanhamentos = novoAcomp;
 	}
 	
-//Modificar bebida
+	/**Cria ou edita um objeto do tipo {@link Bebida}
+	 * 
+	 * @param bebida - Novo objeto
+	 * @param pos - Posição do objeto no array
+	 */
 	public void inserirEditarBebida(Bebida bebida, int pos) {
 		this.bebidas[pos] = bebida;
 		if(pos == qtdBebida) qtdBebida++;
 		this.cardapio.setBebCardapio(this.bebidas);
 	}
 	
+	/**Exclue um objeto do tipo {@link Bebida}
+	 * 
+	 * @param bebida - Objeto a ser excluído
+	 * @param pos - Posição do objeto no array
+	 */
 	public void excluirBebida(Bebida bebida, int pos) {
 		bebExcluido = bebida;
 		if(this.bebidas[pos]==bebExcluido) {
@@ -116,13 +155,22 @@ public class DadoProduto {
 		this.bebidas = novoBebida;
 	}
 	
-//Modificar Burger
+	/**Cria ou edita um objeto do tipo {@link Burger}
+	 * 
+	 * @param burger - Novo objeto
+	 * @param pos - Posição do objeto no array
+	 */
 	public void inserirEditarBurger(Burger burger, int pos) {
 		this.burgers[pos] = burger;
 		if(pos == qtdBurger) qtdBurger++;
 		this.cardapio.setBurgCardapio(this.burgers);
 	}
 	
+	/**Exclue um objeto do tipo {@link Burger}
+	 * 
+	 * @param burger - Objeto a ser excluído
+	 * @param pos - Posição do objeto no array
+	 */
 	public void excluirBurger(Burger burger, int pos) {
 		burgerExcluido = burger;
 		if(this.burgers[pos]==burgerExcluido) {
@@ -137,13 +185,22 @@ public class DadoProduto {
 		this.burgers = novoBurger;
 	}
 	
-//Modificar Combo
+	/**Cria ou edita um objeto do tipo {@link Combo}
+	 * 
+	 * @param combo - Novo objeto
+	 * @param pos - Posição do objeto no array
+	 */
 	public void inserirEditarCombo(Combo combo, int pos) {
 		this.combos[pos] = combo;
 		if(pos == qtdCombos) qtdCombos++;
 		this.cardapio.setComboCardapio(this.combos);
 	}
 	
+	/**Exclue um objeto do tipo {@link Combo}
+	 * 
+	 * @param combo - Objeto a ser excluído
+	 * @param pos - Posição do objeto no array
+	 */
 	public void excluirCombo(Combo combo, int pos) {
 		comboExcluido = combo;
 		if(this.combos[pos]==comboExcluido) {
@@ -158,13 +215,22 @@ public class DadoProduto {
 		this.combos = novoCombo;
 	}
 	
-//Modificar Infantil
+	/**Cria ou edita um objeto do tipo {@link Infantil}
+	 * 
+	 * @param infantil - Novo objeto
+	 * @param pos - Posição do objeto no array
+	 */
 	public void inserirEditarInfantil(Infantil infantil, int pos) {
 		this.infantis[pos] = infantil;
 		if(pos == qtdInfantis) qtdInfantis++;
 		this.cardapio.setInfCardapio(this.infantis);
 	}
 	
+	/**Exclue um objeto do tipo {@link Infantil}
+	 * 
+	 * @param infantil - Objeto excluído
+	 * @param pos - Posição do objeto no array
+	 */
 	public void excluirInfantil(Infantil infantil, int pos) {
 		infExcluido = infantil;
 		if(this.infantis[pos]==infExcluido) {
@@ -179,13 +245,22 @@ public class DadoProduto {
 		this.infantis = novoInf;
 	}
 	
-//Modificar Personalizavel
+	/**Cria ou edita um objeto do tipo {@link Personalizavel}
+	 * 
+	 * @param personalizavel - Novo objeto
+	 * @param pos - Posição do objeto no array
+	 */
 	public void inserirEditarPers(Personalizavel personalizavel, int pos) {
 		this.personalizaveis[pos] = personalizavel;
 		if(pos == qtdPers) qtdPers++;
 		this.cardapio.setPersCardapio(this.personalizaveis);
 	}
 	
+	/**Exclue um objeto do tipo {@link Personalizavel}
+	 * 
+	 * @param person - Objeto excluído
+	 * @param pos - Posição do objeto no array
+	 */
 	public void excluirPers(Personalizavel person, int pos) {
 		persExcluido = person;
 		if(this.personalizaveis[pos]==persExcluido) {
@@ -200,13 +275,22 @@ public class DadoProduto {
 		this.personalizaveis = novoPers;
 	}
 	
-//Modificar Promocao
+	/**Cria ou edita um objeto do tipo {@link Promocao}
+	 * 
+	 * @param promo - Novo objeto
+	 * @param pos - Posição do objeto no array
+	 */
 	public void inserirEditarPromo(Promocao promo, int pos) {
 		this.promocoes[pos] = promo;
 		if(pos == qtdPromocoes) qtdPromocoes++;
 		this.cardapio.setPromoCardapio(this.promocoes);
 	}
 	
+	/**Exclue um objeto do tipo {@link Promocao}
+	 * 
+	 * @param promo - Objeto excluído
+	 * @param pos - Posição do objeto no array
+	 */
 	public void excluirPromo(Promocao promo, int pos) {
 		promoExcluido = promo;
 		if(this.promocoes[pos]==promoExcluido) {
@@ -221,13 +305,22 @@ public class DadoProduto {
 		this.promocoes = novoPromo;
 	}
 	
-//Modificar Sobremesa
+	/**Cria ou edita um objeto do tipo {@link Sobremesa}
+	 * 
+	 * @param sobre - Novo objeto
+	 * @param pos - Posição do objeto no array
+	 */
 	public void inserirEditarSobremesa(Sobremesa sobre, int pos) {
 		this.sobremesas[pos] = sobre;
 		if(pos == qtdSobremesa) qtdSobremesa++;
 		this.cardapio.setSobreCardapio(this.sobremesas);
 	}
 	
+	/**Exclue um objeto do tipo {@link Sobremesa}
+	 * 
+	 * @param sobre - Objeto excluído
+	 * @param pos - Posição do objeto no array
+	 */
 	public void excluirSobre(Sobremesa sobre, int pos) {
 		sobreExcluido = sobre;
 		if(this.sobremesas[pos]==sobreExcluido) {

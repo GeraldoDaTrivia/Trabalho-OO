@@ -4,6 +4,14 @@ import modeloPessoaELoja.Endereco;
 import modeloPessoaELoja.HoraFuncionamento;
 import modeloPessoaELoja.Telefone;
 
+/**Classe que define quais informações terá a loja, onde estão contidos valores e métodos para os mesmos.
+ * @see Endereco
+ * @see HoraFuncionamento
+ * @see Telefone
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Set 2021
+ */
 public class SobreALoja {
 	
 //Atributos

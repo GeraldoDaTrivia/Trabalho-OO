@@ -3,6 +3,18 @@ package controleProdutos;
 import controleConjuntos.ControleDado;
 import modeloProdutos.Acompanhamento;
 
+/**Classe para armazenar objetos do tipo {@link Acompanhamento} a quantidade desses objetos e chamar seus métodos.
+ * @see ControleBebida
+ * @see ControleBurger
+ * @see ControleCombo
+ * @see ControleInfantil
+ * @see ControlePersonalizavel
+ * @see ControlePromocao
+ * @see ControleSobremesa
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Set 2021
+ */
 public class ControleAcompanhamento {
 
 //Atributos
@@ -11,6 +23,10 @@ public class ControleAcompanhamento {
 	
 	
 //Construtor
+	/**
+	 * Construtor ControleAcompanhamento
+	 * @param dados - dados
+	 */
 	public ControleAcompanhamento(ControleDado dados) {
 		acompanhamentos = dados.getDadoProduto().getAcompanhamentos();
 		qtdAcomps = dados.getDadoProduto().getQtdAcomps();
@@ -27,7 +43,10 @@ public class ControleAcompanhamento {
 	}
 
 
-//Filtros e Buscas
+	/**Método para receber uma lista de produtos
+	 * 
+	 * @return String - Lista de Nomes
+	 */
 	public String[] getNomeAcomp() {
 		String[] nomeAcomp = new String[qtdAcomps];
 		
@@ -39,7 +58,11 @@ public class ControleAcompanhamento {
 	}
 	
 	
-//toString
+	/**Método para transformar o valor do produto em String
+	 * 
+	 * @param i - Posição do produto no array
+	 * @return String - Valor do produto
+	 */
 	public String toStringValor(int i) {
 		Double valor = acompanhamentos[i].getValor();
 		return valor.toString();

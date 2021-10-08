@@ -5,6 +5,18 @@ import modeloProdutos.Acompanhamento;
 import modeloProdutos.Bebida;
 import modeloProdutos.Infantil;
 
+/**Classe para armazenar objetos do tipo {@link Infantil}, a quantidade desses objetos e chamar seus métodos.
+ * @see ControleAcompanhamento
+ * @see ControleBebida
+ * @see ControleBurger
+ * @see ControleCombo
+ * @see ControlePersonalizavel
+ * @see ControlePromocao
+ * @see ControleSobremesa
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Set 2021
+ */
 public class ControleInfantil {
 
 //Atributos
@@ -13,6 +25,10 @@ public class ControleInfantil {
 	
 	
 //Construtor
+	/**
+	 * Construtor ControleInfantil
+	 * @param dados - dados
+	 */
 	public ControleInfantil(ControleDado dados) {
 		infantis = dados.getDadoProduto().getInfantil();
 		qtdInfantis = dados.getDadoProduto().getQtdInfantis();
@@ -29,7 +45,10 @@ public class ControleInfantil {
 	}
 	
 
-//Filtros e Buscas
+	/**Método para receber uma lista de produtos
+	 * 
+	 * @return String - Lista de Nomes
+	 */
 	public String[] getNomeInfantil() {
 		String[] nomeInfantil = new String[qtdInfantis];
 		
@@ -40,7 +59,11 @@ public class ControleInfantil {
 		return nomeInfantil;
 	}
 	
-//toString
+	/**Método para transformar o valor do produto em String
+	 * 
+	 * @param i - Posição do produto no array
+	 * @return String - Valor do produto
+	 */
 	public String toStringValor(int i) {
 		Double valor = infantis[i].getValor();
 		return valor.toString();

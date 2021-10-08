@@ -12,8 +12,23 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controleConjuntos.ControleDado;
+import modeloAbstratas.Produto;
 import modeloProdutos.*;
 
+/**Classe para fornecer uma interface gráfica quando for realizar a adição de um novo objeto 
+ * do tipo {@link Acompanhamento}, {@link Bebida}, {@link Burger}, {@link Combo}, {@link Infantil}, 
+ * {@link Personalizavel}, {@link Promocao} ou {@link Sobremesa}.
+ * 
+ * @see TelaCardapio
+ * @see TelaDetalheProduto
+ * @see TelaEditarValor
+ * @see TelaProduto
+ * @see TelaMenu
+ * 
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Out 2021
+ */
 public class TelaAddProduto implements ActionListener {
 
 	private JFrame janela;
@@ -63,7 +78,12 @@ public class TelaAddProduto implements ActionListener {
 	private JButton addPromo;
 	private JButton addSobre;
 	
-	
+	/**Método para a criação de uma interface gráfica na hora de criar um novo {@link Produto}.
+	 * 
+	 * @param opcao - Qual o tipo de produto
+	 * @param dados - Dados dos objetos do programa
+	 * @param telaProduto - Dados recebidos pela {@link TelaProduto}
+	 */
 	public void inserirEditar(int opcao, ControleDado dados, TelaProduto telaProduto) {
 		
 		switch(opcao) {
@@ -887,7 +907,11 @@ public class TelaAddProduto implements ActionListener {
 			
 		}
 	}
-
+	
+	/**Método para a captura de eventos, validação dos dados inseridos e 
+	 * realização da criação de um novo produto nos dados do programa.
+	 * 
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		

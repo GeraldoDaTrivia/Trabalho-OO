@@ -8,6 +8,18 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import modeloConjuntos.SobreALoja;
+
+/**Classe para fornecer uma interface gráfica quando for mostrar os dados do objeto 
+ * do tipo {@link SobreALoja}
+ * 
+ * @see TelaEditarLoja
+ * @see TelaMenu
+ * 
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Out 2021
+ */
 public class TelaSobreALoja implements ActionListener, ListSelectionListener {
 
 	private JFrame janela;
@@ -150,7 +162,23 @@ public class TelaSobreALoja implements ActionListener, ListSelectionListener {
 		horaLoja.addListSelectionListener(this);
 		endLoja.addListSelectionListener(this);
 	}
-
+	
+	/**Método para capturar eventos e realizar ações de acordo.
+	 * 
+	 */
+	public void actionPerformed(ActionEvent e) {
+		Object src = e.getSource();
+		
+		if(src==refresh) {
+			janela.dispose();
+			new TelaSobreALoja();
+		}
+		
+	}
+	
+	/**Método para capturar em qual JList o objeto selecionado está.
+	 * 
+	 */
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
 		
@@ -160,16 +188,6 @@ public class TelaSobreALoja implements ActionListener, ListSelectionListener {
 			new TelaEditarLoja().editarLoja(2, TelaMenu.dados, this);
 		} else if(e.getValueIsAdjusting() && src == endLoja) {
 			new TelaEditarLoja().editarLoja(3, TelaMenu.dados, this);
-		}
-		
-	}
-
-	public void actionPerformed(ActionEvent e) {
-		Object src = e.getSource();
-		
-		if(src==refresh) {
-			janela.dispose();
-			new TelaSobreALoja();
 		}
 		
 	}

@@ -16,7 +16,30 @@ import javax.swing.event.ListSelectionListener;
 
 import controleConjuntos.ControleDado;
 import controleProdutos.*;
+import modeloAbstratas.Produto;
+import modeloProdutos.Acompanhamento;
+import modeloProdutos.Bebida;
+import modeloProdutos.Burger;
+import modeloProdutos.Combo;
+import modeloProdutos.Infantil;
+import modeloProdutos.Personalizavel;
+import modeloProdutos.Promocao;
+import modeloProdutos.Sobremesa;
 
+/**Classe para fornecer uma interface gráfica quando for realizar a edição de um objeto 
+ * do tipo {@link Acompanhamento}, {@link Bebida}, {@link Burger}, {@link Combo}, {@link Infantil}, 
+ * {@link Personalizavel}, {@link Promocao} ou {@link Sobremesa}.
+ * 
+ * @see TelaAddProduto
+ * @see TelaCardapio
+ * @see TelaEditarValor
+ * @see TelaProduto
+ * @see TelaMenu
+ * 
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Out 2021
+ */
 public class TelaDetalheProduto implements ActionListener, ListSelectionListener {
 
 	private JFrame janela;
@@ -100,7 +123,14 @@ public class TelaDetalheProduto implements ActionListener, ListSelectionListener
 	
 	private TelaProduto produto;
 	private int index;
-
+	
+	/**
+	 * 
+	 * @param opcao - Tipo de produto
+	 * @param dados - Dados dos objetos do programa
+	 * @param produto - Dados recebidos pela {@link TelaProduto}
+	 * @param selectedIndex - Posição do produto escolhido na JList
+	 */
 	public void mostrarDados(int opcao, ControleDado dados, TelaProduto produto, int selectedIndex) {
 		
 		this.produto = produto;
@@ -1129,7 +1159,10 @@ public class TelaDetalheProduto implements ActionListener, ListSelectionListener
 		
 	}
 
-//Atualizar tela e excluir produtos
+	/**Método para a captura de eventos, validação dos dados inseridos e 
+	 * realização da exclusão de um produto nos dados do programa.
+	 * 
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
@@ -1255,7 +1288,9 @@ public class TelaDetalheProduto implements ActionListener, ListSelectionListener
 		
 	}
 
-//Editar valor dos produtos
+	/**Método para invocar novas interfaces gráficas para a edição de objetos do tipo {@link Produto}.
+	 * 
+	 */
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
 		

@@ -1,8 +1,17 @@
 package modeloDados;
 
+import modeloAbstratas.Produto;
 import modeloConjuntos.Venda;
 import modeloPessoaELoja.*;
 
+/**Classe que cria objetos do tipo {@link Venda}, realiza a entrada de dados aleatórios,
+ * contém os gets e sets das informações dos objetos criados
+ * e cria novos objetos - {@link #addOneVenda(Venda, int) Adicionar Venda}
+ * 
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Out 2021
+ */
 public class DadoVenda {
 
 //Atributos
@@ -18,7 +27,13 @@ public class DadoVenda {
 	private double[] valorVenda = new double[50];
 	
 	
-//Entrada de Dados Aleatorios
+	/**Método para criação de dados aleatórios sobre classes do tipo {@link Venda}.
+	 * (1) Pegar um objeto do tipo {@link Cliente}.
+	 * (2) Pegar um objeto do tipo {@link Funcionario}.
+	 * (3) Pegar o nome de objetos do tipo {@link Produto}.
+	 * (4) Calcular o valor da venda de acordo com o valor dos produtos vendidos.
+	 * (5) Criar novo objeto do tipo {@link Venda}
+	 */
 	public void fillWithSomeData() {
 		for(int i = 0; i < 5; i++) {
 			
@@ -77,7 +92,18 @@ public class DadoVenda {
 		qtdVendas = 5;
 	}
 
-
+	
+	/**Criar novo objeto do tipo {@link Venda}
+	 * 
+	 * @param venda - Novo objeto
+	 * @param pos - Posição do objeto no array
+	 */
+	public void addOneVenda(Venda venda, int pos) {
+		this.vendas[pos] = venda;
+		if(pos == qtdVendas) qtdVendas++;
+	}
+	
+	
 //Get-Set Vendas
 	public Venda[] getVendas() {
 		return vendas;
@@ -85,11 +111,6 @@ public class DadoVenda {
 
 	public void setVendas(Venda[] vendas) {
 		this.vendas = vendas;
-	}
-	
-	public void addOneVenda(Venda venda, int pos) {
-		this.vendas[pos] = venda;
-		if(pos == qtdVendas) qtdVendas++;
 	}
 	
 	public Venda getOneVenda(int pos) {

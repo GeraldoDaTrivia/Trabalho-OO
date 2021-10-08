@@ -5,6 +5,14 @@ import modeloPessoaELoja.Endereco;
 import modeloPessoaELoja.HoraFuncionamento;
 import modeloPessoaELoja.Telefone;
 
+/**Classe para armazenar objetos do tipo {@link SobreALoja}, a quantidade desses objetos e chamar seus métodos.
+ * @see ControleCardapio
+ * @see ControleDado
+ * @see ControleVenda
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Set 2021
+ */
 public class ControleSobreALoja {
 
 //Atributos
@@ -12,6 +20,10 @@ public class ControleSobreALoja {
 	
 	
 //Construtor
+	/**
+	 * Construtor ControleSobreALoja
+	 * @param dados - dados
+	 */
 	public ControleSobreALoja(ControleDado dados) {
 		sobreLoja = dados.getDadoLoja().getLoja();
 		
@@ -19,31 +31,6 @@ public class ControleSobreALoja {
 		sobreLoja.setHorFunc(dados.getDadoLoja().getHorFunc());
 		sobreLoja.setEndLoja(dados.getDadoLoja().getEndLoja());
 	}
-	
-	
-//Editar dados
-	public void editarLoja(int pos) {
-		switch(pos) {
-		case 1:
-			
-			
-			break;
-		
-		case 2:
-			
-			
-			break;
-			
-		case 3:
-			
-			
-			break;
-			
-		default:
-			
-		}
-	}
-	
 	
 //Get SobreLoja
 	public SobreALoja getSobreLoja() {

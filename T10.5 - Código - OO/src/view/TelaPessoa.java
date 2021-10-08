@@ -6,7 +6,22 @@ import javax.swing.*;
 import javax.swing.event.*;
 import controleConjuntos.ControleDado;
 import controlePessoas.*;
+import modeloAbstratas.Pessoa;
+import modeloPessoaELoja.Cliente;
+import modeloPessoaELoja.Funcionario;
 
+/**Classe para fornecer uma interface gráfica quando for mostrar a lista de objetos 
+ * do tipo {@link Cliente} ou {@link Funcionario}.
+ * 
+ * @see TelaAddPessoa
+ * @see TelaDetalhePessoa
+ * @see TelaEditarPessoa
+ * @see TelaMenu
+ * 
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Out 2021
+ */
 public class TelaPessoa implements ActionListener, ListSelectionListener{
 
 	private JFrame janela;
@@ -24,6 +39,11 @@ public class TelaPessoa implements ActionListener, ListSelectionListener{
 	private String[] listaNomes = new String[50];
 	private JScrollPane scroll;
 	
+	/**Método para mostrar os nomes dos objetos do tipo {@link Pessoa} cadastrados.
+	 * 
+	 * @param dado - Dados dos objetos do programa
+	 * @param opcao - Tipo de pessoa
+	 */
 	public void mostrarDados(ControleDado dado, int opcao) {
 		dados = dado;
 		
@@ -147,7 +167,10 @@ public class TelaPessoa implements ActionListener, ListSelectionListener{
 			
 		}
 	}
-
+	
+	/**Método para capturar eventos e realizar ações de acordo.
+	 * 
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
@@ -172,6 +195,9 @@ public class TelaPessoa implements ActionListener, ListSelectionListener{
 		
 	}
 	
+	/**Método para capturar em qual posição da JList o objeto selecionado está.
+	 * 
+	 */
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
 		

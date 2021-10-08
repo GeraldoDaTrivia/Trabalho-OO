@@ -1,5 +1,12 @@
 package modeloPessoaELoja;
 
+/**Classe para objetos do tipo HoraFuncionamento, onde serão armazenados os valores e métodos dos mesmos.
+ * @see Endereco
+ * @see Telefone
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Set 2021
+ */
 public class HoraFuncionamento {
 
 //Atributos

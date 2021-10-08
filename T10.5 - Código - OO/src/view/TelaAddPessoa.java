@@ -7,11 +7,24 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 import controleConjuntos.ControleDado;
+import modeloAbstratas.Pessoa;
 import modeloPessoaELoja.Cliente;
 import modeloPessoaELoja.Endereco;
 import modeloPessoaELoja.Funcionario;
 import modeloPessoaELoja.Telefone;
 
+/**Classe para fornecer uma interface gráfica quando for realizar a adição de um novo objeto 
+ * do tipo {@link Cliente} ou {@link Funcionario}.
+ * 
+ * @see TelaDetalhePessoa
+ * @see TelaEditarPessoa
+ * @see TelaPessoa
+ * @see TelaMenu
+ * 
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Out 2021
+ */
 public class TelaAddPessoa implements ActionListener {
 	
 	private JFrame janela;
@@ -46,7 +59,13 @@ public class TelaAddPessoa implements ActionListener {
 	
 	private JButton addCliente;
 	private JButton addFunc;
-
+	
+	/**Método para a criação de uma interface gráfica na hora de criar um novo {@link Pessoa}.
+	 * 
+	 * @param opcao - Qual o tipo de pessoa
+	 * @param dados - Dados dos objetos do programa
+	 * @param telaPessoa - Dados recebidos pela {@link TelaPessoa}
+	 */
 	public void inserirEditar(int opcao, ControleDado dados, TelaPessoa telaPessoa) {
 		
 		switch(opcao) {
@@ -335,7 +354,10 @@ public class TelaAddPessoa implements ActionListener {
 	}
 
 	
-//Realizando acoes
+	/**Método para a captura de eventos, validação dos dados inseridos e 
+	 * realização da criação de uma nova pessoa nos dados do programa.
+	 * 
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		

@@ -4,12 +4,24 @@ import modeloConjuntos.Venda;
 import modeloPessoaELoja.Cliente;
 import modeloPessoaELoja.Funcionario;
 
+/**Classe para armazenar objetos do tipo {@link Venda}, a quantidade desses objetos e chamar seus métodos.
+ * @see ControleCardapio
+ * @see ControleDado
+ * @see ControleSobreALoja
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Set 2021
+ */
 public class ControleVenda {
 
 //Atributos
 	private Venda[] vendas;
 	private int qtdVendas;
 	
+	/**
+	 * Construtor ControleVenda
+	 * @param dados - dados
+	 */
 	public ControleVenda(ControleDado dados) {
 		vendas = dados.getDadoVenda().getVendas();
 		qtdVendas = dados.getDadoVenda().getQtdVendas();

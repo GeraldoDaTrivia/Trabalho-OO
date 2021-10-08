@@ -4,6 +4,14 @@ import modeloConjuntos.Cardapio;
 import modeloDados.DadoProduto;
 import modeloProdutos.*;
 
+/**Classe para armazenar objetos do tipo {@link Cardapio}, a quantidade desses objetos e chamar seus métodos.
+ * @see ControleDado
+ * @see ControleSobreALoja
+ * @see ControleVenda
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Set 2021
+ */
 public class ControleCardapio {
 
 //Atributos
@@ -11,6 +19,10 @@ public class ControleCardapio {
 	
 	
 //Construtor
+	/**
+	 * Construtor cardapio
+	 * @param dados - dados do programa
+	 */
 	public ControleCardapio(DadoProduto dados) {
 		cardapio = dados.getCardapio();
 	}

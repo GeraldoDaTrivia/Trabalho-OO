@@ -2,6 +2,13 @@ package modeloAbstratas;
 
 import modeloPessoaELoja.Telefone;
 
+/**Determina atributos e métodos comuns para as classes do tipo Pessoa.
+ * @see modeloPessoaELoja.Cliente
+ * @see modeloPessoaELoja.Funcionario
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Set 2021
+ */
 public abstract class Pessoa {
 
 //Atributos

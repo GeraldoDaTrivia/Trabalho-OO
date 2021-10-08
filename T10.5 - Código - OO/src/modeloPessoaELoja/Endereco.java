@@ -1,5 +1,12 @@
 package modeloPessoaELoja;
 
+/**Classe para objetos do tipo Endereco, onde serão armazenados os valores e métodos dos mesmos.
+ * @see Telefone
+ * @see HoraFuncionamento
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Set 2021
+ */
 public class Endereco {
 
 //Atributos
@@ -21,12 +28,19 @@ public class Endereco {
 		numCasa = numeroCasa;
 	}
 	
-//toString
+	/**Transforma o valor do CEP em uma String
+	 * 
+	 * @return String - CEP
+	 */
 	public String toStringCep() {
 		Integer cep = this.cep;
 		return cep.toString();
 	}
 	
+	/**Transforma o número da casa em uma String
+	 * 
+	 * @return String - Número da casa
+	 */
 	public String toStringNumCasa() {
 		Integer numCasa = this.numCasa;
 		return numCasa.toString();
