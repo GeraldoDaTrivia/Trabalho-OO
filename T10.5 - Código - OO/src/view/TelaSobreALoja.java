@@ -54,7 +54,7 @@ public class TelaSobreALoja implements ActionListener, ListSelectionListener {
 		telefone = new JLabel("Telefone");
 		horario = new JLabel("Horário de Funcionamento");
 		endereco = new JLabel("Endereço");
-		aviso = new JLabel("*clique no campo que quiser para editar");
+		aviso = new JLabel("*clique em qualquer campo para editar");
 		refresh = new JButton("Refresh");
 		
 	//Definindo titulo
@@ -105,7 +105,7 @@ public class TelaSobreALoja implements ActionListener, ListSelectionListener {
 		
 	//Definindo aviso
 		aviso.setFont(new Font("Aviso", Font.ITALIC, 11));
-		aviso.setBounds(165, 340, 200, 15);
+		aviso.setBounds(170, 330, 200, 15);
 		
 	//Definindo botao
 		refresh.setBounds(263, 365, 100, 30);

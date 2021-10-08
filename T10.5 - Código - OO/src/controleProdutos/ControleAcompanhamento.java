@@ -1,7 +1,6 @@
 package controleProdutos;
 
 import controleConjuntos.ControleDado;
-import modeloDados.DadoProduto;
 import modeloProdutos.Acompanhamento;
 
 public class ControleAcompanhamento {
@@ -9,22 +8,12 @@ public class ControleAcompanhamento {
 //Atributos
 	private Acompanhamento[] acompanhamentos;
 	private int qtdAcomps;
-	private int numCadastros;
 	
 	
 //Construtor
 	public ControleAcompanhamento(ControleDado dados) {
 		acompanhamentos = dados.getDadoProduto().getAcompanhamentos();
 		qtdAcomps = dados.getDadoProduto().getQtdAcomps();
-	}
-
-
-//Criar Produto
-	public void criarAcompanhamento(DadoProduto dados) {
-		for(int i = qtdAcomps; i < 50||i < (qtdAcomps + numCadastros); i++) {
-			acompanhamentos[i] = new Acompanhamento("Acompanhamento"+i, "Tipo"+i, "Ingredientes"+i, 5*(i+1));
-			dados.inserirEditarAcomp(acompanhamentos, i);
-		}
 	}
 	
 	
@@ -35,14 +24,6 @@ public class ControleAcompanhamento {
 
 	public void setQtdAcomps(int qtdAcomps) {
 		this.qtdAcomps = qtdAcomps;
-	}
-	
-	public int getNumCadastros() {
-		return numCadastros;
-	}
-
-	public void setNumCadastros(int numCadastros) {
-		this.numCadastros = numCadastros;
 	}
 
 
@@ -55,6 +36,13 @@ public class ControleAcompanhamento {
 		}
 		
 		return nomeAcomp;
+	}
+	
+	
+//toString
+	public String toStringValor(int i) {
+		Double valor = acompanhamentos[i].getValor();
+		return valor.toString();
 	}
 	
 

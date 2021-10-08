@@ -9,7 +9,6 @@ public class ControleCliente {
 //Atributos
 	private Cliente[] clientes;
 	private int qtdClientes;
-	private int numCadastros;
 
 	
 //Construtor
@@ -26,14 +25,6 @@ public class ControleCliente {
 
 	public void setQtdClientes(int qtdClientes) {
 		this.qtdClientes = qtdClientes;
-	}
-	
-	public int getNumCadastros() {
-		return numCadastros;
-	}
-
-	public void setNumCadastros(int numCadastros) {
-		this.numCadastros = numCadastros;
 	}
 
 
@@ -55,6 +46,12 @@ public class ControleCliente {
 	}
 	
 	
+//Dados toString
+	public String getOneStringId(int i) {
+		return clientes[i].toStringId(); 
+	}
+	
+	
 //Get Dados
 	public String getNome(int i) {
 		return clientes[i].getNome();
@@ -71,5 +68,5 @@ public class ControleCliente {
 	public Telefone getNumTel(int i) {
 		return clientes[i].getNumTel();
 	}
-
+	
 }

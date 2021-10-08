@@ -1,7 +1,6 @@
 package controleProdutos;
 
 import controleConjuntos.ControleDado;
-import modeloDados.DadoProduto;
 import modeloProdutos.Sobremesa;
 
 public class ControleSobremesa {
@@ -9,22 +8,12 @@ public class ControleSobremesa {
 //Atributos
 	private Sobremesa[] sobremesas;
 	private int qtdSobremesa;
-	private int numCadastros;
 	
 	
 //Construtor
 	public ControleSobremesa(ControleDado dados) {
 		sobremesas = dados.getDadoProduto().getSobremesas();
 		qtdSobremesa = dados.getDadoProduto().getQtdSobremesa();
-	}
-
-
-//Criar Produto
-	public void criarSobremesa(DadoProduto dados) {
-		for(int i = qtdSobremesa; i < 50||i < (qtdSobremesa + numCadastros); i++){
-			sobremesas[i] = new Sobremesa("Tipo"+i, "Sobremesa"+i, "Ingredientes"+i, 3*(i+1));
-			dados.inserirEditarSobremesa(sobremesas, i);
-		}
 	}
 	
 	
@@ -37,14 +26,6 @@ public class ControleSobremesa {
 		this.qtdSobremesa = qtdSobremesa;
 	}
 
-	public int getNumCadastros() {
-		return numCadastros;
-	}
-
-	public void setNumCadastros(int numCadastros) {
-		this.numCadastros = numCadastros;
-	}
-
 
 //Filtro e Buscas
 	public String[] getNomeSobre() {
@@ -55,6 +36,12 @@ public class ControleSobremesa {
 		}
 		
 		return nomeSobre;
+	}
+	
+//toString
+	public String toStringValor(int i) {
+		Double valor = sobremesas[i].getValor();
+		return valor.toString();
 	}
 	
 

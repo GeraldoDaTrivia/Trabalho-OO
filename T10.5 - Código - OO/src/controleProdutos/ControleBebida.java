@@ -1,7 +1,6 @@
 package controleProdutos;
 
 import controleConjuntos.ControleDado;
-import modeloDados.DadoProduto;
 import modeloProdutos.Bebida;
 
 public class ControleBebida {
@@ -9,22 +8,12 @@ public class ControleBebida {
 //Atributos
 	private Bebida[] bebidas;
 	private int qtdBebida;
-	private int numCadastros;
 
 	
 //Construtor
 	public ControleBebida(ControleDado dados) {
 		bebidas = dados.getDadoProduto().getBebidas();
 		qtdBebida = dados.getDadoProduto().getQtdBebida();
-	}
-		
-	
-//Criar Produto
-	public void criarBebida(DadoProduto dados) {
-		for(int i = qtdBebida; i < 50||i <(qtdBebida + numCadastros); i++){
-			bebidas[i] = new Bebida("Tipo"+i, "Bebida"+i, "Sabor"+i, "Tamanho"+(i*100), 2*(i+1));
-			dados.inserirEditarBebida(bebidas, i);
-		}
 	}
 	
 	
@@ -35,14 +24,6 @@ public class ControleBebida {
 	
 	public void setQtdBebida(int qtd) {
 		this.qtdBebida = qtd;
-	}
-		
-	public int getNumCadastros() {
-		return numCadastros;
-	}
-
-	public void setNumCadastros(int numCadastros) {
-		this.numCadastros = numCadastros;
 	}
 
 
@@ -57,14 +38,10 @@ public class ControleBebida {
 		return nomeBebida;
 	}
 	
-	public String[] getTipoBebida() {
-		String[] tipoBebida = new String[qtdBebida];
-		
-		for(int i = 0; i < qtdBebida; i++) {
-			tipoBebida[i] = bebidas[i].getTipoBebida();
-		}
-		
-		return tipoBebida;
+//toString
+	public String toStringValor(int i) {
+		Double valor = bebidas[i].getValor();
+		return valor.toString();
 	}
 		
 

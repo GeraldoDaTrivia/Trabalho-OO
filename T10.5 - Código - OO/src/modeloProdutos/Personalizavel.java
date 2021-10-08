@@ -7,12 +7,12 @@ public class Personalizavel extends Produto {
 //Atributos
 	private int quantCarne;
 	private String addIngred;
-	private int escolhaMolho;
+	private String escolhaMolho;
 	private Burger burgPers;
 	
 
 //Construtores
-	public Personalizavel(String nomePers, Burger burg, int qtdCarne, String addIng, int escMolho, double valorPers) {
+	public Personalizavel(String nomePers, Burger burg, int qtdCarne, String addIng, String escMolho, double valorPers) {
 		nome = nomePers;
 		burgPers = burg;
 		quantCarne = qtdCarne;
@@ -47,11 +47,11 @@ public class Personalizavel extends Produto {
 		this.addIngred = addIngred;
 	}
 
-	public int getEscolhaMolho() {
+	public String getEscolhaMolho() {
 		return escolhaMolho;
 	}
 
-	public void setEscolhaMolho(int escolhaMolho) {
+	public void setEscolhaMolho(String escolhaMolho) {
 		this.escolhaMolho = escolhaMolho;
 	}
 	

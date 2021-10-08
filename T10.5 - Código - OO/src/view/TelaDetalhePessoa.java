@@ -5,15 +5,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import controleConjuntos.ControleDado;
-import modeloPessoaELoja.Cliente;
-import modeloPessoaELoja.Endereco;
-import modeloPessoaELoja.Funcionario;
-import modeloPessoaELoja.Telefone;
+import controlePessoas.ControleCliente;
+import controlePessoas.ControleFuncionario;
 
-public class TelaDetalhePessoa implements ActionListener {
-	
+public class TelaDetalhePessoa implements ActionListener, ListSelectionListener {
+
 	private JFrame janela;
 	private JPanel painel;
 	
@@ -34,48 +34,67 @@ public class TelaDetalhePessoa implements ActionListener {
 	private JLabel numCasa;
 	private JLabel aviso;
 	
-	private JTextField nomeField;
-	private JTextField idField;
-	private JTextField cpfField;
-	private JTextField rgField;
-	private JTextField dddField;
-	private JTextField numField;
-	private JTextField cepField;
-	private JTextField estadoField;
-	private JTextField cidadeField;
-	private JTextField bairroField;
-	private JTextField ruaField;
-	private JTextField casaField;
+	private String[] listaNomes = new String[50];
+	private String[] listaId = new String[50];
+	private String[] listaCpf = new String[50];
+	private String[] listaRg = new String[50];
+	private String[] listaNumTel = new String[50];
+	private String[] listaEnd = new String[50];
 	
-	private JList<String> nomeList;
-	private JList<String> idList;
-	private JList<String> cpfList;
-	private JList<String> rgList;
-	private JList<String> numTelList;
-	private JList<String> endList;
+	private JList<String> nomeListCli;
+	private JList<String> idListCli;
+	private JList<String> cpfListCli;
+	private JList<String> numTelListCli;
+	private JList<String> nomeListFunc;
+	private JList<String> idListFunc;
+	private JList<String> cpfListFunc;
+	private JList<String> rgListFunc;
+	private JList<String> numTelListFunc;
+	private JList<String> endListFunc;
 	
-	private JButton addCliente;
-	private JButton addFunc;
-	private JButton refresh;
+	private JButton refreshCli;
+	private JButton refreshFunc;
+	private JButton excluirCli;
+	private JButton excluirFunc;
+	
+	private TelaPessoa pessoa;
+	private int index;
 
-	public void inserirEditar(int opcao, ControleDado dados, TelaPessoa telaPessoa, int pos) {
+	public void mostrarDados(int opcao, ControleDado dados, TelaPessoa telaPessoa, int selectedIndex) {
+		
+		pessoa = telaPessoa;
+		index = selectedIndex;
 		
 		switch(opcao) {
+		
+	//Detalhes cliente
 		case 1:
 			
 		//Criando elementos
-			janela = new JFrame("Cadastrar Cliente");
-			titulo = new JLabel("Novo Cliente");
+			janela = new JFrame("Detalhes Cliente");
+			
+			titulo = new JLabel("Dados do Cliente");
 			nome = new JLabel("Nome");
+			numId = new JLabel("ID");
 			cpf = new JLabel("CPF");
 			numTel = new JLabel("Telefone");
 			ddd = new JLabel("DDD");
-			numero = new JLabel("Numero");
-			nomeField = new JTextField(30);
-			cpfField = new JTextField(30);
-			dddField = new JTextField(30);
-			numField = new JTextField(30);
-			addCliente = new JButton("Adicionar");
+			numero = new JLabel("Número");
+			aviso = new JLabel("*clique no campo que quiser editar");
+			
+			listaNomes[0]= new ControleCliente(TelaMenu.dados).getNome(selectedIndex);
+			listaId[0] = new ControleCliente(TelaMenu.dados).getOneStringId(selectedIndex);
+			listaCpf[0] = new ControleCliente(TelaMenu.dados).getCpf(selectedIndex);
+			listaNumTel[0] = new ControleCliente(TelaMenu.dados).getNumTel(selectedIndex).toStringDdd();
+			listaNumTel[1] = new ControleCliente(TelaMenu.dados).getNumTel(selectedIndex).toStringNum();
+			
+			nomeListCli = new JList<String>(listaNomes);
+			idListCli = new JList<String>(listaId);
+			cpfListCli = new JList<String>(listaCpf);
+			numTelListCli = new JList<String>(listaNumTel);
+			
+			refreshCli = new JButton("Refresh");
+			excluirCli = new JButton("Excluir");
 			
 		//Definindo painel
 			painel = new JPanel();
@@ -84,84 +103,108 @@ public class TelaDetalhePessoa implements ActionListener {
 			
 		//Definindo JLabels
 			titulo.setFont(new Font("Arial", Font.BOLD, 20));
-			titulo.setBounds(130, 15, 190, 30);
+			titulo.setBounds(110, 15, 190, 30);
 			
-			nome.setBounds(13, 50, 50, 30);
-			nome.setHorizontalTextPosition(JLabel.LEFT);
-			nome.setHorizontalAlignment(JLabel.LEFT);
+			nome.setBounds(163, 50, 50, 30);
+			nome.setHorizontalTextPosition(JLabel.CENTER);
+			nome.setHorizontalAlignment(JLabel.CENTER);
 			nome.setFont(new Font("Subtitulo", Font.BOLD, 15));
 			
-			cpf.setBounds(13, 120, 50, 30);
-			cpf.setHorizontalTextPosition(JLabel.LEFT);
-			cpf.setHorizontalAlignment(JLabel.LEFT);
+			numId.setBounds(163, 110, 50, 30);
+			numId.setHorizontalTextPosition(JLabel.CENTER);
+			numId.setHorizontalAlignment(JLabel.CENTER);
+			numId.setFont(new Font("Subtitulo", Font.BOLD, 15));
+			
+			cpf.setBounds(163, 170, 50, 30);
+			cpf.setHorizontalTextPosition(JLabel.CENTER);
+			cpf.setHorizontalAlignment(JLabel.CENTER);
 			cpf.setFont(new Font("Subtitulo", Font.BOLD, 15));
 			
-			numTel.setBounds(13, 190, 70, 30);
-			numTel.setHorizontalTextPosition(JLabel.LEFT);
-			numTel.setHorizontalAlignment(JLabel.LEFT);
+			numTel.setBounds(153, 230, 70, 30);
+			numTel.setHorizontalTextPosition(JLabel.CENTER);
+			numTel.setHorizontalAlignment(JLabel.CENTER);
 			numTel.setFont(new Font("Subtitulo", Font.BOLD, 15));
 			
-			ddd.setBounds(13, 220, 50, 30);
+			ddd.setBounds(3, 254, 50, 30);
 			ddd.setHorizontalTextPosition(JLabel.CENTER);
 			ddd.setHorizontalAlignment(JLabel.CENTER);
 			ddd.setFont(new Font("Formato", Font.ITALIC, 12));
 			
-			numero.setBounds(13, 250, 50, 30);
+			numero.setBounds(3, 272, 50, 30);
 			numero.setHorizontalTextPosition(JLabel.CENTER);
 			numero.setHorizontalAlignment(JLabel.CENTER);
 			numero.setFont(new Font("Formato", Font.ITALIC, 12));
 			
-		//Deifinindo JTextFields
-			nomeField.setBounds(73, 80, 250, 30);
-			nomeField.setHorizontalAlignment(JTextField.CENTER);
+			aviso.setBounds(150, 305, 200, 15);
+			aviso.setFont(new Font("Aviso", Font.ITALIC, 11));
 			
-			cpfField.setBounds(73, 150, 250, 30);
-			cpfField.setHorizontalAlignment(JTextField.CENTER);
+		//Definindo JLists
+			nomeListCli.setBounds(63, 80, 260, 20);
+			nomeListCli.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+			nomeListCli.setLayoutOrientation(JList.VERTICAL);
 			
-			dddField.setBounds(73, 220, 250, 30);
-			dddField.setHorizontalAlignment(JTextField.CENTER);
+			idListCli.setBounds(63, 140, 260, 20);
+			idListCli.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+			idListCli.setLayoutOrientation(JList.VERTICAL);
 			
-			numField.setBounds(73, 250, 250, 30);
-			numField.setHorizontalAlignment(JTextField.CENTER);
+			cpfListCli.setBounds(63, 200, 260, 20);
+			cpfListCli.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+			cpfListCli.setLayoutOrientation(JList.VERTICAL);
 			
-		//Definindo botao
-			addCliente.setBounds(140, 300, 100, 30);
+			numTelListCli.setBounds(63, 260, 260, 40);
+			numTelListCli.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+			numTelListCli.setLayoutOrientation(JList.VERTICAL);
+			
+		//Definindo JButtons
+			excluirCli.setBounds(63, 350, 100, 30);
+			refreshCli.setBounds(223, 350, 100, 30);
 			
 		//Adicionando componentes
 			painel.add(titulo);
 			painel.add(nome);
-			painel.add(nomeField);
+			painel.add(nomeListCli);
+			painel.add(numId);
+			painel.add(idListCli);
 			painel.add(cpf);
-			painel.add(cpfField);
+			painel.add(cpfListCli);
 			painel.add(numTel);
 			painel.add(ddd);
-			painel.add(dddField);
 			painel.add(numero);
-			painel.add(numField);
-			painel.add(addCliente);
+			painel.add(numTelListCli);
+			painel.add(aviso);
+			painel.add(refreshCli);
+			painel.add(excluirCli);
 			
 		//Definindo janela
-			janela.setSize(390, 400);
-			janela.setLocation(765, 400);
+			janela.setSize(390, 450);
+			janela.setLocation(765, 350);
 			janela.setResizable(false);
 			janela.setVisible(true);
-		
-		//Adicionando ActionListener
-			addCliente.addActionListener(this);
+			
+		//Adicionando Listeners
+			nomeListCli.addListSelectionListener(this);
+			idListCli.addListSelectionListener(this);
+			cpfListCli.addListSelectionListener(this);
+			numTelListCli.addListSelectionListener(this);
+			refreshCli.addActionListener(this);
+			excluirCli.addActionListener(this);
 			
 			break;
 			
+	//Detalhes funcionario
 		case 2:
 			
 		//Criando elementos
-			janela = new JFrame("Cadastrar Funcionario");
-			titulo = new JLabel("Novo Funcionário");
+			janela = new JFrame("Detalhes Funcionario");
+			
+			titulo = new JLabel("Dados do Funcionário");
 			nome = new JLabel("Nome");
+			numId = new JLabel("ID");
 			cpf = new JLabel("CPF");
 			rg = new JLabel("RG");
 			numTel = new JLabel("Telefone");
 			ddd = new JLabel("DDD");
-			numero = new JLabel("Numero");
+			numero = new JLabel("Número");
 			endereco = new JLabel("Endereço");
 			cep = new JLabel("CEP");
 			estado = new JLabel("Estado");
@@ -169,20 +212,30 @@ public class TelaDetalhePessoa implements ActionListener {
 			bairro = new JLabel("Bairro");
 			rua = new JLabel("Rua");
 			numCasa = new JLabel("Casa");
+			aviso = new JLabel("*clique no campo que quiser editar");
 			
-			nomeField = new JTextField(30);
-			cpfField = new JTextField(30);
-			rgField = new JTextField(30);
-			dddField = new JTextField(30);
-			numField = new JTextField(30);
-			cepField = new JTextField(30);
-			estadoField = new JTextField(30);
-			cidadeField = new JTextField(30);
-			bairroField = new JTextField(30);
-			ruaField = new JTextField(30);
-			casaField = new JTextField(30);
+			listaNomes[0]= new ControleFuncionario(TelaMenu.dados).getNome(selectedIndex);
+			listaId[0] = new ControleFuncionario(TelaMenu.dados).getOneStringId(selectedIndex);
+			listaCpf[0] = new ControleFuncionario(TelaMenu.dados).getCpf(selectedIndex);
+			listaRg[0] = new ControleFuncionario(TelaMenu.dados).getOneStringRg(selectedIndex);
+			listaNumTel[0] = new ControleFuncionario(TelaMenu.dados).getNumTel(selectedIndex).toStringDdd();
+			listaNumTel[1] = new ControleFuncionario(TelaMenu.dados).getNumTel(selectedIndex).toStringNum();
+			listaEnd[0] = new ControleFuncionario(TelaMenu.dados).getEndereco(selectedIndex).toStringCep();
+			listaEnd[1] = new ControleFuncionario(TelaMenu.dados).getEndereco(selectedIndex).getEstado();
+			listaEnd[2] = new ControleFuncionario(TelaMenu.dados).getEndereco(selectedIndex).getCidade();
+			listaEnd[3] = new ControleFuncionario(TelaMenu.dados).getEndereco(selectedIndex).getBairro();
+			listaEnd[4] = new ControleFuncionario(TelaMenu.dados).getEndereco(selectedIndex).getRua();
+			listaEnd[5] = new ControleFuncionario(TelaMenu.dados).getEndereco(selectedIndex).toStringNumCasa();
 			
-			addFunc = new JButton("Adicionar");
+			nomeListFunc = new JList<String>(listaNomes);
+			idListFunc = new JList<String>(listaId);
+			cpfListFunc = new JList<String>(listaCpf);
+			rgListFunc = new JList<String>(listaRg);
+			numTelListFunc = new JList<String>(listaNumTel);
+			endListFunc = new JList<String>(listaEnd);
+			
+			refreshFunc = new JButton("Refresh");
+			excluirFunc = new JButton("Excluir");
 			
 		//Definindo painel
 			painel = new JPanel();
@@ -191,118 +244,124 @@ public class TelaDetalhePessoa implements ActionListener {
 			
 		//Definindo JLabels
 			titulo.setFont(new Font("Arial", Font.BOLD, 20));
-			titulo.setBounds(120, 15, 190, 30);
+			titulo.setBounds(85, 15, 220, 30);
 			
-			nome.setBounds(13, 50, 50, 30);
-			nome.setHorizontalTextPosition(JLabel.LEFT);
-			nome.setHorizontalAlignment(JLabel.LEFT);
+			nome.setBounds(163, 50, 50, 30);
+			nome.setHorizontalTextPosition(JLabel.CENTER);
+			nome.setHorizontalAlignment(JLabel.CENTER);
 			nome.setFont(new Font("Subtitulo", Font.BOLD, 15));
 			
-			cpf.setBounds(13, 120, 50, 30);
-			cpf.setHorizontalTextPosition(JLabel.LEFT);
-			cpf.setHorizontalAlignment(JLabel.LEFT);
+			numId.setBounds(163, 110, 50, 30);
+			numId.setHorizontalTextPosition(JLabel.CENTER);
+			numId.setHorizontalAlignment(JLabel.CENTER);
+			numId.setFont(new Font("Subtitulo", Font.BOLD, 15));
+			
+			cpf.setBounds(163, 170, 50, 30);
+			cpf.setHorizontalTextPosition(JLabel.CENTER);
+			cpf.setHorizontalAlignment(JLabel.CENTER);
 			cpf.setFont(new Font("Subtitulo", Font.BOLD, 15));
 			
-			rg.setBounds(13, 190, 50, 30);
-			rg.setHorizontalTextPosition(JLabel.LEFT);
-			rg.setHorizontalAlignment(JLabel.LEFT);
+			rg.setBounds(163, 230, 50, 30);
+			rg.setHorizontalTextPosition(JLabel.CENTER);
+			rg.setHorizontalAlignment(JLabel.CENTER);
 			rg.setFont(new Font("Subtitulo", Font.BOLD, 15));
 			
-			numTel.setBounds(13, 260, 70, 30);
-			numTel.setHorizontalTextPosition(JLabel.LEFT);
-			numTel.setHorizontalAlignment(JLabel.LEFT);
+			numTel.setBounds(153, 290, 70, 30);
+			numTel.setHorizontalTextPosition(JLabel.CENTER);
+			numTel.setHorizontalAlignment(JLabel.CENTER);
 			numTel.setFont(new Font("Subtitulo", Font.BOLD, 15));
 			
-			ddd.setBounds(13, 290, 50, 30);
+			ddd.setBounds(3, 314, 50, 30);
 			ddd.setHorizontalTextPosition(JLabel.CENTER);
 			ddd.setHorizontalAlignment(JLabel.CENTER);
 			ddd.setFont(new Font("Formato", Font.ITALIC, 12));
 			
-			numero.setBounds(13, 320, 50, 30);
+			numero.setBounds(3, 332, 50, 30);
 			numero.setHorizontalTextPosition(JLabel.CENTER);
 			numero.setHorizontalAlignment(JLabel.CENTER);
 			numero.setFont(new Font("Formato", Font.ITALIC, 12));
 			
-			endereco.setBounds(13, 360, 70, 30);
-			endereco.setHorizontalTextPosition(JLabel.LEFT);
-			endereco.setHorizontalAlignment(JLabel.LEFT);
+			endereco.setBounds(153, 370, 70, 30);
+			endereco.setHorizontalTextPosition(JLabel.CENTER);
+			endereco.setHorizontalAlignment(JLabel.CENTER);
 			endereco.setFont(new Font("Subtitulo", Font.BOLD, 15));
 			
-			cep.setBounds(13, 390, 50, 30);
+			cep.setBounds(3, 394, 50, 30);
 			cep.setHorizontalTextPosition(JLabel.CENTER);
 			cep.setHorizontalAlignment(JLabel.CENTER);
 			cep.setFont(new Font("Formato", Font.ITALIC, 12));
 			
-			estado.setBounds(13, 420, 50, 30);
+			estado.setBounds(3, 412, 50, 30);
 			estado.setHorizontalTextPosition(JLabel.CENTER);
 			estado.setHorizontalAlignment(JLabel.CENTER);
 			estado.setFont(new Font("Formato", Font.ITALIC, 12));
 			
-			cidade.setBounds(13, 450, 50, 30);
+			cidade.setBounds(3, 430, 50, 30);
 			cidade.setHorizontalTextPosition(JLabel.CENTER);
 			cidade.setHorizontalAlignment(JLabel.CENTER);
 			cidade.setFont(new Font("Formato", Font.ITALIC, 12));
 			
-			bairro.setBounds(13, 480, 50, 30);
+			bairro.setBounds(3, 448, 50, 30);
 			bairro.setHorizontalTextPosition(JLabel.CENTER);
 			bairro.setHorizontalAlignment(JLabel.CENTER);
 			bairro.setFont(new Font("Formato", Font.ITALIC, 12));
 			
-			rua.setBounds(13, 510, 50, 30);
+			rua.setBounds(3, 466, 50, 30);
 			rua.setHorizontalTextPosition(JLabel.CENTER);
 			rua.setHorizontalAlignment(JLabel.CENTER);
 			rua.setFont(new Font("Formato", Font.ITALIC, 12));
 			
-			numCasa.setBounds(13, 540, 50, 30);
+			numCasa.setBounds(3, 484, 50, 30);
 			numCasa.setHorizontalTextPosition(JLabel.CENTER);
 			numCasa.setHorizontalAlignment(JLabel.CENTER);
 			numCasa.setFont(new Font("Formato", Font.ITALIC, 12));
 			
-		//Deifinindo JTextFields
-			nomeField.setBounds(73, 80, 250, 30);
-			nomeField.setHorizontalAlignment(JTextField.CENTER);
+			aviso.setBounds(150, 512, 200, 15);
+			aviso.setFont(new Font("Aviso", Font.ITALIC, 11));
 			
-			cpfField.setBounds(73, 150, 250, 30);
-			cpfField.setHorizontalAlignment(JTextField.CENTER);
+		//Definindo JLists
+			nomeListFunc.setBounds(63, 80, 260, 20);
+			nomeListFunc.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+			nomeListFunc.setLayoutOrientation(JList.VERTICAL);
 			
-			rgField.setBounds(73, 220, 250, 30);
-			rgField.setHorizontalAlignment(JTextField.CENTER);
+			idListFunc.setBounds(63, 140, 260, 20);
+			idListFunc.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+			idListFunc.setLayoutOrientation(JList.VERTICAL);
 			
-			dddField.setBounds(73, 290, 250, 30);
-			dddField.setHorizontalAlignment(JTextField.CENTER);
+			cpfListFunc.setBounds(63, 200, 260, 20);
+			cpfListFunc.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+			cpfListFunc.setLayoutOrientation(JList.VERTICAL);
 			
-			numField.setBounds(73, 320, 250, 30);
-			numField.setHorizontalAlignment(JTextField.CENTER);
+			rgListFunc.setBounds(63, 260, 260, 20);
+			rgListFunc.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+			rgListFunc.setLayoutOrientation(JList.VERTICAL);
 			
-			cepField.setBounds(73, 390, 250, 30);
-			cepField.setHorizontalAlignment(JTextField.CENTER);
+			numTelListFunc.setBounds(63, 320, 260, 40);
+			numTelListFunc.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+			numTelListFunc.setLayoutOrientation(JList.VERTICAL);
 			
-			estadoField.setBounds(73, 420, 250, 30);
-			estadoField.setHorizontalAlignment(JTextField.CENTER);
+			endListFunc.setBounds(63, 400, 260, 108);
+			endListFunc.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+			endListFunc.setLayoutOrientation(JList.VERTICAL);
 			
-			cidadeField.setBounds(73, 450, 250, 30);
-			cidadeField.setHorizontalAlignment(JTextField.CENTER);
+		//Definindo JButtons
+			excluirFunc.setBounds(63, 562, 100, 30);
+			refreshFunc.setBounds(223, 562, 100, 30);
 			
-			bairroField.setBounds(73, 480, 250, 30);
-			bairroField.setHorizontalAlignment(JTextField.CENTER);
-			
-			ruaField.setBounds(73, 510, 250, 30);
-			ruaField.setHorizontalAlignment(JTextField.CENTER);
-			
-			casaField.setBounds(73, 540, 250, 30);
-			casaField.setHorizontalAlignment(JTextField.CENTER);
-			
-		//Definindo botao
-			addFunc.setBounds(140, 590, 100, 30);
-			
-		//Adicionando JLabels
+		//Adicionando componentes
 			painel.add(titulo);
 			painel.add(nome);
+			painel.add(nomeListFunc);
+			painel.add(numId);
+			painel.add(idListFunc);
 			painel.add(cpf);
+			painel.add(cpfListFunc);
 			painel.add(rg);
+			painel.add(rgListFunc);
 			painel.add(numTel);
 			painel.add(ddd);
 			painel.add(numero);
+			painel.add(numTelListFunc);
 			painel.add(endereco);
 			painel.add(cep);
 			painel.add(estado);
@@ -310,42 +369,26 @@ public class TelaDetalhePessoa implements ActionListener {
 			painel.add(bairro);
 			painel.add(rua);
 			painel.add(numCasa);
-			painel.add(casaField);
-			
-		//Adicionando JTextFields
-			painel.add(nomeField);
-			painel.add(cpfField);
-			painel.add(rgField);
-			painel.add(dddField);
-			painel.add(numField);
-			painel.add(cepField);
-			painel.add(estadoField);
-			painel.add(cidadeField);
-			painel.add(bairroField);
-			painel.add(ruaField);
-			painel.add(casaField);
-			
-		//Adicionando JButton
-			painel.add(addFunc);
+			painel.add(endListFunc);
+			painel.add(aviso);
+			painel.add(refreshFunc);
+			painel.add(excluirFunc);
 			
 		//Definindo janela
-			janela.setSize(390, 690);
-			janela.setLocation(765, 200);
+			janela.setSize(390, 662);
+			janela.setLocation(765, 300);
 			janela.setResizable(false);
 			janela.setVisible(true);
-		
-		//Adicionando ActionListener
-			addFunc.addActionListener(this);
 			
-			break;
-			
-		case 3:
-			
-			
-			break;
-			
-		case 4:
-			
+		//Adicionando Listeners
+			nomeListFunc.addListSelectionListener(this);
+			idListFunc.addListSelectionListener(this);
+			cpfListFunc.addListSelectionListener(this);
+			rgListFunc.addListSelectionListener(this);
+			numTelListFunc.addListSelectionListener(this);
+			endListFunc.addListSelectionListener(this);
+			refreshFunc.addActionListener(this);
+			excluirFunc.addActionListener(this);
 			
 			break;
 			
@@ -353,126 +396,83 @@ public class TelaDetalhePessoa implements ActionListener {
 			JOptionPane.showMessageDialog(null, "Opção não encontrada!", null, JOptionPane.ERROR_MESSAGE);
 			
 		}
+		
 	}
 
+//Refresh tela ou Excluir pessoa selecionada
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
-	//Novo cliente
-		if(src==addCliente) {
-			
-			int campoLimpo = 0;
-			
-			Cliente cliente;
-			Telefone telCliente;
-			
-			String nome = nomeField.getText();
-			String cpf = cpfField.getText();
-			String dddString = dddField.getText();
-			String numString = numField.getText();
-			
-		//Verificacao de campos nulos
-			if(nomeField.getText().equals("")) {
-				JOptionPane.showMessageDialog(null, "Não houve tentativa de adicionar nome.\n"
-						+ "Por favor, tente novamente.", null, JOptionPane.INFORMATION_MESSAGE);
-			} else if(cpfField.getText().equals("")) {
-				JOptionPane.showMessageDialog(null, "Não houve tentativa de adicionar CPF.\n"
-						+ "Por favor, tente novamente.", null, JOptionPane.INFORMATION_MESSAGE);
-			} else if(dddField.getText().equals("")) {
-				JOptionPane.showMessageDialog(null, "Não houve tentativa de adicionar DDD.\n"
-						+ "Por favor, tente novamente.", null, JOptionPane.INFORMATION_MESSAGE);
-			} else if(numField.getText().equals("")) {
-				JOptionPane.showMessageDialog(null, "Não houve tentativa de adicionar número de telefone.\n"
-						+ "Por favor, tente novamente.", null, JOptionPane.INFORMATION_MESSAGE);
-			
-		//Criacao de novo Cliente
-			} else {
-				int telDdd = Integer.parseInt(dddString);
-				int telNum = Integer.parseInt(numString);
-				int id;
-				
-				id = 1001;
-				id = id + TelaMenu.dados.getDadoPessoa().getQtdClientes();
-				
-				telCliente = new Telefone(telDdd, telNum);
-				cliente = new Cliente(nome, id, cpf, telCliente);
-				TelaMenu.dados.getDadoPessoa().inserirEditarCliente(cliente, TelaMenu.dados.getDadoPessoa().getQtdClientes());
-				
+	//Refresh tela
+		if(src==refreshCli) {
+			janela.dispose();
+			new TelaDetalhePessoa().mostrarDados(1, TelaMenu.dados, pessoa, index);
+		} else if(src==refreshFunc) {
+			janela.dispose();
+			new TelaDetalhePessoa().mostrarDados(2, TelaMenu.dados, pessoa, index);
+		
+		}
+		
+	//Excluir pessoa selecionada
+		
+		//Excluir cliente
+		if(src==excluirCli) {
+			int confirmar = JOptionPane.showConfirmDialog(null, "Deseja mesmo excluir este\n"
+					+ "cliente ?", "Confirmar Exclusao", JOptionPane.YES_NO_OPTION);
+			if(confirmar==JOptionPane.YES_OPTION) {
+				TelaMenu.dados.getDadoPessoa().excluirCliente(TelaMenu.dados.getDadoPessoa().getOneCliente(index), index);
 				janela.dispose();
 			}
 			
-	//Novo Funcionario
-		} else if(src==addFunc) {
-			
-			Funcionario funcionario;
-			Telefone telFunc;
-			Endereco endFunc;
-			
-			String nome = nomeField.getText();
-			String cpf = cpfField.getText();
-			String rgString = rgField.getText();
-			String dddString = dddField.getText();
-			String numString = numField.getText();
-			String cepString = cepField.getText();
-			String estado = estadoField.getText();
-			String cidade = cidadeField.getText();
-			String bairro = bairroField.getText();
-			String rua = ruaField.getText();
-			String casaString = casaField.getText();
-			
-		//Verificacao de campos nulos
-			if(nomeField.getText().equals("")) {
-				JOptionPane.showMessageDialog(null, "Não houve tentativa de adicionar nome.\n"
-						+ "Por favor, tente novamente.", null, JOptionPane.INFORMATION_MESSAGE);
-			} else if(cpfField.getText().equals("")) {
-				JOptionPane.showMessageDialog(null, "Não houve tentativa de adicionar CPF.\n"
-						+ "Por favor, tente novamente.", null, JOptionPane.INFORMATION_MESSAGE);
-			} else if(rgField.getText().equals("")) {
-				JOptionPane.showMessageDialog(null, "Não houve tentativa de adicionar RG.\n"
-						+ "Por favor, tente novamente.", null, JOptionPane.INFORMATION_MESSAGE);
-			} else if(dddField.getText().equals("")) {
-				JOptionPane.showMessageDialog(null, "Não houve tentativa de adicionar DDD.\n"
-						+ "Por favor, tente novamente.", null, JOptionPane.INFORMATION_MESSAGE);
-			} else if(numField.getText().equals("")) {
-				JOptionPane.showMessageDialog(null, "Não houve tentativa de adicionar número de telefone.\n"
-						+ "Por favor, tente novamente.", null, JOptionPane.INFORMATION_MESSAGE);
-			} else if(cepField.getText().equals("")) {
-				JOptionPane.showMessageDialog(null, "Não houve tentativa de adicionar CEP.\n"
-						+ "Por favor, tente novamente.", null, JOptionPane.INFORMATION_MESSAGE);
-			} else if(estadoField.getText().equals("")) {
-				JOptionPane.showMessageDialog(null, "Não houve tentativa de adicionar estado.\n"
-						+ "Por favor, tente novamente.", null, JOptionPane.INFORMATION_MESSAGE);
-			} else if(cidadeField.getText().equals("")) {
-				JOptionPane.showMessageDialog(null, "Não houve tentativa de adicionar cidade.\n"
-						+ "Por favor, tente novamente.", null, JOptionPane.INFORMATION_MESSAGE);
-			} else if(bairroField.getText().equals("")) {
-				JOptionPane.showMessageDialog(null, "Não houve tentativa de adicionar bairro.\n"
-						+ "Por favor, tente novamente.", null, JOptionPane.INFORMATION_MESSAGE);
-			} else if(ruaField.getText().equals("")) {
-				JOptionPane.showMessageDialog(null, "Não houve tentativa de adicionar rua.\n"
-						+ "Por favor, tente novamente.", null, JOptionPane.INFORMATION_MESSAGE);
-			} else if(casaField.getText().equals("")) {
-				JOptionPane.showMessageDialog(null, "Não houve tentativa de adicionar número da casa.\n"
-						+ "Por favor, tente novamente.", null, JOptionPane.INFORMATION_MESSAGE);
-			
-		//Criacao de novo Funcionario
-			} else {
-				int numRg = Integer.parseInt(rgString);
-				int telDdd = Integer.parseInt(dddString);
-				int telNum = Integer.parseInt(numString);
-				int cep = Integer.parseInt(cepString);
-				int casa = Integer.parseInt(casaString);
-				int id;
-				
-				id = 5001 + TelaMenu.dados.getDadoPessoa().getQtdFuncionarios();
-				
-				telFunc = new Telefone(telDdd, telNum);
-				endFunc = new Endereco(cep, estado, cidade, bairro, rua, casa);
-				funcionario = new Funcionario(nome, id, cpf, numRg, telFunc, endFunc);
-				TelaMenu.dados.getDadoPessoa().inserirEditarFuncionario(funcionario, TelaMenu.dados.getDadoPessoa().getQtdFuncionarios());
-				
+		//Excluir funcionario
+		} else if(src==excluirFunc) {
+			int confirmar = JOptionPane.showConfirmDialog(null, "Deseja mesmo excluir este\n"
+					+ "funcionário ?", "Confirmar Exclusao", JOptionPane.YES_NO_OPTION);
+			if(confirmar==JOptionPane.YES_OPTION) {
+				TelaMenu.dados.getDadoPessoa().excluirFuncionario(TelaMenu.dados.getDadoPessoa().getOneFunc(index), index);
 				janela.dispose();
 			}
+		}
+		
+	}
+
+//Editar Pessoa Selecionada
+	public void valueChanged(ListSelectionEvent e) {
+		Object src = e.getSource();
+		
+	//Editar Cliente
+		if(e.getValueIsAdjusting() && src == nomeListCli) {
+			new TelaEditarPessoa().editarDados(1, TelaMenu.dados, index);
+			
+		} else if(e.getValueIsAdjusting() && src == idListCli) {
+			new TelaEditarPessoa().editarDados(2, TelaMenu.dados, index);
+			
+		} else if(e.getValueIsAdjusting() && src == cpfListCli) {
+			new TelaEditarPessoa().editarDados(3, TelaMenu.dados, index);
+			
+		} else if(e.getValueIsAdjusting() && src == numTelListCli) {
+			new TelaEditarPessoa().editarDados(4, TelaMenu.dados, index);
+			
+		}
+		
+	//Editar Funcionario
+		if(e.getValueIsAdjusting() && src == nomeListFunc) {
+			new TelaEditarPessoa().editarDados(5, TelaMenu.dados, index);
+				
+		} else if(e.getValueIsAdjusting() && src == idListFunc) {
+			new TelaEditarPessoa().editarDados(6, TelaMenu.dados, index);	
+			
+		} else if(e.getValueIsAdjusting() && src == cpfListFunc) {
+			new TelaEditarPessoa().editarDados(7, TelaMenu.dados, index);	
+			
+		} else if(e.getValueIsAdjusting() && src == rgListFunc) {
+			new TelaEditarPessoa().editarDados(8, TelaMenu.dados, index);
+			
+		} else if(e.getValueIsAdjusting() && src == numTelListFunc) {
+			new TelaEditarPessoa().editarDados(9, TelaMenu.dados, index);	
+			
+		} else if(e.getValueIsAdjusting() && src == endListFunc) {
+			new TelaEditarPessoa().editarDados(10, TelaMenu.dados, index);
 			
 		}
 		

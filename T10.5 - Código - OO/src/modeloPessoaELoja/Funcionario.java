@@ -20,6 +20,18 @@ public class Funcionario extends Pessoa {
 	}
 	
 	
+//toStrings
+	public String toStringId() {
+		Integer id = numId;
+		return id.toString();
+	}
+	
+	public String toStringRg() {
+		Integer numRg = this.rg;
+		return numRg.toString();
+	}
+	
+	
 //Gets e sets
 	public String getNome() {
 		return nome;
@@ -44,6 +56,14 @@ public class Funcionario extends Pessoa {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+	
+	public int getRg() {
+		return rg;
+	}
+
+	public void setRg(int rg) {
+		this.rg = rg;
+	}
 
 	public Telefone getNumTel() {
 		return numTel;
@@ -59,14 +79,6 @@ public class Funcionario extends Pessoa {
 
 	public void setEndFunc(Endereco endFunc) {
 		this.endFunc = endFunc;
-	}
-	
-	public int getRg() {
-		return rg;
-	}
-
-	public void setRg(int rg) {
-		this.rg = rg;
 	}
 
 }

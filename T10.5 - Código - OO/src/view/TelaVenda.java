@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-import controleConjuntos.ControleDado;
 import modeloPessoaELoja.Cliente;
 import modeloPessoaELoja.Funcionario;
 
@@ -27,8 +26,6 @@ public class TelaVenda implements ActionListener{
 	private double[] valorTotal = TelaMenu.dados.getDadoVenda().getValorVenda();
 	
 	private JScrollPane scroll;
-	
-	public ControleDado dadoVenda = new ControleDado();
 	
 	public TelaVenda() {
 	

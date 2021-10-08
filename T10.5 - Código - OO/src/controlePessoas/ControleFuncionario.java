@@ -1,7 +1,6 @@
 package controlePessoas;
 
 import controleConjuntos.ControleDado;
-import modeloDados.DadoPessoa;
 import modeloPessoaELoja.Endereco;
 import modeloPessoaELoja.Funcionario;
 import modeloPessoaELoja.Telefone;
@@ -11,19 +10,12 @@ public class ControleFuncionario {
 //Atributos
 	private Funcionario[] funcionarios;
 	private int qtdFuncionarios;
-	private int numCadastros;
 	
 	
 //Construtor
 	public ControleFuncionario(ControleDado dados) {
 		funcionarios = dados.getDadoPessoa().getFuncionarios();
 		qtdFuncionarios = dados.getDadoPessoa().getQtdFuncionarios();
-	}
-
-	
-//Editar Cliente
-	public void editarCliente(DadoPessoa dados) {
-		
 	}
 	
 	
@@ -34,14 +26,6 @@ public class ControleFuncionario {
 
 	public void setQtdFuncionarios(int qtdFuncionarios) {
 		this.qtdFuncionarios = qtdFuncionarios;
-	}
-	
-	public int getNumCadastros() {
-		return numCadastros;
-	}
-
-	public void setNumCadastros(int numCadastros) {
-		this.numCadastros = numCadastros;
 	}
 
 
@@ -63,6 +47,16 @@ public class ControleFuncionario {
 	}
 	
 	
+//Dados toString
+	public String getOneStringId(int i) {
+		return funcionarios[i].toStringId();
+	}
+	
+	public int getRg(int i) {
+		return funcionarios[i].getRg();
+	}
+	
+	
 //Get Dados
 	public String getNome(int i) {
 		return funcionarios[i].getNome();
@@ -76,8 +70,8 @@ public class ControleFuncionario {
 		return funcionarios[i].getCpf();
 	}
 	
-	public int getRg(int i) {
-		return funcionarios[i].getRg();
+	public String getOneStringRg(int i) {
+		return funcionarios[i].toStringRg();
 	}
 	
 	public Telefone getNumTel(int i) {
