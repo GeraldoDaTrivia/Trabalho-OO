@@ -22,11 +22,6 @@ public class Endereco {
 	}
 	
 //toString
-	@Override
-	public String toString() {
-		return cep+" - "+estado+" - "+cidade+" - "+bairro+" - "+rua+" - "+numCasa;
-	}
-	
 	public String toStringCep() {
 		Integer cep = this.cep;
 		return cep.toString();
