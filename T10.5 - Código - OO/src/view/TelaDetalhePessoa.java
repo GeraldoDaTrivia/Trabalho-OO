@@ -11,7 +11,22 @@ import javax.swing.event.ListSelectionListener;
 import controleConjuntos.ControleDado;
 import controlePessoas.ControleCliente;
 import controlePessoas.ControleFuncionario;
+import modeloAbstratas.Pessoa;
+import modeloPessoaELoja.Cliente;
+import modeloPessoaELoja.Funcionario;
 
+/**Classe para fornecer uma interface gráfica quando for realizar a edição de um objeto 
+ * do tipo {@link Cliente} ou {@link Funcionario}.
+ * 
+ * @see TelaAddPessoa
+ * @see TelaEditarPessoa
+ * @see TelaPessoa
+ * @see TelaMenu
+ * 
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Out 2021
+ */
 public class TelaDetalhePessoa implements ActionListener, ListSelectionListener {
 
 	private JFrame janela;
@@ -59,7 +74,15 @@ public class TelaDetalhePessoa implements ActionListener, ListSelectionListener 
 	
 	private TelaPessoa pessoa;
 	private int index;
-
+	
+	/**Método para criar interfaces gráficas para mostrar os detalhes de um um objeto
+	 * do tipo {@link Pessoa}.
+	 * 
+	 * @param opcao - Tipo de pessoa
+	 * @param dados - Dados dos objetos do programa
+	 * @param telaPessoa - Dados recebidos pela {@link TelaPessoa}
+	 * @param selectedIndex - Posição da pessoa escolhida na JList
+	 */
 	public void mostrarDados(int opcao, ControleDado dados, TelaPessoa telaPessoa, int selectedIndex) {
 		
 		pessoa = telaPessoa;
@@ -399,7 +422,10 @@ public class TelaDetalhePessoa implements ActionListener, ListSelectionListener 
 		
 	}
 
-//Refresh tela ou Excluir pessoa selecionada
+	/**Método para a captura de eventos, validação dos dados inseridos e 
+	 * realização da exclusão de uma pessoa nos dados do programa.
+	 * 
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
@@ -436,7 +462,9 @@ public class TelaDetalhePessoa implements ActionListener, ListSelectionListener 
 		
 	}
 
-//Editar Pessoa Selecionada
+	/**Método para invocar novas interfaces gráficas para a edição de objetos do tipo {@link Pessoa}.
+	 * 
+	 */
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
 		

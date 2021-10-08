@@ -10,6 +10,16 @@ import modeloConjuntos.Venda;
 import modeloPessoaELoja.Cliente;
 import modeloPessoaELoja.Funcionario;
 
+/**Classe para fornecer uma interface gráfica quando for realizar a adição de um novo objeto 
+ * do tipo {@link Venda}.
+ * 
+ * @see TelaVenda
+ * @see TelaMenu
+ * 
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Out 2021
+ */
 public class TelaAddVenda implements ActionListener {
 	
 	private JFrame janela;
@@ -94,6 +104,10 @@ public class TelaAddVenda implements ActionListener {
 	}
 
 	
+	/**Método para a captura de eventos, validação dos dados inseridos e 
+	 * realização da criação de uma nova venda nos dados do programa.
+	 * 
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		

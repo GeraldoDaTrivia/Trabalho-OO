@@ -3,6 +3,19 @@ package modeloConjuntos;
 import modeloDados.DadoProduto;
 import modeloProdutos.*;
 
+/**Classe composta únicamente das classes do tipo Produto.
+ * @see Acompanhamento
+ * @see Bebida
+ * @see Burger
+ * @see Combo
+ * @see Infantil
+ * @see Personalizavel
+ * @see Promocao
+ * @see Sobremesa
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Set 2021
+ */
 public class Cardapio {
 
 //Atributos

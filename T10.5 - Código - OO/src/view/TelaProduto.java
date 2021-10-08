@@ -19,7 +19,30 @@ import javax.swing.event.ListSelectionListener;
 
 import controleConjuntos.ControleDado;
 import controleProdutos.*;
+import modeloAbstratas.Produto;
+import modeloProdutos.Acompanhamento;
+import modeloProdutos.Bebida;
+import modeloProdutos.Burger;
+import modeloProdutos.Combo;
+import modeloProdutos.Infantil;
+import modeloProdutos.Personalizavel;
+import modeloProdutos.Promocao;
+import modeloProdutos.Sobremesa;
 
+/**Classe para fornecer uma interface gráfica quando for mostrar a lista de objetos 
+ * do tipo {@link Acompanhamento}, {@link Bebida}, {@link Burger}, {@link Combo}, {@link Infantil}, 
+ * {@link Personalizavel}, {@link Promocao} ou {@link Sobremesa}.
+ * 
+ * @see TelaAddProduto
+ * @see TelaCardapio
+ * @see TelaDetalheProduto
+ * @see TelaEditarValor
+ * @see TelaMenu
+ * 
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Out 2021
+ */
 public class TelaProduto implements ActionListener, ListSelectionListener{
 	
 	private JFrame janela;
@@ -60,7 +83,12 @@ public class TelaProduto implements ActionListener, ListSelectionListener{
 	
 	private String[] listaNomes = new String[50];
 	private JScrollPane scroll;
-
+	
+	/**Método para mostrar os nomes dos objetos do tipo {@link Produto} cadastrados.
+	 * 
+	 * @param dados - Dados dos objetos do programa
+	 * @param opcao - Tipo de pessoa
+	 */
 	public void mostrarDados(ControleDado dados, int opcao) {
 		this.dados = dados;
 		
@@ -544,7 +572,9 @@ public class TelaProduto implements ActionListener, ListSelectionListener{
 		
 	}
 
-	
+	/**Método para capturar eventos e realizar ações de acordo.
+	 * 
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
@@ -628,6 +658,9 @@ public class TelaProduto implements ActionListener, ListSelectionListener{
 			
 	}
 	
+	/**Método para capturar em qual posição da JList o objeto selecionado está.
+	 * 
+	 */
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
 		

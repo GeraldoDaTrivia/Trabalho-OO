@@ -7,7 +7,30 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 import controleConjuntos.ControleDado;
+import modeloAbstratas.Produto;
+import modeloProdutos.Acompanhamento;
+import modeloProdutos.Bebida;
+import modeloProdutos.Burger;
+import modeloProdutos.Combo;
+import modeloProdutos.Infantil;
+import modeloProdutos.Personalizavel;
+import modeloProdutos.Promocao;
+import modeloProdutos.Sobremesa;
 
+/**Classe para fornecer uma interface gráfica quando for realizar a edição do valor de um objeto 
+ * do tipo {@link Acompanhamento}, {@link Bebida}, {@link Burger}, {@link Combo}, {@link Infantil}, 
+ * {@link Personalizavel}, {@link Promocao} ou {@link Sobremesa}.
+ * 
+ * @see TelaAddProduto
+ * @see TelaCardapio
+ * @see TelaDetalheProduto
+ * @see TelaProduto
+ * @see TelaMenu
+ * 
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Out 2021
+ */
 public class TelaEditarValor implements ActionListener {
 
 	private JFrame janela;
@@ -25,6 +48,13 @@ public class TelaEditarValor implements ActionListener {
 	
 	private int index;
 	
+	/**Método para editar os dados selecionados do objeto do tipo {@link Produto}
+	 * 
+	 * @param opcao - Dado selecionado para edição
+	 * @param dados - Dados dos objetos do programa
+	 * @param telaDetalheProduto - Dados recebido pela {@link TelaDetalheProduto}
+	 * @param selectedIndex - Posição da pessoa escolhida na JList
+	 */
 	public void editarValor(int opcao, ControleDado dados, TelaDetalheProduto telaDetalheProduto, int selectedIndex) {
 		
 		index = selectedIndex;
@@ -365,7 +395,10 @@ public class TelaEditarValor implements ActionListener {
 		}
 	}
 
-	
+	/**Método para capturar eventos, validação dos dados inseridos 
+	 * e realizar a edição dos dados do programa.
+	 * 
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		

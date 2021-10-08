@@ -1,6 +1,7 @@
 package view;
 
 import controleConjuntos.ControleDado;
+import modeloConjuntos.SobreALoja;
 import modeloPessoaELoja.Endereco;
 import modeloPessoaELoja.HoraFuncionamento;
 import modeloPessoaELoja.Telefone;
@@ -11,6 +12,16 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+/**Classe para fornecer uma interface gráfica quando for realizar a edição do valor de um objeto 
+ * do tipo {@link SobreALoja}
+ * 
+ * @see TelaSobreALoja
+ * @see TelaMenu
+ * 
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Out 2021
+ */
 public class TelaEditarLoja implements ActionListener {
 
 	private JFrame janela;
@@ -50,7 +61,13 @@ public class TelaEditarLoja implements ActionListener {
 	private JButton concluirHorario;
 	private JButton concluirEndereco;
 	
-
+	
+	/**Método para editar os dados selecionados do objeto do tipo {@link SobreALoja}
+	 * 
+	 * @param opcao - Dado selecionado para edição
+	 * @param dados - Dados dos objetos do programa
+	 * @param telaSobreALoja - Dados recebidos pela {@link TelaSobreALoja}
+	 */
 	public void editarLoja(int opcao, ControleDado dados, TelaSobreALoja telaSobreALoja) {
 		
 		switch(opcao) {
@@ -283,7 +300,10 @@ public class TelaEditarLoja implements ActionListener {
 		
 	}
 
-
+	/**Método para capturar eventos, validação dos dados inseridos 
+	 * e realizar a edição dos dados do programa.
+	 * 
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		

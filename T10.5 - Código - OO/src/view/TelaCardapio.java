@@ -4,6 +4,18 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+/**Classe para fornecer uma interface gráfica quando for selecionar os tipos de produtos.
+ * 
+ * @see TelaAddProduto
+ * @see TelaDetalheProduto
+ * @see TelaEditarValor
+ * @see TelaProduto
+ * @see TelaMenu
+ * 
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Out 2021
+ */
 public class TelaCardapio implements ActionListener {
 
 	private JFrame janela = new JFrame("Cardapio");

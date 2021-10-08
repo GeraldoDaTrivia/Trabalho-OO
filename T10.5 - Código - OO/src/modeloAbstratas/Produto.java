@@ -1,5 +1,20 @@
 package modeloAbstratas;
 
+import modeloProdutos.*;
+
+/**Determina atributos e métodos comuns para as classes do tipo Produto.
+ * @see Acompanhamento
+ * @see Bebida
+ * @see Burger
+ * @see Combo
+ * @see Infantil
+ * @see Personalizavel
+ * @see Promocao
+ * @see Sobremesa
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Set 2021
+ */
 public abstract class Produto {
 
 //Atributos

@@ -3,6 +3,18 @@ package controleProdutos;
 import controleConjuntos.ControleDado;
 import modeloProdutos.Burger;
 
+/**Classe para armazenar objetos do tipo {@link Burger}, a quantidade desses objetos e chamar seus métodos.
+ * @see ControleAcompanhamento
+ * @see ControleBebida
+ * @see ControleCombo
+ * @see ControleInfantil
+ * @see ControlePersonalizavel
+ * @see ControlePromocao
+ * @see ControleSobremesa
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Set 2021
+ */
 public class ControleBurger {
 
 //Atributos
@@ -11,6 +23,10 @@ public class ControleBurger {
 	
 	
 //Construtor
+	/**
+	 * Construtor ControleBurger
+	 * @param dados - dados
+	 */
 	public ControleBurger(ControleDado dados) {
 		burgers = dados.getDadoProduto().getBurgers();
 		qtdBurger = dados.getDadoProduto().getQtdBurger();
@@ -27,7 +43,10 @@ public class ControleBurger {
 	}
 
 
-//Filtros e Buscas
+	/**Método para receber uma lista de produtos
+	 * 
+	 * @return String - Lista de Nomes
+	 */
 	public String[] getNomeBurger() {
 		String[] nomeBurger = new String[qtdBurger];
 		
@@ -38,7 +57,11 @@ public class ControleBurger {
 		return nomeBurger;
 	}
 	
-//toString
+	/**Método para transformar o valor do produto em String
+	 * 
+	 * @param i - Posição do produto no array
+	 * @return String - Valor do produto
+	 */
 	public String toStringValor(int i) {
 		Double valor = burgers[i].getValor();
 		return valor.toString();

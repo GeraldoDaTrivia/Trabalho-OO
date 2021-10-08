@@ -2,6 +2,15 @@ package modeloPessoaELoja;
 
 import modeloAbstratas.Pessoa;
 
+/**Classe para objetos do tipo Funcionario, onde serão armazenados os valores e métodos dos mesmos.
+ * @see Pessoa
+ * @see Cliente
+ * @see Telefone
+ * @see Endereco
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Set 2021
+ */
 public class Funcionario extends Pessoa {
 
 //Atributos
@@ -20,12 +29,19 @@ public class Funcionario extends Pessoa {
 	}
 	
 	
-//toStrings
+	/**Transforma o número de ID em uma String
+	 * 
+	 * @return String - Número de ID
+	 */
 	public String toStringId() {
 		Integer id = numId;
 		return id.toString();
 	}
 	
+	/**Transforma o RG em uma String
+	 * 
+	 * @return String - RG
+	 */
 	public String toStringRg() {
 		Integer numRg = this.rg;
 		return numRg.toString();

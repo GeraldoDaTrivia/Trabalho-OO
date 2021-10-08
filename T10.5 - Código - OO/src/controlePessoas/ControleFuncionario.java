@@ -5,6 +5,12 @@ import modeloPessoaELoja.Endereco;
 import modeloPessoaELoja.Funcionario;
 import modeloPessoaELoja.Telefone;
 
+/**Classe para armazenar objetos do tipo {@link Funcionario}, a quantidade desses objetos e chamar seus métodos.
+ * @see ControleCliente
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Set 2021
+ */
 public class ControleFuncionario {
 
 //Atributos
@@ -13,6 +19,10 @@ public class ControleFuncionario {
 	
 	
 //Construtor
+	/**
+	 * Construtor ControleFuncionario
+	 * @param dados - dados
+	 */
 	public ControleFuncionario(ControleDado dados) {
 		funcionarios = dados.getDadoPessoa().getFuncionarios();
 		qtdFuncionarios = dados.getDadoPessoa().getQtdFuncionarios();

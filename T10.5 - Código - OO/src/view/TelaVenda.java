@@ -6,9 +6,20 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import modeloConjuntos.Venda;
 import modeloPessoaELoja.Cliente;
 import modeloPessoaELoja.Funcionario;
 
+/**Classe para fornecer uma interface gráfica quando for mostrar os dados dos objetos 
+ * de tipo {@link Venda}.
+ * 
+ * @see TelaAddVenda
+ * @see TelaMenu
+ * 
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Out 2021
+ */
 public class TelaVenda implements ActionListener{
 
 	private JFrame janela;
@@ -82,7 +93,9 @@ public class TelaVenda implements ActionListener{
 		refresh.addActionListener(this);
 	}
 
-	
+	/**Método para capturar eventos e realizar as ações necessárias
+	 * 
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
@@ -95,7 +108,9 @@ public class TelaVenda implements ActionListener{
 		
 	}
 	
-//Adicionando os dados recebidos pela criacao de uma nova venda
+	/**Adicionar os dados recebidos pela criação de uma nova {@link Venda}.
+	 * 
+	 */
 	public static void addDados() {
 			
 		dados[(TelaMenu.dados.getDadoVenda().getQtdVendas()-1)][0] = 

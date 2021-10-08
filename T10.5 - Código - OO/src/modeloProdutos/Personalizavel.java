@@ -2,6 +2,18 @@ package modeloProdutos;
 
 import modeloAbstratas.Produto;
 
+/**Classe para objetos do tipo Personalizavel, onde serão armazenados os valores e métodos dos mesmos.
+ * @see Acompanhamento
+ * @see Bebida
+ * @see Burger
+ * @see Combo
+ * @see Infantil
+ * @see Promocao
+ * @see Sobremesa
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Set 2021
+ */
 public class Personalizavel extends Produto {
 
 //Atributos

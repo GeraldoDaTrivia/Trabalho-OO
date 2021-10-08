@@ -2,6 +2,14 @@ package controleConjuntos;
 
 import modeloDados.*;
 
+/**Classe para reunir os dados de tipo {@link DadoLoja}, {@link DadoPessoa}, {@link DadoProduto} e {@link DadoVenda}.
+ * @see ControleCardapio
+ * @see ControleSobreALoja
+ * @see ControleVenda
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Set 2021
+ */
 public class ControleDado {
 	
 //Atributos
@@ -12,6 +20,9 @@ public class ControleDado {
 	
 	
 //Construtor
+	/**
+	 * Construtor ControleDado
+	 */
 	public ControleDado() {
 		pessoa.fillWithSomeData();
 		produto.fillWithSomeData();

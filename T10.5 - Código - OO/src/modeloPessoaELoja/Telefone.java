@@ -1,5 +1,12 @@
 package modeloPessoaELoja;
 
+/**Classe para objetos do tipo Telefone, onde serão armazenados os valores e métodos dos mesmos.
+ * @see Endereco
+ * @see HoraFuncionamento
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Set 2021
+ */
 public class Telefone {
 
 //Atributos
@@ -13,18 +20,19 @@ public class Telefone {
 		numero = num;
 	}
 	
-	
-//toString
-	@Override
-	public String toString() {
-		return "("+ddd+")"+numero;
-	}
-	
+	/**Tranforma o valor do DDD em uma String
+	 * 
+	 * @return String - DDD
+	 */
 	public String toStringDdd() {
 		Integer ddd = this.ddd;
 		return ddd.toString();
 	}
 	
+	/**Transforma o número de telefone em uma String
+	 * 
+	 * @return String - Número de telefone
+	 */
 	public String toStringNum() {
 		Integer num = numero;
 		return num.toString();

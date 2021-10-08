@@ -12,9 +12,24 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controleConjuntos.ControleDado;
+import modeloAbstratas.Pessoa;
+import modeloPessoaELoja.Cliente;
 import modeloPessoaELoja.Endereco;
+import modeloPessoaELoja.Funcionario;
 import modeloPessoaELoja.Telefone;
 
+/**Classe para fornecer uma interface gráfica quando for realizar a edição de um objeto 
+ * do tipo {@link Cliente} ou {@link Funcionario}.
+ * 
+ * @see TelaAddPessoa
+ * @see TelaDetalhePessoa
+ * @see TelaPessoa
+ * @see TelaMenu
+ * 
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Out 2021
+ */
 public class TelaEditarPessoa implements ActionListener {
 
 	private JFrame janela;
@@ -57,6 +72,12 @@ public class TelaEditarPessoa implements ActionListener {
 	
 	private int index;
 	
+	/**Método para editar os dados selecionados do objeto do tipo {@link Pessoa}
+	 * 
+	 * @param opcao - Dado selecionado para edição
+	 * @param dados - Dados dos objetos do programa
+	 * @param selectedIndex - Posição da pessoa escolhida na JList
+	 */
 	public void editarDados(int opcao, ControleDado dados, int selectedIndex) {
 		
 		index = selectedIndex;
@@ -565,7 +586,10 @@ public class TelaEditarPessoa implements ActionListener {
 		}
 	}
 	
-	
+	/**Método para capturar eventos, validação dos dados inseridos 
+	 * e realizar a edição dos dados do programa.
+	 * 
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		

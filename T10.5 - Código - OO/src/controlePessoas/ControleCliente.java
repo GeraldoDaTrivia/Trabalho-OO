@@ -4,6 +4,12 @@ import controleConjuntos.ControleDado;
 import modeloPessoaELoja.Cliente;
 import modeloPessoaELoja.Telefone;
 
+/**Classe para armazenar objetos do tipo {@link Cliente}, a quantidade desses objetos e chamar seus métodos.
+ * @see ControleFuncionario
+ * @author João Matheus de O. Schmitz
+ * @version 2.0
+ * @since Set 2021
+ */
 public class ControleCliente {
 
 //Atributos
@@ -12,6 +18,10 @@ public class ControleCliente {
 
 	
 //Construtor
+	/**
+	 * Construtor ControleCliente
+	 * @param dados - dados
+	 */
 	public ControleCliente(ControleDado dados) {
 		clientes = dados.getDadoPessoa().getClientes();
 		qtdClientes = dados.getDadoPessoa().getQtdClientes();
