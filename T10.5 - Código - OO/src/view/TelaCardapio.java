@@ -125,10 +125,8 @@ public class TelaCardapio implements ActionListener {
 		//Comparar Acompanhamentos
 			for(int i = 0; i < TelaMenu.dados.getDadoProduto().getQtdAcomps(); i++) {
 				if(nomeBusca.equals(TelaMenu.dados.getDadoProduto().getOneAcompanhamento(i).getNome())) {
-					//new TelaDetalheProduto().inserirEditar(1, TelaMenu.dados, this, i);
+					new TelaDetalheProduto().mostrarDados(1, TelaMenu.dados, null, i);
 					nomesIguais++;
-					JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades\n"
-							+ "relacionadas aos detalhes dos produtos.", null, JOptionPane.INFORMATION_MESSAGE);
 					
 				}
 			}
@@ -136,10 +134,8 @@ public class TelaCardapio implements ActionListener {
 		//Comparar Bebidas
 			for(int i = 0; i < TelaMenu.dados.getDadoProduto().getQtdBebida(); i++) {
 				if(nomeBusca.equals(TelaMenu.dados.getDadoProduto().getOneBebida(i).getNome())) {
-					//new TelaDetalheProduto().inserirEditar(2, TelaMenu.dados, this, i);
+					new TelaDetalheProduto().mostrarDados(2, TelaMenu.dados, null, i);
 					nomesIguais++;
-					JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades\n"
-							+ "relacionadas aos detalhes dos produtos.", null, JOptionPane.INFORMATION_MESSAGE);
 					
 				}
 			}
@@ -147,10 +143,8 @@ public class TelaCardapio implements ActionListener {
 		//Comparar Burgers
 			for(int i = 0; i < TelaMenu.dados.getDadoProduto().getQtdBurger(); i++){
 				if(nomeBusca.equals(TelaMenu.dados.getDadoProduto().getOneBurger(i).getNome())) {
-					//new TelaDetalheProduto().inserirEditar(3, TelaMenu.dados, this, i);
+					new TelaDetalheProduto().mostrarDados(3, TelaMenu.dados, null, i);
 					nomesIguais++;
-					JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades\n"
-							+ "relacionadas aos detalhes dos produtos.", null, JOptionPane.INFORMATION_MESSAGE);
 					
 				}
 			}
@@ -158,10 +152,8 @@ public class TelaCardapio implements ActionListener {
 		//Comparar Combos
 			for(int i = 0; i < TelaMenu.dados.getDadoProduto().getQtdCombos(); i++){
 				if(nomeBusca.equals(TelaMenu.dados.getDadoProduto().getOneCombo(i).getNome())) {
-					//new TelaDetalheProduto().inserirEditar(4, TelaMenu.dados, this, i);
+					new TelaDetalheProduto().mostrarDados(4, TelaMenu.dados, null, i);
 					nomesIguais++;
-					JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades\n"
-							+ "relacionadas aos detalhes dos produtos.", null, JOptionPane.INFORMATION_MESSAGE);
 					
 				}
 			}
@@ -169,10 +161,8 @@ public class TelaCardapio implements ActionListener {
 		//Comparar Infantis
 			for(int i = 0; i < TelaMenu.dados.getDadoProduto().getQtdInfantis(); i++){
 				if(nomeBusca.equals(TelaMenu.dados.getDadoProduto().getOneInfantil(i).getNome())) {
-					//new TelaDetalheProduto().inserirEditar(5, TelaMenu.dados, this, i);
+					new TelaDetalheProduto().mostrarDados(5, TelaMenu.dados, null, i);
 					nomesIguais++;
-					JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades\n"
-							+ "relacionadas aos detalhes dos produtos.", null, JOptionPane.INFORMATION_MESSAGE);
 					
 				}
 			}
@@ -180,10 +170,8 @@ public class TelaCardapio implements ActionListener {
 		//Comparar Personalizaveis
 			for(int i = 0; i < TelaMenu.dados.getDadoProduto().getQtdPers(); i++){
 				if(nomeBusca.equals(TelaMenu.dados.getDadoProduto().getOnePers(i).getNome())) {
-					//new TelaDetalheProduto().inserirEditar(6, TelaMenu.dados, this, i);
+					new TelaDetalheProduto().mostrarDados(6, TelaMenu.dados, null, i);
 					nomesIguais++;
-					JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades\n"
-							+ "relacionadas aos detalhes dos produtos.", null, JOptionPane.INFORMATION_MESSAGE);
 					
 				}
 			}
@@ -191,10 +179,8 @@ public class TelaCardapio implements ActionListener {
 		//Comparar Promocoes
 			for(int i = 0; i < TelaMenu.dados.getDadoProduto().getQtdPromo(); i++){
 				if(nomeBusca.equals(TelaMenu.dados.getDadoProduto().getOnePromo(i).getNome())) {
-					//new TelaDetalheProduto().inserirEditar(7, TelaMenu.dados, this, i);
+					new TelaDetalheProduto().mostrarDados(7, TelaMenu.dados, null, i);
 					nomesIguais++;
-					JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades\n"
-							+ "relacionadas aos detalhes dos produtos.", null, JOptionPane.INFORMATION_MESSAGE);
 					
 				}
 			}
@@ -202,10 +188,8 @@ public class TelaCardapio implements ActionListener {
 		//Comparar Sobremesas
 			for(int i = 0; i < TelaMenu.dados.getDadoProduto().getQtdSobremesa(); i++){
 				if(nomeBusca.equals(TelaMenu.dados.getDadoProduto().getOneSobre(i).getNome())) {
-					//new TelaDetalheProduto().inserirEditar(8, TelaMenu.dados, this, i);
+					new TelaDetalheProduto().mostrarDados(8, TelaMenu.dados, null, i);
 					nomesIguais++;
-					JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades\n"
-							+ "relacionadas aos detalhes dos produtos.", null, JOptionPane.INFORMATION_MESSAGE);
 					
 				}
 			}
